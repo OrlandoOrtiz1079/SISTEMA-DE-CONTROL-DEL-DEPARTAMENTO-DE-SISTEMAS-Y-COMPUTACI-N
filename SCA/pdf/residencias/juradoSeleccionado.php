@@ -1,0 +1,319 @@
+<?php
+session_start();
+require_once "../../controladores/residentes.controlador.php";
+require_once "../../modelos/residentes.modelo.php";
+require_once "../../controladores/jerarquia.controlador.php";
+require_once "../../modelos/jerarquia.modelo.php";
+require('../FPDF/fpdf.php');
+
+class PDF extends FPDF
+{
+    public function Header()
+    {
+        $this->SetFont('Arial', 'B', '10');
+        $this->Image('../img/cabecera.png', 23, 14, 180, 34, 'PNG');
+        $this->Ln(40);//NOTE no borrar
+    }
+    public function Footer()
+    {
+        $this->Image('../img/pie.png', 23, 238, 174, 34, 'PNG');
+    }
+    function WriteText($text)
+    {
+        $intPosIni = 0;
+        $intPosFim = 0;
+        if (strpos($text, '<') !== false && strpos($text, '[') !== false) {
+            if (strpos($text, '<') < strpos($text, '[')) {
+                $this->Write(4, substr($text, 0, strpos($text, '<')));
+                $intPosIni = strpos($text, '<');
+                $intPosFim = strpos($text, '>');
+                $this->SetFont('', 'B');
+                $this->Write(4, substr($text, $intPosIni + 1, $intPosFim - $intPosIni - 1));
+                $this->SetFont('', '');
+                $this->WriteText(substr($text, $intPosFim + 1, strlen($text)));
+            } else {
+                $this->Write(4, substr($text, 0, strpos($text, '[')));
+                $intPosIni = strpos($text, '[');
+                $intPosFim = strpos($text, ']');
+                $w = $this->GetStringWidth('a') * ($intPosFim - $intPosIni - 1);
+                $this->Cell($w, $this->FontSize + 0.75, substr($text, $intPosIni + 1, $intPosFim - $intPosIni - 1), 1, 0, '');
+                $this->WriteText(substr($text, $intPosFim + 1, strlen($text)));
+            }
+        } else {
+            if (strpos($text, '<') !== false) {
+                $this->Write(4, substr($text, 0, strpos($text, '<')));
+                $intPosIni = strpos($text, '<');
+                $intPosFim = strpos($text, '>');
+                $this->SetFont('', 'B');
+                $this->WriteText(substr($text, $intPosIni + 1, $intPosFim - $intPosIni - 1));
+                $this->SetFont('', '');
+                $this->WriteText(substr($text, $intPosFim + 1, strlen($text)));
+            } elseif (strpos($text, '[') !== false) {
+                $this->Write(4, substr($text, 0, strpos($text, '[')));
+                $intPosIni = strpos($text, '[');
+                $intPosFim = strpos($text, ']');
+                $w = $this->GetStringWidth('a') * ($intPosFim - $intPosIni - 1);
+                $this->Cell($w, $this->FontSize + 0.75, substr($text, $intPosIni + 1, $intPosFim - $intPosIni - 1), 1, 0, '');
+                $this->WriteText(substr($text, $intPosFim + 1, strlen($text)));
+            } else {
+                $this->Write(4, $text);
+            }
+        }
+    }
+    var $widths;
+    var $aligns;
+
+    function SetWidths($w)
+    {
+        //Set the array of column widths
+        $this->widths = $w;
+    }
+
+    function SetAligns($a)
+    {
+        //Set the array of column alignments
+        $this->aligns = $a;
+    }
+
+    function Row($data)
+    {
+        //Calculate the height of the row
+        $nb = 0;
+        for ($i = 0; $i < count($data); $i++)
+            $nb = max($nb, $this->NbLines($this->widths[$i], $data[$i]));
+        $h = 3.8 * $nb;
+        //Issue a page break first if needed
+        $this->CheckPageBreak($h);
+        //Draw the cells of the row
+        for ($i = 0; $i < count($data); $i++) {
+            $w = $this->widths[$i];
+            $a = isset($this->aligns[$i]) ? $this->aligns[$i] : 'C';
+            //Save the current position
+            $x = $this->GetX();
+            $y = $this->GetY();
+            //Draw the border
+            $this->Rect($x, $y, $w, $h);
+            //Print the text
+            $this->MultiCell($w, 3.8, $data[$i], 0, $a);
+            //Put the position to the right of the cell
+            $this->SetXY($x + $w, $y);
+        }
+        //Go to the next line
+        $this->Ln($h);
+    }
+
+    function CheckPageBreak($h)
+    {
+        //If the height h would cause an overflow, add a new page immediately
+        if ($this->GetY() + $h > $this->PageBreakTrigger)
+            $this->AddPage($this->CurOrientation);
+    }
+
+    function NbLines($w, $txt)
+    {
+        //Computes the number of lines a MultiCell of width w will take
+        $cw = &$this->CurrentFont['cw'];
+        if ($w == 0)
+            $w = $this->w - $this->rMargin - $this->x;
+        $wmax = ($w - 2 * $this->cMargin) * 1000 / $this->FontSize;
+        $s = str_replace("\r", '', $txt);
+        $nb = strlen($s);
+        if ($nb > 0 and $s[$nb - 1] == "\n")
+            $nb--;
+        $sep = -1;
+        $i = 0;
+        $j = 0;
+        $l = 0;
+        $nl = 1;
+        while ($i < $nb) {
+            $c = $s[$i];
+            if ($c == "\n") {
+                $i++;
+                $sep = -1;
+                $j = $i;
+                $l = 0;
+                $nl++;
+                continue;
+            }
+            if ($c == ' ')
+                $sep = $i;
+            $l += $cw[$c];
+            if ($l > $wmax) {
+                if ($sep == -1) {
+                    if ($i == $j)
+                        $i++;
+                } else
+                    $i = $sep + 1;
+                $sep = -1;
+                $j = $i;
+                $l = 0;
+                $nl++;
+            } else
+                $i++;
+        }
+        return $nl;
+    }
+}
+if (isset($_SESSION['iniciarSesion']) && $_SESSION['iniciarSesion'] == "ok") {
+    $item = "id";
+    $valor = $_GET['id'];
+    $promedio = $_GET['pro'];
+    $respuesta = ControladorResidentes::ctrMostrarInfoResidentes($item, $valor);
+    $nombre = $respuesta["nombre"];
+    $asesorInterno = $respuesta["asesorInt"];
+    $revisor1 = $respuesta["revisor1"];
+    $revisor2 = $respuesta["revisor2"];
+    $suplente = $respuesta["suplente"];
+
+    $tablaJ = "jerarquia";
+    $itemJefeDivision = "JEFE DE LA DIVISION DE ESTUDIOS PROFESIONALES";
+    $respuestajefeDivision = ControladorJerarquia::ctrMostrarDocentesDictamen($tablaJ, $itemJefeDivision);
+    $jefeDivision = $respuestajefeDivision["nombre"];
+    $jefeSexo = $respuestajefeDivision["sexo"];
+
+    $itemJefeDepartamento = "JEFE DEL DEPTO. ACADEMICO";
+    $respuestajefeDepartamento = ControladorJerarquia::ctrMostrarDocentesDictamen($tablaJ, $itemJefeDepartamento);
+    $jefeDepartamento = $respuestajefeDepartamento["nombre"];
+    $jefeDepartamentoSexo = $respuestajefeDepartamento["sexo"];
+
+    // $leyenda = '"2020, Año de Leona Vicario, Benemérita Madre de la Patria"';
+
+    $numero = $_GET['numero'];
+    $fechaActual = $_GET['fecha'];
+    $fechaTitulacion = $_GET['fechaTitulacion'];
+    $hora = $_GET['hora'];
+
+    $pdf = new PDF('P', 'mm', 'Letter');
+    $pdf->AddPage();
+    $pdf->SetLeftMargin(29);
+    $pdf->SetRightMargin(29);
+    // $pdf->Image('../img/fondo_membrete_R.jpg', '0', '46', '215');
+    $pdf->SetFont('Helvetica', '', '7.3');
+    // $pdf->Cell(0, -3, utf8_decode($leyenda), 0, 1, 'C');
+    $pdf->Ln(12);
+
+    $pdf->SetFont('Helvetica', '', '8.5');
+    $pdf->SetX(71);
+    $pdf->Cell(0, 4, utf8_decode('Iguala, Guerrero, '), 0, 0, 'C');
+    $pdf->SetX(142);
+    $pdf->SetTextColor(255, 255, 255);
+    $anchoFecha = $pdf->GetStringWidth($fechaActual);
+    $pdf->Cell($anchoFecha + 2, 4, utf8_decode($fechaActual), 0, 0, 'C', true);
+    $pdf->SetTextColor(0, 0, 0);
+    $pdf->Ln(8);
+
+    $pdf->SetFont('Helvetica', 'B', '8');
+    $pdf->Cell(0, 0, utf8_decode('DEPARTAMENTO DE SISTEMAS Y COMPUTACIÓN'), 0, 0, 'R');
+    $pdf->Ln(4);
+    $pdf->SetFont('Helvetica', 'B', '9');
+    $pdf->Cell(87.4);
+    $pdf->Cell(0, 0, utf8_decode('OF. No. DSC-ITI/' . $numero . '/*' . date("Y") . ''), 0, 0, 'L');
+    $pdf->Ln(4);
+    $pdf->SetFont('Helvetica', 'B', '8');
+    $pdf->Cell(191, 0, utf8_decode('ASUNTO: '), 0, 0, 'C');
+    $pdf->SetX(113);
+
+    $pdf->SetFont('Helvetica', 'BU', '8');
+    $pdf->Cell(0, 0, utf8_decode('JURADO SELECCIONADO.'), 0, 0, 'C');
+    $pdf->Ln(12);
+
+    $pdf->SetFont('Helvetica', 'B', '8');
+    $pdf->Cell(0, 0, utf8_decode($jefeDivision), 0, 0, 'L');
+    $pdf->Ln(4);
+    if ($jefeSexo == 'M') {
+        $pdf->Cell(0, 0, utf8_decode('JEFE DE DIVISIÓN DE ESTUDIOS PROFESIONALES'), 0, 0, 'L');
+    } else {
+        $pdf->Cell(0, 0, utf8_decode('JEFA DE DIVISIÓN DE ESTUDIOS PROFESIONALES'), 0, 0, 'L');
+    }
+    $pdf->Ln(4);
+
+    $pdf->Cell(0, 0, utf8_decode('P R E S E N T E .'), 0, 0, 'L');
+    $pdf->Ln(8);
+
+    if ($jefeSexo == 'M') {
+        $pdf->Cell(0, 0, utf8_decode('AT´N: COORDINADOR DE TITULACIÓN.'), 0, 0, 'L');
+    } else {
+        $pdf->Cell(0, 0, utf8_decode('AT´N: COORDINADORA DE TITULACIÓN.'), 0, 0, 'L');
+    }
+    $pdf->Ln(12);
+
+    $pdf->SetFont('Helvetica', '', '8');
+    $text1 = 'Por medio del presente, me permito enviar a usted el <JURADO> que fungirá en el Acto de Titulación, del <C. ' . mb_strtoupper($nombre) . ',> que presenta su protocolo para su <TITULACIÓN INTEGRAL "INFORME TÉCNICO DE RESIDENCIA PROFESIONAL",> el día <' . mb_strtoupper($fechaTitulacion) . '> del año en curso, a las <' . $hora . ' hrs.>, a traves de la plataforma <ZOOM.>';
+    $text2 = 'Por medio del presente, me permito enviar a usted el <JURADO> que fungirá en el Acto de Titulación, del <C. ' . mb_strtoupper($nombre) . ',> que presenta su protocolo para su <TITULACIÓN INTEGRAL "INFORME TÉCNICO DE RESIDENCIA PROFESIONAL",> defendiendo su proyecto (promedio ' . $promedio . '), el día <' . mb_strtoupper($fechaTitulacion) . '> del año en curso, a las <' . $hora . ' hrs.>, a traves de la plataforma <ZOOM.>';
+    if ($_GET['defiende'] == 'no') {
+        $pdf->WriteText(utf8_decode($text1));
+        $pdf->Ln(8);
+
+        $pdf->SetFont('Helvetica', 'B', '8');
+        $pdf->SetY(137);
+        $pdf->MultiCell(40, 4, utf8_decode('PRESIDENTE
+
+'), 1, 'C');
+        $pdf->SetXY(69, 137);
+        $pdf->MultiCell(40, 4, utf8_decode('SECRETARIO
+
+'), 1, 'C');
+        $pdf->SetXY(109, 137);
+        $pdf->MultiCell(40, 4, utf8_decode('VOCAL
+
+'), 1, 'C');
+        $pdf->SetXY(149, 137);
+        $pdf->MultiCell(40, 4, utf8_decode('VOCAL SUPLENTE
+
+'), 1, 'C');
+    } else {
+        $pdf->WriteText(utf8_decode($text2));
+        $pdf->Ln(8);
+
+        $pdf->SetFont('Helvetica', 'B', '8');
+        $pdf->SetY(141);
+        $pdf->MultiCell(40, 4, utf8_decode('PRESIDENTE
+
+'), 1, 'C');
+        $pdf->SetXY(69, 141);
+        $pdf->MultiCell(40, 4, utf8_decode('SECRETARIO
+
+'), 1, 'C');
+        $pdf->SetXY(109, 141);
+        $pdf->MultiCell(40, 4, utf8_decode('VOCAL
+
+'), 1, 'C');
+        $pdf->SetXY(149, 141);
+        $pdf->MultiCell(40, 4, utf8_decode('VOCAL SUPLENTE
+
+'), 1, 'C');
+    }
+    $pdf->SetFont('Helvetica', '', '7');
+    $pdf->SetWidths(array(40, 40, 40, 40));
+    $pdf->Row(array(utf8_decode(mb_strtoupper($asesorInterno)), utf8_decode(mb_strtoupper($revisor1)), utf8_decode(mb_strtoupper($revisor2)), utf8_decode(mb_strtoupper($suplente))));
+    $pdf->Ln(8);
+
+    $pdf->SetFont('Helvetica', '', '8');
+    $pdf->Cell(80, 0, utf8_decode('Sin otro particular, reciba un cordial saludo.'), 0, 0, 'C');
+    $pdf->Ln(14.5);
+
+    $pdf->SetFont('Helvetica', 'B', '8');
+    $pdf->Cell(0, 4, utf8_decode('A T E N T A M E N T E'), 0, 0, 'C');
+    $pdf->Ln(3.3);
+    $pdf->Cell(0, 4, utf8_decode('"TECNOLOGÍA COMO SINÓNIMO DE INDEPENDENCIA"'), 0, 0, 'C');
+    $pdf->Ln(18.4);
+
+    $pdf->Cell(0, 4, utf8_decode($jefeDepartamento), 0, 0, 'C');
+    $pdf->Ln(3.7);
+    if ($jefeDepartamentoSexo == 'M') {
+        $pdf->Cell(0, 4, utf8_decode('JEFE DEL DEPTO. DE SISTEMAS Y COMPUTACIÓN'), 0, 0, 'C');
+    } else {
+        $pdf->Cell(0, 4, utf8_decode('JEFA DEL DEPTO. DE SISTEMAS Y COMPUTACIÓN'), 0, 0, 'C');
+    }
+    $pdf->Ln(18.4);
+
+    $pdf->SetFont('Helvetica', '', '5.5');
+    $pdf->Cell(0, 4, utf8_decode('C.c.p. archivo'), 0, 0, 'L');
+    $pdf->Ln(3);
+    $pdf->Cell(3);
+    $pdf->Cell(0, 4, utf8_decode('*JEOL*Ere'), 0, 0, 'L');
+
+    $pdf->Output('I', 'Jurado Seleccionado ' . $nombre . '.pdf', 'D');
+} else {
+    echo "<script>window.location = '../../Inicio';</script>";
+}

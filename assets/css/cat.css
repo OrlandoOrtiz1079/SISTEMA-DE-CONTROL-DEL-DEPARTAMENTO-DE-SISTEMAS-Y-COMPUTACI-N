@@ -1,0 +1,222 @@
+.img-fluid {
+  max-height : 170px;
+  max-width  : 100%;
+}
+
+.img-fluid2 {
+	max-height : 120px;
+	max-width  : 100%;
+ }
+
+.footer {
+	background    : #f6f3f3;
+	border-bottom : 5px solid #fff;
+	padding       : 0px 0px;
+}
+
+.fondo{
+	/*background          : url(../images/logos/header.jpg) 0 0 no-repeat; */
+	background-size     : cover;
+	background-position : center;
+}
+
+.logoizquierdo{
+	text-align     : center;
+	padding-top    : 10px;
+	padding-bottom : 10px;
+	padding-right  : 0px;
+	padding-left   : 0px;
+}
+
+.logocentral{
+	text-align     : center;
+	padding-top    : 10px;
+	padding-bottom : 10px;
+}
+
+.logoderecho{
+	font-variant: small-caps;
+	text-align   : right;
+	display      : inline;
+	position     : absolute;
+	top          : 10%;
+   font-size    : 1.2vw;
+	font-weight  : bold;
+	font-family  : "Open Sans";
+	color        : #555;
+}
+
+.letra{
+	font-size   : 1.2em;
+	font-weight : bold;
+	font-family : "Open Sans";
+	color       : #555;
+}
+
+.sinmargenes{
+	margin-right : 0px;
+	margin-left  : 0px;
+}
+
+.footersistemas{
+	min-height        : 55vh;
+	background-size   : 50% 50%;
+	background-repeat : repeat;
+}
+
+.wraper{
+    width    : 90%;
+    margin   : 0 auto;
+    position : relative;
+}
+
+/*Otros*/
+.scrollup
+{
+	background  :  url(../images/up.png) no-repeat;
+	bottom      : 115px;
+}
+.scrolldown
+{
+	background  :  url(../images/dn.png) no-repeat;
+	bottom      : 55px;
+}
+
+.scroll {
+	height       : 60px;
+	width        : 60px;
+	opacity     : 0.6;
+	position    : fixed;
+	right       : 100px;
+	display     : none;
+	text-indent : -9999px;
+}
+
+.social_block ul li.facebook a:before {
+	background-position : 0 -31px;
+}
+.social_block ul li.twitter a:before {
+	background-position : -36px -31px;
+}
+.social_block ul li.linkedin a:before {
+	background-position : -73px -31px;
+}
+.social_block ul li.youtube a:before {
+	background-position : -110px -31px;
+}
+.social_block ul li.dribbble a:before {
+	background-position : -147px -31px;
+}
+.social_block ul li.google a:before {
+	background-position : -184px -31px;
+}
+.social_block ul li.instagram a:before {
+	background-position : -215px -31px;
+}
+
+.checkpassword {
+	padding          : 6px 6px;
+	background-color : #eee;
+	border           : 1px solid #ccc;
+	border-radius    : 5px;
+	border-left      : 0;
+	width            : 10%;
+	height           : 34px;
+	white-space      : nowrap;
+}
+
+img.zoom {
+	-webkit-transition : all .2s ease-in-out;
+	-moz-transition    : all .2s ease-in-out;
+	-o-transition      : all .2s ease-in-out;
+	-ms-transition     : all .2s ease-in-out;
+}
+
+.transition {
+    -webkit-transform : scale(3);
+    -moz-transform    : scale(3);
+    -o-transform      : scale(3);
+    transform         : translateX(200%) scale(6);
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1024px){
+    .logoderecho{
+		font-size : 0.9em;
+	}
+
+	.col-md-3 {
+	    width : 33.333%;
+	}
+
+	.col-md-4 {
+	    width : 33.333%;
+	}
+
+	.col-md-5 {
+	    width : 33.333%;
+	}
+}
+
+@media only screen and (min-width: 871px) and (max-width: 991px) {
+    .logoderecho{
+		font-size : 1.3em;
+	}
+}
+
+@media only screen and (min-width: 768px) and (max-width: 870px) {
+    .logoderecho{
+		font-size : 1.1em;
+	}
+}
+
+@media only screen and (min-width: 300px) and (max-width: 767px) {
+	.letra{
+		font-size : 0.8em;
+	}
+}
+
+.footer-letra{
+	text-transform: uppercase;
+	font-size   : 1em;
+	font-weight : bold;
+	font-family  : "Open Sans";
+	color       : #D4C19C;
+}
+
+.footer-medio{
+	height      : 100%;
+	display     : grid;
+	align-items : center;
+}
+
+.tecnm-navbar{
+	text-transform: uppercase;
+	font-weight : bold;
+	font-family  : "Open Sans";
+}
+
+.social_block{
+	text-transform: uppercase;
+	font-size   : 1em;
+	font-weight : bold;
+	font-family  : "Open Sans";
+}
+
+.social_block ul li {
+	font-variant: small-caps;
+	font-weight : bold;
+	font-family  : "Open Sans";
+}
+
+
+.navbar .nav>li>a {
+	text-transform: uppercase;
+	font-weight : bold;
+	font-family  : "Open Sans";
+}
+
+.dropdown-menu > li > a {
+	text-transform: uppercase;
+	font-weight : bold;
+	font-family  : "Open Sans";
+}
