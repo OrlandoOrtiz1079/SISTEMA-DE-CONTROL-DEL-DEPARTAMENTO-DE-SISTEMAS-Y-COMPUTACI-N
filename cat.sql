@@ -27,10 +27,12 @@ CREATE TABLE IF NOT EXISTS `alumnos` (
   `enhora` varchar(50) NOT NULL,
   `sahora` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=74 DEFAULT CHARSET=latin1;
 
 -- Volcando datos para la tabla cat.alumnos: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `alumnos` DISABLE KEYS */;
+INSERT INTO `alumnos` (`id`, `nombre`, `nocontrol`, `carrera`, `entrada`, `enhora`, `sahora`) VALUES
+	(73, 'JORGE ORLANDO ORTIZ CASTAÑEDA', '17670034', 'ING SISTEMSAS COMPUTACIONALES', '01-12-2021', '06:07:53 pm', '10:59:03 pm');
 /*!40000 ALTER TABLE `alumnos` ENABLE KEYS */;
 
 -- Volcando estructura para tabla cat.asesor
@@ -41,9 +43,9 @@ CREATE TABLE IF NOT EXISTS `asesor` (
   `estado` int(2) unsigned NOT NULL DEFAULT '1',
   `setResidentes` int(2) unsigned DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla cat.asesor: ~13 rows (aproximadamente)
+-- Volcando datos para la tabla cat.asesor: ~31 rows (aproximadamente)
 /*!40000 ALTER TABLE `asesor` DISABLE KEYS */;
 INSERT INTO `asesor` (`id`, `nombre`, `noResidentes`, `estado`, `setResidentes`) VALUES
 	(0, 'NA', 0, 0, 0),
@@ -108,10 +110,14 @@ CREATE TABLE IF NOT EXISTS `datos_alumnos` (
   `Fecha` date NOT NULL,
   `Valor_Numerico` varchar(50) COLLATE utf8_spanish_ci NOT NULL DEFAULT '0',
   PRIMARY KEY (`id_Alumno`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=379 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=382 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
--- Volcando datos para la tabla cat.datos_alumnos: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla cat.datos_alumnos: ~2 rows (aproximadamente)
 /*!40000 ALTER TABLE `datos_alumnos` DISABLE KEYS */;
+INSERT INTO `datos_alumnos` (`id_Alumno`, `Nombre`, `Apellido_P`, `Apellido_M`, `Numero_C`, `Carrera`, `Numero_Creditos`, `Nombre_Evento`, `Periodo`, `Generada_Por`, `Fecha`, `Valor_Numerico`) VALUES
+	(379, 'JORGE ORLANDO', 'ORTIZ', 'CASTAÑEDA', 17670034, 'INGENIERÍA EN SISTEMAS COMPUTACIONALES', '0.5', 'PRACTICA DE CONSTANCIAS', 'AGOSTO - DICIEMBRE 2021', 'JORGE EDUARDO ORTEGA LOPEZ', '2021-12-02', '4'),
+	(380, 'JORGE ORLANDO', 'ORTIZ', 'CASTAÑEDA', 17670034, 'INGENIERÍA EN SISTEMAS COMPUTACIONALES', '0.5', 'PRACTICA DE CONSTANCIAS', 'AGOSTO - DICIEMBRE 2021', 'JORGE EDUARDO ORTEGA LOPEZ', '2021-12-01', '4'),
+	(381, 'JORGE ORLANDO', 'ORTIZ', 'CASTAÑEDA', 17670034, 'INGENIERÍA EN SISTEMAS COMPUTACIONALES', '0.5', 'PRACTICA DE CONSTANCIAS', 'AGOSTO - DICIEMBRE 2021', 'JORGE EDUARDO ORTEGA LOPEZ', '2021-12-09', '4');
 /*!40000 ALTER TABLE `datos_alumnos` ENABLE KEYS */;
 
 -- Volcando estructura para tabla cat.directorio
@@ -187,11 +193,87 @@ CREATE TABLE IF NOT EXISTS `encuesta` (
   `realizada` varchar(2) DEFAULT NULL,
   `fecha` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Volcando datos para la tabla cat.encuesta: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `encuesta` DISABLE KEYS */;
 /*!40000 ALTER TABLE `encuesta` ENABLE KEYS */;
+
+-- Volcando estructura para tabla cat.encuestaegresados
+CREATE TABLE IF NOT EXISTS `encuestaegresados` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(100) DEFAULT NULL,
+  `anoing` varchar(100) DEFAULT NULL,
+  `ncontrol` varchar(100) DEFAULT NULL,
+  `carrera` varchar(100) DEFAULT NULL,
+  `planestu` varchar(100) DEFAULT NULL,
+  `anoegre` varchar(100) DEFAULT NULL,
+  `semestre` varchar(100) DEFAULT NULL,
+  `especialidad` varchar(100) DEFAULT NULL,
+  `pciudad` varchar(100) DEFAULT NULL,
+  `pmunicipio` varchar(100) DEFAULT NULL,
+  `pestado` varchar(100) DEFAULT NULL,
+  `ociudad` varchar(100) DEFAULT NULL,
+  `omunicipio` varchar(100) DEFAULT NULL,
+  `oestado` varchar(100) DEFAULT NULL,
+  `cel` varchar(100) DEFAULT NULL,
+  `emaili` varchar(100) DEFAULT NULL,
+  `emailp` varchar(100) DEFAULT NULL,
+  `face` varchar(100) DEFAULT NULL,
+  `prt2p1` varchar(100) DEFAULT NULL,
+  `prt2p2` varchar(100) DEFAULT NULL,
+  `prt2p3` varchar(100) DEFAULT NULL,
+  `prt2p4` varchar(100) DEFAULT NULL,
+  `prt2p5` varchar(100) DEFAULT NULL,
+  `prt2p6` varchar(100) DEFAULT NULL,
+  `prt3p1` varchar(100) DEFAULT NULL,
+  `prt3p2` varchar(100) DEFAULT NULL,
+  `prt3p3` varchar(100) DEFAULT NULL,
+  `prt3p4` varchar(100) DEFAULT NULL,
+  `prt3p5` varchar(100) DEFAULT NULL,
+  `prt3p6` varchar(100) DEFAULT NULL,
+  `prt3p7` varchar(100) DEFAULT NULL,
+  `prt3p8` varchar(100) DEFAULT NULL,
+  `prt3p9` varchar(100) DEFAULT NULL,
+  `prt3p10` varchar(100) DEFAULT NULL,
+  `prt3p11` varchar(100) DEFAULT NULL,
+  `prt3p12` varchar(100) DEFAULT NULL,
+  `prt3p13` varchar(100) DEFAULT NULL,
+  `prt3p14` varchar(100) DEFAULT NULL,
+  `prt3p15` varchar(100) DEFAULT NULL,
+  `prt3p16` varchar(100) DEFAULT NULL,
+  `prt3p17` varchar(100) DEFAULT NULL,
+  `prt3p18` varchar(100) DEFAULT NULL,
+  `prt3p19` varchar(100) DEFAULT NULL,
+  `prt3p20` varchar(100) DEFAULT NULL,
+  `prt3p21` varchar(100) DEFAULT NULL,
+  `prt3p22` varchar(100) DEFAULT NULL,
+  `prt3p23` varchar(100) DEFAULT NULL,
+  `prt4p1` varchar(100) DEFAULT NULL,
+  `prt4p2` varchar(100) DEFAULT NULL,
+  `prt4p3` varchar(100) DEFAULT NULL,
+  `prt4p4` varchar(100) DEFAULT NULL,
+  `prt4p5` varchar(100) DEFAULT NULL,
+  `prt4p6` varchar(100) DEFAULT NULL,
+  `prt4p7` varchar(100) DEFAULT NULL,
+  `prt4p8` varchar(100) DEFAULT NULL,
+  `prt4p9` varchar(100) DEFAULT NULL,
+  `prt4p10` varchar(100) DEFAULT NULL,
+  `prt5p1` varchar(100) DEFAULT NULL,
+  `prt5p2` varchar(100) DEFAULT NULL,
+  `prt5p3` varchar(100) DEFAULT NULL,
+  `prt6p1` varchar(100) DEFAULT NULL,
+  `prt6p2` varchar(100) DEFAULT NULL,
+  `prt6p3` varchar(100) DEFAULT NULL,
+  `fecha` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+
+-- Volcando datos para la tabla cat.encuestaegresados: ~0 rows (aproximadamente)
+/*!40000 ALTER TABLE `encuestaegresados` DISABLE KEYS */;
+INSERT INTO `encuestaegresados` (`id`, `nombre`, `anoing`, `ncontrol`, `carrera`, `planestu`, `anoegre`, `semestre`, `especialidad`, `pciudad`, `pmunicipio`, `pestado`, `ociudad`, `omunicipio`, `oestado`, `cel`, `emaili`, `emailp`, `face`, `prt2p1`, `prt2p2`, `prt2p3`, `prt2p4`, `prt2p5`, `prt2p6`, `prt3p1`, `prt3p2`, `prt3p3`, `prt3p4`, `prt3p5`, `prt3p6`, `prt3p7`, `prt3p8`, `prt3p9`, `prt3p10`, `prt3p11`, `prt3p12`, `prt3p13`, `prt3p14`, `prt3p15`, `prt3p16`, `prt3p17`, `prt3p18`, `prt3p19`, `prt3p20`, `prt3p21`, `prt3p22`, `prt3p23`, `prt4p1`, `prt4p2`, `prt4p3`, `prt4p4`, `prt4p5`, `prt4p6`, `prt4p7`, `prt4p8`, `prt4p9`, `prt4p10`, `prt5p1`, `prt5p2`, `prt5p3`, `prt6p1`, `prt6p2`, `prt6p3`, `fecha`) VALUES
+	(7, 'JORGE ORLANDO ORTIZ CASTAÑEDA', '2021-02', '17670034', 'Ing. en Sistemas Computacionales', 'ISIC - 2010-224', '2021-12', 'Enero-Junio', 'sistemas distribuidos ', 'Toluca', 'Metepec', 'Estado de Mexico', 'Iguala', 'Iguala de la Independencia', 'Guerrero', '7621115584', '17670034@iguala.tecnm.mx', 'E-mailPersonal@gmail.com', 'orlando ortiz', 'SI', 'Parcialmente', 'SI', 'Parcialmente', 'SI', 'si', 'Muy Bueno', 'Muy Bueno', 'Bueno', 'Bueno', 'Muy Bueno', 'Excelente', 'Excelente', 'Excelente', 'Excelente', 'Muy Bueno', 'Muy Bueno', 'Muy Bueno', 'Muy Bueno', 'Muy Bueno', 'Excelente', 'Excelente', 'actualizacion de conocimientos', '10', 'ninguna', 'SI', 'buena institucion', '10', 'ninguna', 'conseguir empleo', 'capacitarme', 'NO', '', 'NO', '', 'lider', 'tienda departamental', 'NO', '', 'java', 'cenidet', 'oracle', 'SI', 'los dactos se actualizan constantemente', 'programacion', '03-12-2021');
+/*!40000 ALTER TABLE `encuestaegresados` ENABLE KEYS */;
 
 -- Volcando estructura para tabla cat.jerarquia
 CREATE TABLE IF NOT EXISTS `jerarquia` (
@@ -201,7 +283,7 @@ CREATE TABLE IF NOT EXISTS `jerarquia` (
   `estado` int(1) unsigned DEFAULT '1',
   `sexo` varchar(2) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- Volcando datos para la tabla cat.jerarquia: ~6 rows (aproximadamente)
 /*!40000 ALTER TABLE `jerarquia` DISABLE KEYS */;
@@ -228,7 +310,7 @@ CREATE TABLE IF NOT EXISTS `preregistros` (
   UNIQUE KEY `noControl` (`noControl`),
   KEY `asesor` (`asesorPre`),
   CONSTRAINT `FK_preregistros_asesor` FOREIGN KEY (`asesorPre`) REFERENCES `asesor` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=225 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- Volcando datos para la tabla cat.preregistros: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `preregistros` DISABLE KEYS */;
@@ -259,7 +341,7 @@ CREATE TABLE IF NOT EXISTS `proyecto` (
   CONSTRAINT `fk_proyecto_asesor5` FOREIGN KEY (`revisor3`) REFERENCES `asesor` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=209 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Volcando datos para la tabla cat.proyecto: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla cat.proyecto: ~203 rows (aproximadamente)
 /*!40000 ALTER TABLE `proyecto` DISABLE KEYS */;
 INSERT INTO `proyecto` (`id`, `nombreProyecto`, `nombreEmpresa`, `asesorExt`, `asesorInt`, `revisor1`, `revisor2`, `revisor3`, `suplente`) VALUES
 	(0, 'NA', 'NA', 'NA', 0, 0, 0, 0, 0),
@@ -475,7 +557,7 @@ CREATE TABLE IF NOT EXISTS `registro` (
   `fecha` varchar(50) DEFAULT NULL,
   `hora` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=118 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Volcando datos para la tabla cat.registro: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `registro` DISABLE KEYS */;
@@ -501,7 +583,7 @@ CREATE TABLE IF NOT EXISTS `residentes` (
   CONSTRAINT `fk_residentes_proyecto` FOREIGN KEY (`proyecto_id`) REFERENCES `proyecto` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=203 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Volcando datos para la tabla cat.residentes: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla cat.residentes: ~201 rows (aproximadamente)
 /*!40000 ALTER TABLE `residentes` DISABLE KEYS */;
 INSERT INTO `residentes` (`id`, `noControl`, `nombre`, `apellidoP`, `apellidoM`, `carrera`, `periodo`, `anio`, `sexo`, `telefono`, `revisionOk`, `tipo_registro`, `proyecto_id`) VALUES
 	(1, '14670015', 'ARTURO', 'PINEDA', 'VAZQUEZ', 'Ingeniería en Sistemas Computacionales', 'EJ', '2019', 'M', '7331311187', 3, 1, 2),
@@ -660,7 +742,7 @@ INSERT INTO `residentes` (`id`, `noControl`, `nombre`, `apellidoP`, `apellidoM`,
 	(155, '15670029', 'JESUS DAVID', 'PILO', 'GUERRERO', 'Ingeniería en Sistemas Computacionales', 'EJ', '2021', 'M', '7331069526', 0, 1, 161),
 	(156, '16670044', 'MARILAURA', 'RIVERA', 'BRITO', 'Ingeniería en Sistemas Computacionales', 'EJ', '2021', 'F', '0', 3, 1, 162),
 	(157, '16670302', 'AMBAR CELESTE', 'PORTILLO', 'RESENDIZ', 'Ingeniería en Sistemas Computacionales', 'EJ', '2021', 'F', '0', 3, 1, 163),
-	(158, '17670034', 'JORGE ORLANDO ', 'ORTIZ', 'CASTAÑEDA ', 'Ingeniería en Sistemas Computacionales', 'AD', '2021', 'M', '0', 0, 1, 164),
+	(158, '17670034', 'JORGE ORLANDO', 'ORTIZ', 'CASTAÑEDA', 'Ingeniería en Sistemas Computacionales', 'AD', '2021', 'M', '7621115584', 0, 1, 164),
 	(159, '17670376', 'RONALDO', 'ROMAN', 'RAMIREZ', 'Ingeniería en Sistemas Computacionales', 'AD', '2021', 'M', '0', 0, 1, 165),
 	(160, '17670023', 'LUCIO EDUARDO', 'GONZALEZ', 'GILEZ', 'Ingeniería en Sistemas Computacionales', 'AD', '2021', 'M', '0', 0, 1, 166),
 	(161, '17670078', 'DIANA ARALI', 'EVANGELISTA ', 'CARMONA', 'Ingeniería en Sistemas Computacionales', 'AD', '2021', 'F', '0', 0, 1, 167),
@@ -677,7 +759,7 @@ INSERT INTO `residentes` (`id`, `noControl`, `nombre`, `apellidoP`, `apellidoM`,
 	(172, '17670131', 'HÉCTOR JAVIER', 'VÁZQUEZ', 'RODRÍGUEZ', 'Ingeniería en Sistemas Computacionales', 'AD', '2021', 'M', '0', 0, 1, 178),
 	(173, '17670258', 'MARIA DEL ROSARIO ', 'RAMOS', 'FERNANDEZ', 'Ingeniería Informática', 'AD', '2021', 'F', '0', 1, 1, 179),
 	(174, '17670245', 'GUADALUPE DAMARY ', 'DÍAZ', 'SANTOS', 'Ingeniería Informática', 'AD', '2021', 'F', '0', 1, 1, 180),
-	(175, '17670034', 'JORGE ORLANDO', 'ORTIZ', 'CASTAÑEDA', 'Ingeniería en Sistemas Computacionales', 'AD', '2021', 'M', '0', 0, 1, 181),
+	(175, '17670034', 'JORGE ORLANDO', 'ORTIZ', 'CASTAÑEDA', 'Ingeniería en Sistemas Computacionales', 'AD', '2021', 'M', '7621115584', 0, 1, 181),
 	(176, '17670085', 'LUIS FERNANDO ', 'ANDRÉS', 'CRUZ', 'Ingeniería en Sistemas Computacionales', 'AD', '2021', 'M', '0', 0, 1, 182),
 	(177, '17670110', 'SEBASTIÁN GERARDO', 'PALACIOS', 'PÉREZ', 'Ingeniería en Sistemas Computacionales', 'AD', '2021', 'M', '0', 0, 1, 183),
 	(178, '17670017', 'KEVIN ALEXIS', 'ALBARRÁN', 'VERÓN', 'Ingeniería en Sistemas Computacionales', 'AD', '2021', 'M', '0', 1, 1, 184),
@@ -719,7 +801,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   UNIQUE KEY `usuario_UNIQUE` (`usuario`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
 
--- Volcando datos para la tabla cat.usuarios: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla cat.usuarios: ~2 rows (aproximadamente)
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
 INSERT INTO `usuarios` (`id`, `nombre`, `usuario`, `password`, `perfil`, `estado`) VALUES
 	(2, 'Jorge Ortega', 'Sistemas', '$2a$07$asxx54ahjppf45sd87a5au1RGLYZNJC/N86wDHeGu9F8YjK4w7HdO', 'Administrador', 1),
