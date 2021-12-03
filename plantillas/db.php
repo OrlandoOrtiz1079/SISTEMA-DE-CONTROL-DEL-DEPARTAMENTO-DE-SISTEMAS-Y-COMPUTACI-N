@@ -2,7 +2,7 @@
 //FUNCION QUE PERMITE CONECTARNOS A LA BASE DE DATOS
 function conectarse()
    {
-	if(!($link=mysqli_connect("localhost","root","")))
+	if(!($link=mysqli_connect("localhost","u297166837.dsc","DscIti2021.")))
 	    {
 			echo "Error: Conectando a la base de datos";
 			exit();
