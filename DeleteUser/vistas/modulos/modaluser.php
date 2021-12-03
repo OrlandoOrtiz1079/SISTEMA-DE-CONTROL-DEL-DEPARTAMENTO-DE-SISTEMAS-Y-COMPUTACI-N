@@ -1,7 +1,14 @@
-<div style="background-color: #F3F8FB;">
+<style>
+    .contenido{
+        min-height: 80vh;
+        position: relative;
+    }
+</style>
+<div class="contenido" style="background-color: #F3F8FB;">
     <div style="padding-top: 10px; padding-bottom: 20px; margin-left: 10px; margin-right: 10px;">
         <div class="col-12 mt-3">
             <div class="card">
+                <br>
                 <h2 class="ml-4">Usuarios</h2>
                 <div class="card-body">
                     <!-- <h1 class="header-title">Usuarios</h1> -->

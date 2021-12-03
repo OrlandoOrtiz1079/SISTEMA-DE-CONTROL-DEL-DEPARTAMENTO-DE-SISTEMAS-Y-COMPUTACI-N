@@ -25,47 +25,40 @@
 		}
 	}
 </style>
+<style>
+	.contenido {
+		min-height: 100vh;
+		position: relative;
+	}
+
+	.footersistema {
+		min-height: 80vh;
+		background-size: 50% 50%;
+		background-repeat: repeat;
+	}
+</style>
 <?PHP
 session_start();
 ?>
 <!DOCTYPE html>
 <html lang="es-ES">
 
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="msapplication-config" content="none" />
-
+	<meta name="csrf-param" content="_csrf">
+	<meta name="csrf-token" content="IlsPPYjeFxmmgAYwU51gyXeblabIaF2OZdjbwGA6aoJGFEkP7bZtQOPDf34SsDqDFM2mkoEQN70ogriUNF0e2w==">
 	<!-- UIkit JS -->
 	<script src="https://cdn.jsdelivr.net/npm/uikit@3.7.2/dist/js/uikit.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/uikit@3.7.2/dist/js/uikit-icons.min.js"></script>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.7.2/dist/css/uikit.min.css" />
 
-	<link rel="apple-touch-icon" href="img/iconified/apple-touch-icon.png" />
-	<link rel="apple-touch-icon" sizes="57x57" href="../img/iconified/apple-touch-icon-57x57.png" />
-	<link rel="apple-touch-icon" sizes="72x72" href="../img/iconified/apple-touch-icon-72x72.png" />
-	<link rel="apple-touch-icon" sizes="76x76" href="../img/iconified/apple-touch-icon-76x76.png" />
-	<link rel="apple-touch-icon" sizes="114x114" href="../img/iconified/apple-touch-icon-114x114.png" />
-	<link rel="apple-touch-icon" sizes="120x120" href="../img/iconified/apple-touch-icon-120x120.png" />
-	<link rel="apple-touch-icon" sizes="144x144" href="../img/iconified/apple-touch-icon-144x144.png" />
-	<link rel="apple-touch-icon" sizes="152x152" href="../img/iconified/apple-touch-icon-152x152.png" />
-	<link rel="apple-touch-icon" sizes="180x180" href="../img/iconified/apple-touch-icon-180x180.png" />
-	<link rel="apple-touch-icon-precomposed" href="../img/iconified/apple-touch-icon-precomposed.png" />
-	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="../img/iconified/apple-touch-icon-57x57-precomposed.png" />
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../img/iconified/apple-touch-icon-72x72-precomposed.png" />
-	<link rel="apple-touch-icon-precomposed" sizes="76x76" href="../img/iconified/apple-touch-icon-76x76-precomposed.png" />
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../img/iconified/apple-touch-icon-114x114-precomposed.png" />
-	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../img/iconified/apple-touch-icon-120x120-precomposed.png" />
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../img/iconified/apple-touch-icon-144x144-precomposed.png" />
-	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="img/iconified/apple-touch-icon-152x152-precomposed.png" />
-	<link rel="apple-touch-icon-precomposed" sizes="180x180" href="../img/iconified/apple-touch-icon-180x180-precomposed.png" />
-	<meta name="csrf-param" content="_csrf">
-	<meta name="csrf-token" content="IlsPPYjeFxmmgAYwU51gyXeblabIaF2OZdjbwGA6aoJGFEkP7bZtQOPDf34SsDqDFM2mkoEQN70ogriUNF0e2w==">
 	<title>CAT-DSC :: ITI</title>
-
 	<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+	<!-- estilos -->
 	<link href="../assets/951c7ac5/css/bootstrap.css" rel="stylesheet">
 	<link href="../assets/ce6448b4/css/strength-meter.min.css" rel="stylesheet">
 	<link href="../assets/ef7a4106/css/kv-widgets.min.css" rel="stylesheet">
@@ -73,9 +66,11 @@ session_start();
 	<link href="../assets/css/responsive.css" rel="stylesheet">
 	<link href="../assets/css/tecnm.css" rel="stylesheet">
 	<link href="../assets/css/tecnm_responsive.css" rel="stylesheet">
-	<link href="./plugins/alertify/css/alertify.css" rel="stylesheet">
-	<link href="./plugins/imp-gallery/css/blueimp-gallery.min.css" rel="stylesheet">
+	<link href="plantillas/plugins/alertify/css/alertify.css" rel="stylesheet">
+	<link href="plantillas/plugins/imp-gallery/css/blueimp-gallery.min.css" rel="stylesheet">
 	<link href="../assets/css/cat.css" rel="stylesheet">
+
+	<!-- script -->
 	<script type="text/javascript">
 		window.strength_06b96b85 = {
 			"showMeter": false,
@@ -83,29 +78,27 @@ session_start();
 			"inputTemplate": "\u003Cdiv class=\u0022input-group\u0022\u003E{input}\u003Cspan class=\u0022input-group-addon\u0022\u003E{toggle}\u003C\/span\u003E\u003C\/div\u003E"
 		};
 	</script>
-
-
-	<script src="assets/690dc397/jquery.js"></script>
-	<script src="assets/be9f0a59/yii.js"></script>
-	<script src="assets/be9f0a59/yii.validation.js"></script>
-	<script src="assets/ce6448b4/js/strength-meter.min.js"></script>
-	<script src="assets/ce6448b4/js/locales/strength-meter-es.js"></script>
-	<script src="assets/ef7a4106/js/kv-widgets.min.js"></script>
-	<script src="assets/be9f0a59/yii.activeForm.js"></script>
+	<script src="../assets/690dc397/jquery.js"></script>
+	<script src="../assets/be9f0a59/yii.js"></script>
+	<script src="../assets/be9f0a59/yii.validation.js"></script>
+	<script src="../assets/ce6448b4/js/strength-meter.min.js"></script>
+	<script src="../assets/ce6448b4/js/locales/strength-meter-es.js"></script>
+	<script src="../assets/ef7a4106/js/kv-widgets.min.js"></script>
+	<script src="../assets/be9f0a59/yii.activeForm.js"></script>
 	<script src="js/jquery-ui.min.js"></script>
-	<script src="./tecnm/js/jquery-animate-css-rotate-scale.js"></script>
-	<script src="./tecnm/js/jquery-css-transform.js"></script>
-	<script src="./tecnm/js/jquery.blackandwhite.min.js"></script>
-	<script src="./tecnm/js/jquery.bxSlider.min.js"></script>
-	<script src="./tecnm/js/jquery.faq.js"></script>
-	<script src="./tecnm/js/jquery.simpleFAQ-0.7.min.js"></script>
-	<script src="./tecnm/js/jquery.touchwipe.min.js"></script>
-	<script src="./tecnm/js/js_func.js"></script>
-	<script src="./tecnm/js/tecnm.js"></script>
-	<script src="./plugins/alertify/alertify.js"></script>
-	<script src="./plugins/bootbox.min.js"></script>
-	<script src="./plugins/imp-gallery/js/blueimp-gallery.min.js"></script>
-	<script src="../js/funciones.js"></script>
+	<script src="plantillas/tecnm/js/jquery-animate-css-rotate-scale.js"></script>
+	<script src="plantillas/tecnm/js/jquery-css-transform.js"></script>
+	<script src="plantillas/tecnm/js/jquery.blackandwhite.min.js"></script>
+	<script src="plantillas/tecnm/js/jquery.bxSlider.min.js"></script>
+	<script src="plantillas/tecnm/js/jquery.faq.js"></script>
+	<script src="plantillas/tecnm/js/jquery.simpleFAQ-0.7.min.js"></script>
+	<script src="plantillas/tecnm/js/jquery.touchwipe.min.js"></script>
+	<script src="plantillas/tecnm/js/js_func.js"></script>
+	<script src="plantillas/tecnm/js/tecnm.js"></script>
+	<script src="plantillas/plugins/alertify/alertify.js"></script>
+	<script src="plantillas/plugins/bootbox.min.js"></script>
+	<script src="plantillas/plugins/imp-gallery/js/blueimp-gallery.min.js"></script>
+	<script src="js/funciones.js"></script>
 	<script src="../assets/951c7ac5/js/bootstrap.js"></script>
 	<script type="text/javascript">
 		jQuery(function($) {
@@ -152,13 +145,6 @@ session_start();
 </head>
 
 <body>
-	<?php
-
-	if (isset($_SESSION['iniciarSesion']) && $_SESSION['iniciarSesion'] == "ok") {
-	} else {
-		echo '<script> window.location="index.php";</script>';
-	}
-	?>
 	<header>
 		<div class="row sinmargenes">
 			<div class="fondo col-md-12 col-xs-12">
@@ -232,9 +218,12 @@ session_start();
 			</div>
 		</div>
 	</nav> <br>
-
 	<!-- /botones  -->
-	<div>
+	<div class="footersistema">
+		<br>
+		<br>
+		<br>
+
 		<article style="margin-top: 2%; margin-bottom:2% " id="about" class="uk-flex uk-flex-middle uk-flex-column">
 			<div class="responsive uk-width-expand">
 
@@ -276,12 +265,11 @@ session_start();
 				?>
 
 			</div>
+			<br>
+			<br>
 		</article>
 	</div>
 	<!-- /Fin botones  -->
-
-
-	</div>
 	<!-- Pie de página -->
 	<div class="footer">
 		<div class="social_block">
@@ -297,53 +285,44 @@ session_start();
 				<li class="youtube"><a href="https://www.youtube.com/channel/UCpSJGS6p28O5qrQjQGxlE8g" target="_blank">YouTube </a></li>
 			</ul>
 		</div>
-		<div>
-			<div style="background-size: cover; height: 90px; background-color: #235b4e !important;">
-				<div class='col-md-12' style="height: 100%;display: inline-grid;">
-					<center>
-						<div class="col-lg-2 col-md-2 hidden-sm hidden-xs" style="height: 100%; display: grid; align-items: center;">
-							<a href="https://www.gob.mx/" target="_blank">
-								<img class="img-fluid" style="max-height: 50px; background-color: transparent;" src="https://framework-gb.cdn.gob.mx/landing/img/logoheader.svg" />
-							</a>
-						</div>
-						<div class="col-lg-2 col-md-2 hidden-sm hidden-xs" style="height: 100%; display: grid; align-items: center;">
-							<a href="https://www.gob.mx/sep" target="_blank">
-								<img class="img-fluid" style="max-height:45px;" src="../assets/images/logos/educacion.png" />
-							</a>
-						</div>
-						<div class="col-lg-2 col-md-2 col-sm-6 col-xs-12" style="height: 100%; display: grid; align-items: center;">
-							<a href="https://www.educacionsuperior.sep.gob.mx/institutos_tecnologicos.html" target="_blank">
-								<img class="img-fluid" style="max-height:60px;" src="../assets/images/logos/TecNM2021.png" />
-							</a>
-						</div>
-						<div class="col-lg-2 col-md-2 hidden-sm hidden-xs" style="height: 100%; display: grid; align-items: center;">
-							<a href="https://itiguala.edu.mx/" target="_blank">
-								<img class="img-fluid" style="max-height:60px;" src="../assets/images/logos/logosnc.png" />
-							</a>
-						</div>
-						<div class="col-lg-4 col-md-4 col-sm-6 hidden-xs footer-letra" style="height: 100%; display: grid; align-items: center;">
-							ITI - ALGUNOS DERECHOS RESERVADOS © 2020<br>
-							Carretera Nacional Iguala-Taxco,<br>
-							Esquina Periferico Norte 40030
-							Iguala de la Independencia, Guerrero, Mexico
-						</div>
-					</center>
-				</div>
-			</div>
-			<div style="background-size: auto; height:40px; background-image: url(https://framework-gb.cdn.gob.mx/landing/img/pleca.svg) !important;">
-			</div>
 
-			<!-- /Pie de página -->
+		<div style="background-size: cover; height: 90px; background-color: #235b4e !important;">
+			<div class='col-md-12' style="height: 100%;display: inline-grid;">
+				<center>
+					<div class="col-lg-2 col-md-2 hidden-sm hidden-xs" style="height: 100%; display: grid; align-items: center;">
+						<a href="https://www.gob.mx/" target="_blank">
+							<img class="img-fluid" style="max-height: 50px; background-color: transparent;" src="https://framework-gb.cdn.gob.mx/landing/img/logoheader.svg" />
+						</a>
+					</div>
+					<div class="col-lg-2 col-md-2 hidden-sm hidden-xs" style="height: 100%; display: grid; align-items: center;">
+						<a href="https://www.gob.mx/sep" target="_blank">
+							<img class="img-fluid" style="max-height:45px;" src="../assets/images/logos/educacion.png" />
+						</a>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-6 col-xs-12" style="height: 100%; display: grid; align-items: center;">
+						<a href="https://www.educacionsuperior.sep.gob.mx/institutos_tecnologicos.html" target="_blank">
+							<img class="img-fluid" style="max-height:60px;" src="../assets/images/logos/TecNM2021.png" />
+						</a>
+					</div>
+					<div class="col-lg-2 col-md-2 hidden-sm hidden-xs" style="height: 100%; display: grid; align-items: center;">
+						<a href="https://itiguala.edu.mx/" target="_blank">
+							<img class="img-fluid" style="max-height:60px;" src="../assets/images/logos/logosnc.png" />
+						</a>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-6 hidden-xs footer-letra" style="height: 100%; display: grid; align-items: center;">
+						ITI - ALGUNOS DERECHOS RESERVADOS © 2020<br>
+						Carretera Nacional Iguala-Taxco,<br>
+						Esquina Periferico Norte 40030
+						Iguala de la Independencia, Guerrero, Mexico
+					</div>
+				</center>
+			</div>
+		</div>
+		<div style="background-size: auto; height:40px; background-image: url(https://framework-gb.cdn.gob.mx/landing/img/pleca.svg) !important;">
+		</div>
+	</div>
 
-			<script>
-				function preventBack() {
-					window.history.forward();
-				}
-				setTimeout("preventBack()", 0);
-				window.onunload = function() {
-					null
-				};
-			</script>
+	<!-- /Pie de página -->
 </body>
 
 </html>

@@ -1,8 +1,5 @@
 <?php
- //Diferntes formas de retornar la direccion del servidor
-//$ruta = str_replace($_SERVER['DOCUMENT_ROOT'], '', dirname($_SERVER['SCRIPT_FILENAME'])) . "/";
-//$ruta = "http://localhost/sdr/";
-//$ruta = "C:laragon/www/SDR/";
+
 require_once "controladores/plantilla.controlador.php";
 require_once "controladores/alumnos.controlador.php";
 require_once "controladores/tablaalumnos.controlador.php";

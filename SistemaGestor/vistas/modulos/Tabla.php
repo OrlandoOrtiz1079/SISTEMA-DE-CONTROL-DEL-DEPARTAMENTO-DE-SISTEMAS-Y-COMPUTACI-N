@@ -1,7 +1,6 @@
 <?php
 $txtNC = $_POST['txtNC'];
 
-
 ?>
 
 <div class="col-12 mt-3">

@@ -5,6 +5,18 @@
 		align-items: center;
 	}
 </style>
+<style>
+	.contenido {
+		min-height: 100vh;
+		position: relative;
+	}
+
+	.footersistema {
+		min-height: 80vh;
+		background-size: 50% 50%;
+		background-repeat: repeat;
+	}
+</style>
 <!DOCTYPE html>
 <html lang="es-ES">
 
@@ -17,8 +29,8 @@
 	<meta name="csrf-param" content="_csrf">
 	<meta name="csrf-token" content="IlsPPYjeFxmmgAYwU51gyXeblabIaF2OZdjbwGA6aoJGFEkP7bZtQOPDf34SsDqDFM2mkoEQN70ogriUNF0e2w==">
 	<title>CAT-DSC :: ITI</title>
-	<!-- estilos -->
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<!-- estilos -->
 	<link href="assets/951c7ac5/css/bootstrap.css" rel="stylesheet">
 	<link href="assets/ce6448b4/css/strength-meter.min.css" rel="stylesheet">
 	<link href="assets/ef7a4106/css/kv-widgets.min.css" rel="stylesheet">
@@ -141,6 +153,11 @@
 					<li><a href="https://itiguala.mindbox.app/login/alumno" target="_blank"><span class="glyphicon glyphicon-education"></span>
 							MindBox</a></li>
 				</ul>
+				<ul style="cursor: pointer;" id="w1" class="navbar-nav navbar-right nav">
+					<li><a onclick="location.href='../cat/SEC'" target="_blank"><span class="glyphicon glyphicon-duplicate"></span>
+							Encuesta</a></li>
+				</ul>
+
 				<ul id="w2" class="navbar-nav navbar-right nav">
 					<li><a href="https://dsc.itiguala.edu.mx/" target="_blank"><span class="glyphicon glyphicon-blackboard"></span>
 							Depto de sistemas y computación</a></li>
@@ -148,7 +165,8 @@
 			</div>
 		</div>
 	</nav> <br>
-	<div class="wraper footersistemas">
+
+	<div class="wraper footersistema contenido">
 		<div class="content_block">
 			<div class="wraper">
 				<div id="login-wrapper">
@@ -168,7 +186,7 @@
 								</div>
 								<button type="submit" class="btn btn-sm btn-tecnm btn-block" name="entrar">Acceder</button>
 							</form>
-							<h4>Si no recuerda su contraseña acuda al<br>
+							<h4>Si no recuerda su contraseña acuda a<br>el
 								<font color=green><b>Departamento De Sistemas Y Computación</b></font>
 								</a>
 							</h4><br>
