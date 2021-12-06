@@ -2,20 +2,18 @@
 //FUNCION QUE PERMITE CONECTARNOS A LA BASE DE DATOS
 function conectarse()
    {
-	if(!($link=mysqli_connect("localhost","u297166837.dsc","DscIti2021.")))
+	if(!($link=mysqli_connect("localhost","u297166837_dsc","DSCiti2021")))
 	    {
 			echo "Error: No se pudo conectar a la base de datos";
 			exit();
-		
 		}
 				    			
-		if(!mysqli_select_db($link,"cat"))
+		if(!mysqli_select_db($link,"u297166837_cat"))
 		    {
-			  echo "Error seleccionando a la base de datos";
+			  echo "Error: Seleccione la base de datos";
 			  exit();
 			}
 			return $link;
-		
    }
    conectarse();
 ?>
