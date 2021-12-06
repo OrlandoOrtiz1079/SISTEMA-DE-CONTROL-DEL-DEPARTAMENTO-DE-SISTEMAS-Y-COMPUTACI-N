@@ -1,13 +1,13 @@
 <!-- main header area start -->
-<div  class="mainheader-area">
+<div class="mainheader-area">
     <div class="container">
         <div class="row align-items-center">
-        <div class="col-md-3 d-none d-md-block">
+            <div class="col-md-3 d-none d-md-block">
                 <div class="logo">
-                   
-                        
-                        <a ><img src="../assets/images/logos/TecNM_logo.png" alt="logo"></a>
-                        <a class="ml-3"><img src="../assets/images/logoR.png" alt="logo"></a>
+
+
+                    <a><img src="../assets/images/logos/TecNM_logo.png" alt="logo"></a>
+                    <a class="ml-3"><img src="../assets/images/logoR.png" alt="logo"></a>
                 </div>
             </div>
             <div class="col-12 d-block d-md-none pt-2 pb-2">
@@ -33,4 +33,3 @@
         </div>
     </div>
 </div>
-
