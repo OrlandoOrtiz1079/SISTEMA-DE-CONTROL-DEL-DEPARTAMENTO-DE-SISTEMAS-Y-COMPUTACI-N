@@ -4,7 +4,7 @@ function conectarse()
    {
 	if(!($link=mysqli_connect("localhost","u297166837.dsc","DscIti2021.")))
 	    {
-			echo "Error: Conectando a la base de datos";
+			echo "Error: No se pudo conectar a la base de datos";
 			exit();
 		
 		}
