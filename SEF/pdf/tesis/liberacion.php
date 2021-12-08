@@ -2,6 +2,8 @@
 session_start();
 
 require '../FPDF/fpdf.php';
+require '../FPDF/font/montserrat-bold.php';
+require '../FPDF/font/montserrat-regular.php';
 require '../../controladores/jerarquia.controlador.php';
 require '../../modelos/jerarquia.modelo.php';
 
@@ -50,15 +52,15 @@ $pdf = new PDF('P', 'mm', 'Letter');
 $pdf->AddPage();
 $h = $pdf->GetPageHeight();
 $w = $pdf->GetPageWidth();
-$pdf->AddFont('Montserrat-Bold');
-$pdf->AddFont('Montserrat-Regular');
+$pdf->AddFont('montserrat-bold');
+$pdf->AddFont('montserrat-regular');
 $pdf->SetFillColor(255, 255, 255);
-$pdf->SetFont('Montserrat-Bold', '', '10');
+$pdf->SetFont('montserrat-bold', '', '10');
 $pdf->SetTitle(utf8_decode('CONSTANCIA DE LIBERACIÓN DE ACTIVIDADES ACADÉMICAS ' . $docente));
 $pdf->Cell(80);
 $pdf->Cell(20, 13, utf8_decode('CARTA DE LIBERACIÓN DE ACTIVIDADES ACADÉMICAS'), 0, 1, 'C');
 $pdf->Cell(93);
-$pdf->SetFont('Montserrat-Regular', '', '9');
+$pdf->SetFont('montserrat-regular', '', '9');
 $pdf->Cell(10, 4, utf8_decode(' DEPARTAMENTO DE SISTEMAS Y COMPUTACIÓN'), 0, 1, 'L');
 $pdf->Cell(113);
 $pdf->Cell(10, 4, utf8_decode('Lugar y fecha: Iguala, Gro. a ' . $fecha), 0, 1, 'L');
@@ -69,18 +71,18 @@ $pdf->Cell(10, 4, utf8_decode('Actividades Académicas '), 0, 1, 'L');
 
 
 $pdf->Ln(3); //Docente
-$pdf->SetFont('Montserrat-Bold', '', '10');
+$pdf->SetFont('montserrat-bold', '', '10');
 $pdf->Cell(19);
 $pdf->Cell(80, 6, utf8_decode($docente), 0, 1, 'L');
 $pdf->Cell(19);
 $pdf->Cell(80, 4, 'PRESENTE.', 0, 1, 'L');
 $pdf->Ln(5); //CELDA DE ESPACIO
 
-$pdf->SetFont('Montserrat-Regular', '', '9');
+$pdf->SetFont('montserrat-regular', '', '9');
 $pdf->Cell(19);
 $pdf->Cell(15, 0, utf8_decode('Por medio de la presente se hace de su conocimiento que durante el semestre '), 10, 1, 'L');
 $pdf->Cell(145);
-$pdf->SetFont('Montserrat-Bold', '', '9');
+$pdf->SetFont('montserrat-bold', '', '9');
 $pdf->Cell(15, 0, $periodo, 0, 1, 'L');
 
 $pdf->Ln(4); //CELDA DE ESPACIO
@@ -90,13 +92,13 @@ $pdf->Cell(19);
 $pdf->Cell(0, 0, utf8_decode($resultado), 0, 1);
 
 $pdf->Cell(27);
-$pdf->SetFont('Montserrat-Regular', '', '9');
+$pdf->SetFont('montserrat-regular', '', '9');
 $pdf->Cell(0, 0, utf8_decode('se evaluó el cumplimiento de las siguientes actividades docentes:'), 0, 1, 'L');
 $pdf->Ln(4); //CELDA DE ESPACIO
 
 // Table head
 $pdf->Cell(20);
-$pdf->SetFont('Montserrat-Bold', '', '9');
+$pdf->SetFont('montserrat-bold', '', '9');
 $pdf->Cell(130, 5, "ACTIVIDADES", 1, 0, 'C');
 $pdf->Cell(8, 5, "SI", 1, 0, 'C');
 $pdf->Cell(8, 5, "NO", 1, 0, 'C');
@@ -106,9 +108,9 @@ $pdf->Ln(5);
 //Table body
 // Pregunta 1
 $pdf->Cell(20);
-$pdf->SetFont('Montserrat-Regular', '', '9');
+$pdf->SetFont('montserrat-regular', '', '9');
 $pdf->MultiCell(130, 5, utf8_decode("Asistencia a reuniones convocadas."), 1);
-$pdf->SetFont('Montserrat-Bold', '', '9');
+$pdf->SetFont('montserrat-bold', '', '9');
 $pdf->Ln(-5);
 $pdf->Cell(150);
 if ($p1 == "SI") {
@@ -129,9 +131,9 @@ if ($p1 == "SI") {
 $campop2 = 5;
 $pdf->Ln(5);
 $pdf->Cell(20);
-$pdf->SetFont('Montserrat-Regular', '', '9');
+$pdf->SetFont('montserrat-regular', '', '9');
 $pdf->MultiCell(130, $campop2, utf8_decode("Participación en programas de formación y actualización docente."), 1);
-$pdf->SetFont('Montserrat-Bold', '', '9');
+$pdf->SetFont('montserrat-bold', '', '9');
 $pdf->Ln(-$campop2);
 $pdf->Cell(150);
 if ($p2 == "SI") {
@@ -152,9 +154,9 @@ if ($p2 == "SI") {
 $campop3 = 5;
 $pdf->Ln(5);
 $pdf->Cell(20);
-$pdf->SetFont('Montserrat-Regular', '', '9');
+$pdf->SetFont('montserrat-regular', '', '9');
 $pdf->MultiCell(130, $campop3, utf8_decode("Asesorías en procesos de titulación integral encomendadas."), 1);
-$pdf->SetFont('Montserrat-Bold', '', '9');
+$pdf->SetFont('montserrat-bold', '', '9');
 $pdf->Ln(-$campop3);
 $pdf->Cell(150);
 if ($p3 == "SI") {
@@ -175,9 +177,9 @@ if ($p3 == "SI") {
 $campop4 = 5;
 $pdf->Ln(5);
 $pdf->Cell(20);
-$pdf->SetFont('Montserrat-Regular', '', '9');
+$pdf->SetFont('montserrat-regular', '', '9');
 $pdf->MultiCell(130, $campop4, utf8_decode("Propuestas de mejoras en la operación de programas y proyectos académicos."), 1);
-$pdf->SetFont('Montserrat-Bold', '', '9');
+$pdf->SetFont('montserrat-bold', '', '9');
 $pdf->Ln(-$campop4);
 $pdf->Cell(150);
 if ($p4 == "SI") {
@@ -198,9 +200,9 @@ if ($p4 == "SI") {
 $campop5 = 5;
 $pdf->Ln(5);
 $pdf->Cell(20);
-$pdf->SetFont('Montserrat-Regular', '', '9');
+$pdf->SetFont('montserrat-regular', '', '9');
 $pdf->MultiCell(130, $campop5, utf8_decode("Sinodales en protocolos de titulación."), 1);
-$pdf->SetFont('Montserrat-Bold', '', '9');
+$pdf->SetFont('montserrat-bold', '', '9');
 $pdf->Ln(-$campop5);
 $pdf->Cell(150);
 if ($p5 == "SI") {
@@ -221,9 +223,9 @@ if ($p5 == "SI") {
 $campop6 = 5;
 $pdf->Ln(5);
 $pdf->Cell(20);
-$pdf->SetFont('Montserrat-Regular', '', '9');
+$pdf->SetFont('montserrat-regular', '', '9');
 $pdf->MultiCell(130, 5, utf8_decode("Participación en eventos de la academia."), 1);
-$pdf->SetFont('Montserrat-Bold', '', '9');
+$pdf->SetFont('montserrat-bold', '', '9');
 $pdf->Ln(-$campop6);
 $pdf->Cell(150);
 if ($p6 == "SI") {
@@ -244,9 +246,9 @@ if ($p6 == "SI") {
 $campop7 = 5;
 $pdf->Ln(5);
 $pdf->Cell(20);
-$pdf->SetFont('Montserrat-Regular', '', '9');
+$pdf->SetFont('montserrat-regular', '', '9');
 $pdf->MultiCell(130, $campop7, utf8_decode("Contribución con propuestas de mejora en los planes y programas de estudio."), 1);
-$pdf->SetFont('Montserrat-Bold', '', '9');
+$pdf->SetFont('montserrat-bold', '', '9');
 $pdf->Ln(-$campop7);
 $pdf->Cell(150);
 if ($p7 == "SI") {
@@ -267,9 +269,9 @@ if ($p7 == "SI") {
 $campop8 = 5;
 $pdf->Ln(5);
 $pdf->Cell(20);
-$pdf->SetFont('Montserrat-Regular', '', '9');
+$pdf->SetFont('montserrat-regular', '', '9');
 $pdf->MultiCell(130, $campop8, utf8_decode("Desarrollo de materiales de apoyo didáctico."), 1);
-$pdf->SetFont('Montserrat-Bold', '', '9');
+$pdf->SetFont('montserrat-bold', '', '9');
 $pdf->Ln(-$campop8);
 $pdf->Cell(150);
 if ($p8 == "SI") {
@@ -290,9 +292,9 @@ if ($p8 == "SI") {
 $campop9 = 5;
 $pdf->Ln(5);
 $pdf->Cell(20);
-$pdf->SetFont('Montserrat-Regular', '', '9');
+$pdf->SetFont('montserrat-regular', '', '9');
 $pdf->MultiCell(130, $campop9, utf8_decode("Propuestas para bancos de proyectos."), 1);
-$pdf->SetFont('Montserrat-Bold', '', '9');
+$pdf->SetFont('montserrat-bold', '', '9');
 $pdf->Ln(-$campop9);
 $pdf->Cell(150);
 if ($p9 == "SI") {
@@ -313,9 +315,9 @@ if ($p9 == "SI") {
 $campop10 = 5;
 $pdf->Ln(5);
 $pdf->Cell(20);
-$pdf->SetFont('Montserrat-Regular', '', '9');
+$pdf->SetFont('montserrat-regular', '', '9');
 $pdf->MultiCell(130, $campop10, utf8_decode("Asesorías académicas."), 1);
-$pdf->SetFont('Montserrat-Bold', '', '9');
+$pdf->SetFont('montserrat-bold', '', '9');
 $pdf->Ln(-$campop10);
 $pdf->Cell(150);
 if ($p10 == "SI") {
@@ -336,9 +338,9 @@ if ($p10 == "SI") {
 $campop11 = 5;
 $pdf->Ln(5);
 $pdf->Cell(20);
-$pdf->SetFont('Montserrat-Regular', '', '9');
+$pdf->SetFont('montserrat-regular', '', '9');
 $pdf->MultiCell(130, $campop11, utf8_decode("Tutoría."), 1);
-$pdf->SetFont('Montserrat-Bold', '', '9');
+$pdf->SetFont('montserrat-bold', '', '9');
 $pdf->Ln(-$campop11);
 $pdf->Cell(150);
 if ($p11 == "SI") {
@@ -359,9 +361,9 @@ if ($p11 == "SI") {
 $campop12 = 12;
 $pdf->Ln(5);
 $pdf->Cell(20);
-$pdf->SetFont('Montserrat-Regular', '', '9');
+$pdf->SetFont('montserrat-regular', '', '9');
 $pdf->MultiCell(130, 4, utf8_decode("Participación en comisiones académicas (equivalencias, salida lateral, traslado, acreditaciones, certificaciones, diseño especialidades, proyectos integradores, etc)."), 1);
-$pdf->SetFont('Montserrat-Bold', '', '9');
+$pdf->SetFont('montserrat-bold', '', '9');
 $pdf->Ln(-$campop12);
 $pdf->Cell(150);
 if ($p12 == "SI") {
@@ -383,9 +385,9 @@ if (strlen("Otros (especificar):" . $otros) <= 80) {
     $campop13 = 5;  // Pregunta 13
     $pdf->Ln(12);
     $pdf->Cell(20);
-    $pdf->SetFont('Montserrat-Regular', '', '9');
+    $pdf->SetFont('montserrat-regular', '', '9');
     $pdf->MultiCell(130, $campop13, utf8_decode("Otros (especificar):" . $otros), 1);
-    $pdf->SetFont('Montserrat-Bold', '', '9');
+    $pdf->SetFont('montserrat-bold', '', '9');
     $pdf->Ln(-$campop13);
     $pdf->Cell(150);
     if ($p13 == "SI") {
@@ -405,9 +407,9 @@ if (strlen("Otros (especificar):" . $otros) <= 80) {
     $campop14 = 5;
     $pdf->Ln(5);
     $pdf->Cell(20);
-    $pdf->SetFont('Montserrat-Regular', '', '9');
+    $pdf->SetFont('montserrat-regular', '', '9');
     $pdf->MultiCell(130, $campop14, utf8_decode("¿Cumplió con las actividades académicas encomendadas al 100%?"), 1);
-    $pdf->SetFont('Montserrat-Bold', '', '9');
+    $pdf->SetFont('montserrat-bold', '', '9');
     $pdf->Ln(-$campop14);
     $pdf->Cell(150);
     if ($p14 == "SI") {
@@ -428,9 +430,9 @@ if (strlen("Otros (especificar):" . $otros) <= 80) {
     $campop12 = 8;
     $pdf->Ln(12);
     $pdf->Cell(20);
-    $pdf->SetFont('Montserrat-Regular', '', '9');
+    $pdf->SetFont('montserrat-regular', '', '9');
     $pdf->MultiCell(130, 4, utf8_decode("Otros (especificar):" . $otros), 1);
-    $pdf->SetFont('Montserrat-Bold', '', '9');
+    $pdf->SetFont('montserrat-bold', '', '9');
     $pdf->Ln(-$campop12);
     $pdf->Cell(150);
     if ($p13 == "SI") {
@@ -450,9 +452,9 @@ if (strlen("Otros (especificar):" . $otros) <= 80) {
     $campop14 = 5;
     $pdf->Ln(8);
     $pdf->Cell(20);
-    $pdf->SetFont('Montserrat-Regular', '', '9');
+    $pdf->SetFont('montserrat-regular', '', '9');
     $pdf->MultiCell(130, $campop14, utf8_decode("¿Cumplió con las actividades académicas encomendadas al 100%?"), 1);
-    $pdf->SetFont('Montserrat-Bold', '', '9');
+    $pdf->SetFont('montserrat-bold', '', '9');
     $pdf->Ln(-$campop14);
     $pdf->Cell(150);
     if ($p14 == "SI") {
@@ -473,9 +475,9 @@ if (strlen("Otros (especificar):" . $otros) <= 80) {
     $campop131 = 12;
     $pdf->Ln(12);
     $pdf->Cell(20);
-    $pdf->SetFont('Montserrat-Regular', '', '9');
+    $pdf->SetFont('montserrat-regular', '', '9');
     $pdf->MultiCell(130, 4, utf8_decode("Otros (especificar):" . $otros), 1);
-    $pdf->SetFont('Montserrat-Bold', '', '9');
+    $pdf->SetFont('montserrat-bold', '', '9');
     $pdf->Ln(-$campop131);
     $pdf->Cell(150);
     if ($p13 == "SI") {
@@ -495,9 +497,9 @@ if (strlen("Otros (especificar):" . $otros) <= 80) {
     $campop14 = 5;
     $pdf->Ln(12);
     $pdf->Cell(20);
-    $pdf->SetFont('Montserrat-Regular', '', '9');
+    $pdf->SetFont('montserrat-regular', '', '9');
     $pdf->MultiCell(130, $campop14, utf8_decode("¿Cumplió con las actividades académicas encomendadas al 100%?"), 1);
-    $pdf->SetFont('Montserrat-Bold', '', '9');
+    $pdf->SetFont('montserrat-bold', '', '9');
     $pdf->Ln(-$campop14);
     $pdf->Cell(150);
     if ($p14 == "SI") {
@@ -517,7 +519,7 @@ if (strlen("Otros (especificar):" . $otros) <= 80) {
 
 $pdf->Ln(15);
 $pdf->Cell(99);
-$pdf->SetFont('Montserrat-Bold', '', '10');
+$pdf->SetFont('montserrat-bold', '', '10');
 $pdf->MultiCell(80, 5, utf8_decode("Vo. Bo."), 0, 'C', 1);
 $pdf->Cell(19);
 if ($res2['sexo'] == 'F') {

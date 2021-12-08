@@ -2,7 +2,8 @@
 session_start();
 
 require '../FPDF/fpdf.php';
-require '../FPDF/font/Montserrat-Bold.php';
+require '../FPDF/font/montserrat-regular.php';
+require '../FPDF/font/montserrat-bold.php';
 require '../../controladores/jerarquia.controlador.php';
 require '../../modelos/jerarquia.modelo.php';
 class PDF_FlowingBlock  extends FPDF
@@ -481,28 +482,28 @@ if ($tabla_constancia == 2) {
 }
 
 $pdf->AddPage();
-$pdf->AddFont('Montserrat-Bold');
-$pdf->AddFont('Montserrat-Regular');
+$pdf->AddFont('montserrat-bold');
+$pdf->AddFont('montserrat-regular');
 $h = $pdf->GetPageHeight();
 $w = $pdf->GetPageWidth();
 $pdf->SetTitle(utf8_decode('CONSTANCIA DE CUMPLIMIENTO DE ACTIVIDAD COMPLEMENTARIA ' . $txtNC));
 $pdf->SetFillColor(255, 255, 255);
 $pdf->Ln(6);
 $pdf->Cell(6);
-$pdf->SetFont('Montserrat-Regular', '', '9');
+$pdf->SetFont('montserrat-regular', '', '9');
 $pdf->Cell(176, 5, utf8_decode("Constancia de Cumplimiento de Actividad Complementaria."), 0, 0, 'C');
 
 $pdf->Ln(20);
 $pdf->Cell(15);
-$pdf->SetFont('Montserrat-Bold', '', '10');
+$pdf->SetFont('montserrat-bold', '', '10');
 $pdf->Cell(160, 5, utf8_decode($DepEscolares['responsable']), 0, 0, 'L');
 $pdf->Ln(5);
 $pdf->Cell(15);
-$pdf->SetFont('Montserrat-Bold', '', '10');
+$pdf->SetFont('montserrat-bold', '', '10');
 $pdf->Cell(160, 5, utf8_decode($DepEscolares['depto']), 0, 0, 'L');
 $pdf->Ln(5);
 $pdf->Cell(15);
-$pdf->SetFont('Montserrat-Bold', '', '10');
+$pdf->SetFont('montserrat-bold', '', '10');
 $pdf->Cell(160, 5, "P R E S E N T E.", 0, 0, 'L');
 
 $SexoSistemas = "";
@@ -516,79 +517,79 @@ $pdf->Ln(15);
 $pdf->SetMargins(25, 0, 0, 0);
 $pdf->Cell(15);
 $pdf->newFlowingBlock(158, 5, "", 'J');
-$pdf->SetFont('Montserrat-Regular', '', 9);
+$pdf->SetFont('montserrat-regular', '', 9);
 $pdf->WriteFlowingBlock(utf8_decode('El que suscribe '));
-$pdf->SetFont('Montserrat-Bold', '', 9);
+$pdf->SetFont('montserrat-bold', '', 9);
 $pdf->WriteFlowingBlock(utf8_decode($DepSistemas['nombre'] . " "));
-$pdf->SetFont('Montserrat-Regular', '', 9);
+$pdf->SetFont('montserrat-regular', '', 9);
 $pdf->WriteFlowingBlock(utf8_decode($SexoSistemas . " por este medio se permite hacer de su conocimiento que el(a) estudiante "));
-$pdf->SetFont('Montserrat-Bold', '', 9);
+$pdf->SetFont('montserrat-bold', '', 9);
 $pdf->WriteFlowingBlock(utf8_decode($txtNombre . " " . $txtAP . " " . $txtAM));
-$pdf->SetFont('Montserrat-Regular', '', 9);
+$pdf->SetFont('montserrat-regular', '', 9);
 $pdf->WriteFlowingBlock(utf8_decode(' con número de control '));
-$pdf->SetFont('Montserrat-Bold', '', 9);
+$pdf->SetFont('montserrat-bold', '', 9);
 $pdf->WriteFlowingBlock(utf8_decode($txtNC));
-$pdf->SetFont('Montserrat-Regular', '', 9);
+$pdf->SetFont('montserrat-regular', '', 9);
 $pdf->WriteFlowingBlock(utf8_decode(" de la carrera de "));
-$pdf->SetFont('Montserrat-Bold', '', 9);
+$pdf->SetFont('montserrat-bold', '', 9);
 $pdf->WriteFlowingBlock(utf8_decode($txtCarrera));
-$pdf->SetFont('Montserrat-Regular', '', 9);
+$pdf->SetFont('montserrat-regular', '', 9);
 $pdf->WriteFlowingBlock(utf8_decode(" ha "));
-$pdf->SetFont('Montserrat-Bold', '', 9);
+$pdf->SetFont('montserrat-bold', '', 9);
 $pdf->WriteFlowingBlock(utf8_decode("CUMPLIDO "));
-$pdf->SetFont('Montserrat-Regular', '', 9);
+$pdf->SetFont('montserrat-regular', '', 9);
 $pdf->WriteFlowingBlock(utf8_decode(' su actividad complementaria como participante en '));
-$pdf->SetFont('Montserrat-Bold', '', 9);
+$pdf->SetFont('montserrat-bold', '', 9);
 $pdf->WriteFlowingBlock(utf8_decode($txtEven));
-$pdf->SetFont('Montserrat-Regular', '', 9);
+$pdf->SetFont('montserrat-regular', '', 9);
 $pdf->WriteFlowingBlock(utf8_decode(" con el nivel de desempeño "));
-$pdf->SetFont('Montserrat-Bold', '', 9);
+$pdf->SetFont('montserrat-bold', '', 9);
 $pdf->WriteFlowingBlock(utf8_decode($txtValR));
-$pdf->SetFont('Montserrat-Regular', '', 9);
+$pdf->SetFont('montserrat-regular', '', 9);
 $pdf->WriteFlowingBlock(utf8_decode(" y un valor numérico de "));
-$pdf->SetFont('Montserrat-Bold', '', 9);
+$pdf->SetFont('montserrat-bold', '', 9);
 $pdf->WriteFlowingBlock(utf8_decode($txtVal));
-$pdf->SetFont('Montserrat-Regular', '', 9);
+$pdf->SetFont('montserrat-regular', '', 9);
 $pdf->WriteFlowingBlock(utf8_decode(", durante el periodo escolar "));
-$pdf->SetFont('Montserrat-Bold', '', 9);
+$pdf->SetFont('montserrat-bold', '', 9);
 $pdf->WriteFlowingBlock(utf8_decode($txtPer));
-$pdf->SetFont('Montserrat-Regular', '', 9);
+$pdf->SetFont('montserrat-regular', '', 9);
 $pdf->WriteFlowingBlock(utf8_decode(" con un valor curricular de "));
-$pdf->SetFont('Montserrat-Bold', '', 9);
+$pdf->SetFont('montserrat-bold', '', 9);
 $pdf->WriteFlowingBlock(utf8_decode($txtNumCredR));
 $pdf->finishFlowingBlock();
 $pdf->SetMargins(25, 0, 0, 0);
 
 $pdf->Ln(15);
 $pdf->newFlowingBlock(158, 5, "", 'J');
-$pdf->SetFont('Montserrat-Regular', '', 9);
+$pdf->SetFont('montserrat-regular', '', 9);
 $pdf->WriteFlowingBlock(utf8_decode('Se extiende la presente en la Ciudad de Iguala, Guerrero., '));
-$pdf->SetFont('Montserrat-Bold', '', 9);
+$pdf->SetFont('montserrat-bold', '', 9);
 $pdf->WriteFlowingBlock(utf8_decode($fech));
 $pdf->finishFlowingBlock();
 $pdf->Ln(20);
 $pdf->SetMargins(0, 0, 0, 0);
 
-$pdf->SetFont('Montserrat-Bold', '', '9');
+$pdf->SetFont('montserrat-bold', '', '9');
 $pdf->Cell(160, 5, utf8_decode("ATENTAMENTE"), 0, 0, 'C');
 $pdf->Ln(5);
 $pdf->Cell(25);
-$pdf->SetFont('Montserrat-Regular', '', '9');
+$pdf->SetFont('montserrat-regular', '', '9');
 $pdf->Cell(160, 5, utf8_decode("Excelencia en Educación Tecnológica"), 0, 0, 'C');
 $pdf->Ln(5);
 $pdf->Cell(25);
 $pdf->Cell(160, 5, utf8_decode("Tecnología como Sinónimo de Independencia"), 0, 0, 'C');
 $pdf->Ln(25);
 $pdf->Cell(105);
-$pdf->SetFont('Montserrat-Bold', '', '9');
+$pdf->SetFont('montserrat-bold', '', '9');
 $pdf->Cell(90, 5, utf8_decode("Vo. Bo. "), 0, 0, 'C');
 
 $pdf->Ln(25);
 $pdf->Cell(15);
-$pdf->SetFont('Montserrat-Bold', '', '9');
+$pdf->SetFont('montserrat-bold', '', '9');
 $pdf->Cell(90, 5, utf8_decode($DepSistemas['nombre']), 0, 0, 'C');
 
-$pdf->SetFont('Montserrat-Regular', '', '9');
+$pdf->SetFont('montserrat-regular', '', '9');
 $pdf->Ln(5);
 $pdf->Cell(15);
 if ($DepSistemas['sexo'] == 'F') {
@@ -599,9 +600,9 @@ if ($DepSistemas['sexo'] == 'F') {
 
 $pdf->Ln(-10);
 $pdf->Cell(105);
-$pdf->SetFont('Montserrat-Bold', '', '9');
+$pdf->SetFont('montserrat-bold', '', '9');
 $pdf->Cell(90, 5, utf8_decode($SubDirector['nombre']), 0, 0, 'C');
-$pdf->SetFont('Montserrat-Regular', '', '9');
+$pdf->SetFont('montserrat-regular', '', '9');
 $pdf->Ln(5);
 $pdf->Cell(105);
 if ($SubDirector['sexo'] == 'F') {
@@ -611,7 +612,7 @@ if ($SubDirector['sexo'] == 'F') {
 }
 $pdf->Ln(10);
 $pdf->Cell(15);
-$pdf->SetFont('Montserrat-Regular', '', '9');
+$pdf->SetFont('montserrat-regular', '', '9');
 $pdf->Cell(180, 5, utf8_decode("c.c.p. Jefe de Departamento de Sistemas y Computación."), 0, 0, "L");
 
 $pdf->Output('I', 'CONSTANCIA_DE_CUMPLIMIENTO_DE_ACTIVIDAD_COMPLEMENTARIA_' . $txtNC . '.pdf', 'I');
