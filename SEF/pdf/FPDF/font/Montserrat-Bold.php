@@ -1,6 +1,6 @@
 <?php
 $type = 'TrueType';
-$name = 'Montserrat-Bold';
+$name = 'montserrat-bold';
 $desc = array('Ascent'=>968,'Descent'=>-251,'CapHeight'=>700,'Flags'=>32,'FontBBox'=>'[-882 -266 1679 1076]','ItalicAngle'=>0,'StemV'=>120,'MissingWidth'=>587);
 $up = -75;
 $ut = 50;
@@ -19,7 +19,7 @@ $cw = array(
 	chr(242)=>655,chr(243)=>655,chr(244)=>655,chr(245)=>655,chr(246)=>655,chr(247)=>599,chr(248)=>655,chr(249)=>687,chr(250)=>687,chr(251)=>687,chr(252)=>687,chr(253)=>598,chr(254)=>690,chr(255)=>598);
 $enc = 'cp1252';
 $uv = array(0=>array(0,128),128=>8364,130=>8218,131=>402,132=>8222,133=>8230,134=>array(8224,2),136=>710,137=>8240,138=>352,139=>8249,140=>338,142=>381,145=>array(8216,2),147=>array(8220,2),149=>8226,150=>array(8211,2),152=>732,153=>8482,154=>353,155=>8250,156=>339,158=>382,159=>376,160=>array(160,96));
-$file = 'Montserrat-Bold.z';
-$originalsize = 31356;
-$subsetted = true;
+// $file = 'montserrat-bold.z';
+// $originalsize = 31356;
+// $subsetted = true;
 ?>
