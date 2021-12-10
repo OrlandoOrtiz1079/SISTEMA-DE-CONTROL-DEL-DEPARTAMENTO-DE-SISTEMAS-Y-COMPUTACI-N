@@ -63,6 +63,9 @@ CUERPO DOCUMENTO
         if (isset($_SESSION['perfil']) && $_SESSION['perfil'] == "Administrador") {
             include "modulos/cabezote.php";
             // echo $rutaM."modulos/cabezote.php";
+        } else if (isset($_SESSION['perfil']) && $_SESSION['perfil'] == "Secretaria") {
+            include "modulos/cabezote.php";
+            // echo $rutaM."modulos/cabezote.php";
         } else {
             include "modulos/cabezoteUser.php";
         }
@@ -84,12 +87,13 @@ CUERPO DOCUMENTO
             }
         }
         // Usuario normal
-        if (isset($_GET["ruta"]) && $_SESSION['perfil'] != "Administrador") {
+        if (isset($_GET["ruta"]) && $_SESSION['perfil'] == "Secretaria") {
             if (
-                $_GET["ruta"] == "Inicio" ||
-                $_GET["ruta"] == "Residentes" ||
-                $_GET["ruta"] == "Directorio" ||
+                $_GET["ruta"] == "Inicio"  ||
                 $_GET["ruta"] == "CerrarSesion" ||
+                $_GET["ruta"] == "Cfrentealgrupo" ||
+                $_GET["ruta"] == "Cactividadesacademicas" ||
+                $_GET["ruta"] == "Ccomicion" ||
                 $_GET["ruta"] == "Regresar"
             ) {
 

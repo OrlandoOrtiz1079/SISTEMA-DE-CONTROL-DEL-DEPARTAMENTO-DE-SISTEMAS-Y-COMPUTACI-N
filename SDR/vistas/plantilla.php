@@ -86,12 +86,16 @@ CUERPO DOCUMENTO
                 include "modulos/404.php";
             }
         }
-        // Usuario normal
-        if (isset($_GET["ruta"]) && $_SESSION['perfil'] != "Administrador") {
+
+        // Usuario administrativo
+        if (isset($_GET["ruta"]) && $_SESSION['perfil'] == "Secretaria") {
             if (
                 $_GET["ruta"] == "Inicio" ||
+                $_GET["ruta"] == "Usuarios" ||
                 $_GET["ruta"] == "Residentes" ||
+                $_GET["ruta"] == "Docentes" ||
                 $_GET["ruta"] == "Directorio" ||
+                $_GET["ruta"] == "Jerarquia" ||
                 $_GET["ruta"] == $cargarPreRegistro ||
                 $_GET["ruta"] == "CerrarSesion" ||
                 $_GET["ruta"] == "Regresar"
@@ -102,6 +106,25 @@ CUERPO DOCUMENTO
                 include "modulos/404.php";
             }
         }
+
+
+
+        // // Usuario normal
+        // if (isset($_GET["ruta"]) && $_SESSION['perfil'] != "Administrador") {
+        //     if (
+        //         $_GET["ruta"] == "Inicio" ||
+        //         $_GET["ruta"] == "Residentes" ||
+        //         $_GET["ruta"] == "Directorio" ||
+        //         $_GET["ruta"] == $cargarPreRegistro ||
+        //         $_GET["ruta"] == "CerrarSesion" ||
+        //         $_GET["ruta"] == "Regresar"
+        //     ) {
+
+        //         include "modulos/" . $_GET["ruta"] . ".php";
+        //     } else {
+        //         include "modulos/404.php";
+        //     }
+        // }
         if (!isset($_GET["ruta"])) {
             include "modulos/Inicio.php";
         }
