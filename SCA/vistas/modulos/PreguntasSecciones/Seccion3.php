@@ -1,4 +1,4 @@
-<h1 style="color: #F3F8FB; background-color:#F3F8FB;">43535</h1>
+<h1 style="color: #F3F8FB; background-color:#F3F8FB;">FORMACIÓN INTEGRAL</h1>
 <div class="card mt-3">
     <!--Sección preguntas de Formación integral-->
     <div class="card-body">

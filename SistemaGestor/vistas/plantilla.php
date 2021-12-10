@@ -36,14 +36,14 @@ session_start();
     <!-- sweetalert2 -->
     <script src="vistas/assets/js/sweetalert2.all.min.js"></script>
     <script>
-    function preventBack() {
-      window.history.forward();
-    }
-    setTimeout("preventBack()", 0);
-    window.onunload = function() {
-      null
-    };
-  </script>
+        function preventBack() {
+            window.history.forward();
+        }
+        setTimeout("preventBack()", 0);
+        window.onunload = function() {
+            null
+        };
+    </script>
 </head>
 
 <!--=====================================
@@ -64,6 +64,12 @@ CUERPO DOCUMENTO
         if (isset($_SESSION['perfil']) && $_SESSION['perfil'] == "Administrador") {
             include "modulos/cabezote.php";
             // echo $rutaM."modulos/cabezote.php";
+        } else  if (isset($_SESSION['perfil']) && $_SESSION['perfil'] == "Secretaria") {
+            include "modulos/cabezote.php";
+            // echo $rutaM."modulos/cabezote.php";
+        } else  if (isset($_SESSION['perfil']) && $_SESSION['perfil'] == "Servicio") {
+            include "modulos/cabezoteServicio.php";
+            // echo $rutaM."modulos/cabezote.php";
         } else {
             include "modulos/cabezoteUser.php";
         }
@@ -75,7 +81,7 @@ CUERPO DOCUMENTO
                 $_GET["ruta"] == "Generar" ||
                 $_GET["ruta"] == "Registro" ||
                 $_GET["ruta"] == "CerrarSesion" ||
-                $_GET["ruta"] == "Tabla"||
+                $_GET["ruta"] == "Tabla" ||
                 $_GET["ruta"] == "Regresar"
             ) {
 
@@ -84,14 +90,16 @@ CUERPO DOCUMENTO
                 include "modulos/404.php";
             }
         }
-        // Usuario normal
-        if (isset($_GET["ruta"]) && $_SESSION['perfil'] != "Administrador") {
+
+        // Usuario Secretaria
+        if (isset($_GET["ruta"]) && $_SESSION['perfil'] == "Secretaria") {
             if (
                 $_GET["ruta"] == "Inicio"  ||
                 $_GET["ruta"] == "Generar" ||
                 $_GET["ruta"] == "Registro" ||
                 $_GET["ruta"] == "CerrarSesion" ||
-                $_GET["ruta"] == "Tabla"
+                $_GET["ruta"] == "Tabla" ||
+                $_GET["ruta"] == "Regresar"
             ) {
 
                 include "modulos/" . $_GET["ruta"] . ".php";
@@ -99,6 +107,24 @@ CUERPO DOCUMENTO
                 include "modulos/404.php";
             }
         }
+
+        // Usuario Servicio
+        if (isset($_GET["ruta"]) && $_SESSION['perfil'] == "Servicio") {
+            if (
+                $_GET["ruta"] == "Inicio"  ||
+                $_GET["ruta"] == "Registro" ||
+                $_GET["ruta"] == "CerrarSesion" ||
+                $_GET["ruta"] == "Tabla" ||
+                $_GET["ruta"] == "Regresar"
+            ) {
+
+                include "modulos/" . $_GET["ruta"] . ".php";
+            } else {
+                include "modulos/404.php";
+            }
+        }
+
+
         if (!isset($_GET["ruta"])) {
             include "modulos/Inicio.php";
         }
@@ -107,7 +133,7 @@ CUERPO DOCUMENTO
 
         echo '</div>';
     } else {
-        include "modulos/login.php";
+        // include "modulos/login.php";
     }
 
     ?>

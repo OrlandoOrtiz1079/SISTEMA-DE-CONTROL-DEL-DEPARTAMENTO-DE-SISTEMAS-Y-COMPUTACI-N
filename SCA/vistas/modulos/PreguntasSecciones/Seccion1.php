@@ -1,4 +1,4 @@
-<h1 style="color: #F3F8FB; background-color:#F3F8FB;">43535</h1>
+<h1 style="color: #F3F8FB; background-color:#F3F8FB;">RECURSOS INFORMÁTICOS</h1>
 <div class="card mt-3">
     <!--Sección preguntas de Recursos informáticos-->
     <div class="card-body">

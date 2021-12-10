@@ -1,5 +1,5 @@
 <style>
-    .contenido{
+    .contenido {
         min-height: 80vh;
         position: relative;
     }
@@ -114,8 +114,9 @@
                             <select style="cursor: pointer;" class="custom-select" name="nuevoPerfil">
                                 <option value="">Seleccionar Perfil</option>
                                 <option value="Administrador">Administrador</option>
-                                <option value="Usuario">Usuario</option>
                                 <option value="Secretaria">Secretaria</option>
+                                <option value="Servicio">Servicio</option>
+                                <option value="Laboratorio">Laboratorio</option>
                                 <option value="Policia">Policia</option>
                             </select>
                         </div>
@@ -188,8 +189,9 @@ MODAL EDITAR USUARIO
                         <select style="cursor: pointer;" class="custom-select" id="editarPerfil" name="editarPerfil">
                             <option value="">Seleccionar Perfil</option>
                             <option value="Administrador">Administrador</option>
-                            <option value="Usuario">Usuario</option>
                             <option value="Secretaria">Secretaria</option>
+                            <option value="Servicio">Servicio</option>
+                            <option value="Laboratorio">Laboratorio</option>
                             <option value="Policia">Policia</option>
                         </select>
                     </div>

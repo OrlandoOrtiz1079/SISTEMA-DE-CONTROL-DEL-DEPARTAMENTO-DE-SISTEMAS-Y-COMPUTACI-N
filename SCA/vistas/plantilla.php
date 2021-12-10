@@ -56,6 +56,12 @@ CUERPO DOCUMENTO
         if (isset($_SESSION['perfil']) && $_SESSION['perfil'] == "Administrador") {
             include "modulos/cabezote.php";
             // echo $rutaM."modulos/cabezote.php";
+        } else if (isset($_SESSION['perfil']) && $_SESSION['perfil'] == "Servicio") {
+            include "modulos/CabezoteServicio.php";
+            // echo $rutaM."modulos/cabezote.php";
+        } else if (isset($_SESSION['perfil']) && $_SESSION['perfil'] == "Laboratorio") {
+            include "modulos/CabezoteLap.php";
+            // echo $rutaM."modulos/cabezote.php";
         } else {
             include "modulos/cabezoteUser.php";
         }
@@ -90,14 +96,20 @@ CUERPO DOCUMENTO
                 include "modulos/404.php";
             }
         }
-        // Usuario normal
-        if (isset($_GET["ruta"]) && $_SESSION['perfil'] != "Administrador") {
+
+        // Usuario Servicio
+        if (isset($_GET["ruta"]) && $_SESSION['perfil'] == "Servicio") {
             if (
                 $_GET["ruta"] == "Regresar" ||
                 $_GET["ruta"] == "Inicio" ||
-                $_GET["ruta"] == "Reporteencuesta" ||
-                $_GET["ruta"] == "Directorio" ||
+                $_GET["ruta"] == "Reportes" ||
+                $_GET["ruta"] == "Reporteencuestas" ||
+                $_GET["ruta"] == "Sugerencias" ||
+                $_GET["ruta"] == "Encuestainicio" ||
                 $_GET["ruta"] == "Reportesanual" ||
+                $_GET["ruta"] == "Preguntas" ||
+                $_GET["ruta"] == "CargarRespuestas" ||
+                $_GET["ruta"] == "reporteencuesta" ||
                 $_GET["ruta"] == "Historial" ||
                 $_GET["ruta"] == "CerrarSesion"
             ) {
@@ -107,9 +119,50 @@ CUERPO DOCUMENTO
                 include "modulos/404.php";
             }
         }
-        if (!isset($_GET["ruta"])) {
-            include "modulos/Inicio.php";
+        // Usuario Servicio
+        if (isset($_GET["ruta"]) && $_SESSION['perfil'] == "Laboratorio") {
+            if (
+                $_GET["ruta"] == "Regresar" ||
+                $_GET["ruta"] == "Inicio" ||
+                $_GET["ruta"] == "Reportes" ||
+                $_GET["ruta"] == "Reporteencuestas" ||
+                $_GET["ruta"] == "Sugerencias" ||
+                $_GET["ruta"] == "Encuestainicio" ||
+                $_GET["ruta"] == "Reportesanual" ||
+                $_GET["ruta"] == "Preguntas" ||
+                $_GET["ruta"] == "CargarRespuestas" ||
+                $_GET["ruta"] == "reporteencuesta" ||
+                $_GET["ruta"] == "Historial" ||
+                $_GET["ruta"] == "CerrarSesion"
+            ) {
+
+                include "modulos/" . $_GET["ruta"] . ".php";
+            } else {
+                include "modulos/404.php";
+            }
         }
+
+
+        // // Usuario normal
+        // if (isset($_GET["ruta"]) && $_SESSION['perfil'] != "Administrador") {
+        //     if (
+        //         $_GET["ruta"] == "Regresar" ||
+        //         $_GET["ruta"] == "Inicio" ||
+        //         $_GET["ruta"] == "Reporteencuesta" ||
+        //         $_GET["ruta"] == "Directorio" ||
+        //         $_GET["ruta"] == "Reportesanual" ||
+        //         $_GET["ruta"] == "Historial" ||
+        //         $_GET["ruta"] == "CerrarSesion"
+        //     ) {
+
+        //         include "modulos/" . $_GET["ruta"] . ".php";
+        //     } else {
+        //         include "modulos/404.php";
+        //     }
+        // }
+        // if (!isset($_GET["ruta"])) {
+        //     include "modulos/Inicio.php";
+        // }
 
         include "modulos/footer.php";
 

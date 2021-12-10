@@ -160,7 +160,7 @@
                          </div>
                      </div>
                      <h6 style="background-color: #FFC107; color: white;" class="text-center py-2" width="50"><b>SOLICITUD DE VIÁTICOS Y PASAJE</b></h6>
-                     
+
                      <br>
 
                      <h6 align="justify"><b>Solicita:</b></h6>
@@ -220,11 +220,10 @@
                          </div>
                      </div>
 
-    
-                   
                      <br><br>
                      <div align="end">
-                         <a href="/" class="btn btn-danger"><i class="fas fa-window-close"></i> Cancelar</a>
+                         <a href="Inicio" class="btn btn-warning" style="background-color: #FFC107; color: white;" title="Ver constancias"><i class="fas fa-file  fa-lg"></i> Ver constancias </a>
+                         <a href="Ccomicion" class="btn btn-danger" title="Cancelar"><i class="fas fa-window-close"></i> Reset</a>
                          <button type="submit" class="btn btn-warning" style="background-color: #FFC107; color: white;"><i class="fas fa-file-pdf"></i> Generar PDF</button>
                      </div>
                  </form>

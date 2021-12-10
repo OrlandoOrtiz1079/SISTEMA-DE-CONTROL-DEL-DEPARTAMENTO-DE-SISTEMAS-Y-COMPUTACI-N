@@ -53,6 +53,8 @@ CUERPO DOCUMENTO
         if (isset($_SESSION['perfil']) && $_SESSION['perfil'] == "Administrador") {
             include "modulos/cabezote.php";
             // echo $rutaM."modulos/cabezote.php";
+        } else   if (isset($_SESSION['perfil']) && $_SESSION['perfil'] == "Secretaria") {
+            include "modulos/cabezote.php";
         } else {
             include "modulos/cabezoteUser.php";
         }
@@ -75,8 +77,8 @@ CUERPO DOCUMENTO
                 $_GET["ruta"] == "Directorio" ||
                 $_GET["ruta"] == "Jerarquia" ||
                 $_GET["ruta"] == $cargarPreRegistro ||
-                $_GET["ruta"] == "CerrarSesion"||
-                $_GET["ruta"] == "Regresar" 
+                $_GET["ruta"] == "CerrarSesion" ||
+                $_GET["ruta"] == "Regresar"
             ) {
 
                 include "modulos/" . $_GET["ruta"] . ".php";
@@ -91,8 +93,8 @@ CUERPO DOCUMENTO
                 $_GET["ruta"] == "Residentes" ||
                 $_GET["ruta"] == "Directorio" ||
                 $_GET["ruta"] == $cargarPreRegistro ||
-                $_GET["ruta"] == "CerrarSesion"||
-                $_GET["ruta"] == "Regresar" 
+                $_GET["ruta"] == "CerrarSesion" ||
+                $_GET["ruta"] == "Regresar"
             ) {
 
                 include "modulos/" . $_GET["ruta"] . ".php";

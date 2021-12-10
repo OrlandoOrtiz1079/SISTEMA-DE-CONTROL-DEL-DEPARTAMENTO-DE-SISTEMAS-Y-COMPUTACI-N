@@ -295,7 +295,7 @@ class PDF_FlowingBlock  extends FPDF
 $pdf = new PDF_FlowingBlock();
 
 $tabla = "directorio";
-$Escolares = "DEPARTAMENTO DE SERVICIOS ESCOLARES";
+$Escolares = "JEFA DEL DEPARTAMENTO DE SERVICIOS ESCOALRES";
 $DepEscolares = ControladorJerarquia::ctrMostrarDocentesDirectorio($tabla, $Escolares);
 
 

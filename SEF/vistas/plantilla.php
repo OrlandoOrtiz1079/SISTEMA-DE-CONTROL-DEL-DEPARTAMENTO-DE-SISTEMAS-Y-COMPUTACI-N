@@ -35,14 +35,14 @@ session_start();
     <!-- sweetalert2 -->
     <script src="vistas/assets/js/sweetalert2.all.min.js"></script>
     <script>
-    function preventBack() {
-      window.history.forward();
-    }
-    setTimeout("preventBack()", 0);
-    window.onunload = function() {
-      null
-    };
-  </script>
+        function preventBack() {
+            window.history.forward();
+        }
+        setTimeout("preventBack()", 0);
+        window.onunload = function() {
+            null
+        };
+    </script>
 </head>
 
 <!--=====================================
@@ -71,12 +71,10 @@ CUERPO DOCUMENTO
         if (isset($_GET["ruta"]) && $_SESSION['perfil'] == "Administrador") {
             if (
                 $_GET["ruta"] == "Inicio"  ||
-                $_GET["ruta"] == "Docentes" ||
-                $_GET["ruta"] == "Jerarquia" ||
                 $_GET["ruta"] == "CerrarSesion" ||
-                $_GET["ruta"] == "Cfrentealgrupo"||
-                $_GET["ruta"] == "Cactividadesacademicas"||
-                $_GET["ruta"] == "Ccomicion"||
+                $_GET["ruta"] == "Cfrentealgrupo" ||
+                $_GET["ruta"] == "Cactividadesacademicas" ||
+                $_GET["ruta"] == "Ccomicion" ||
                 $_GET["ruta"] == "Regresar"
             ) {
 
@@ -91,7 +89,7 @@ CUERPO DOCUMENTO
                 $_GET["ruta"] == "Inicio" ||
                 $_GET["ruta"] == "Residentes" ||
                 $_GET["ruta"] == "Directorio" ||
-                $_GET["ruta"] == "CerrarSesion"||
+                $_GET["ruta"] == "CerrarSesion" ||
                 $_GET["ruta"] == "Regresar"
             ) {
 
@@ -113,12 +111,8 @@ CUERPO DOCUMENTO
 
     ?>
 
-
     <!-- jquery latest version -->
-    <!-- <script src="vistas/assets/js/vendor/jquery-2.2.4.min.js"></script> -->
     <script src="vistas/assets/js/vendor/jquery-3.4.0.min.js"></script>
-    <!-- switch bootstrap -->
-    <!-- <script src="vistas/assets/js/switch-bootstrap4-toggle.min.js"></script> -->
     <!-- bootstrap 4 js -->
     <script src="vistas/assets/js/popper.min.js"></script>
     <script src="vistas/assets/js/bootstrap.min.js"></script>
