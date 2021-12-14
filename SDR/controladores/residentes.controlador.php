@@ -80,17 +80,17 @@ class ControladorResidentes
 
                 if (isset($_SESSION['perfil']) && $_SESSION['perfil'] == "Administrador") {
                     echo '<button class="btn btn-warning btnEditResidente" idResidenteEdit="' . $value["id"] . '" data-toggle="modal" data-target="#modalER"><i class="fa fa-edit"></i></button>';
-                    echo '<button class="btn btn-danger  btnEliminarResidente" idResidenteelim="' . $value["id"] . '""><i class="fa fa-times"></i></button>';
-
+                    echo '<button class="btn btn-danger  btnEliminarResidente" idResidenteelim="' . $value["id"] . '""><i class="fa fa-trash-alt"></i></button>';
+                  
                     $borrarDocente = new ControladorResidentes();
                     $borrarDocente->ctrBorrarResidente();
                 }
                 echo '
-                                    <button class="btn btn-primary btnInfoResidente" idResidente="' . $value["id"] . '" data-toggle="modal" data-target="#modalInfo"><i class="fa fa-info"></i></button>
-                                    <button class="btn btn-success btnImprimirDoc" idResidenteImp="' . $value["id"] . '"data-toggle="modal" data-target="#modalFormatosRP"><i class="fa fa-print"></i></button>
-                                </div>
-                            </td>
-                        </tr>';
+                <button class="btn btn-primary btnInfoResidente" idResidente="' . $value["id"] . '" data-toggle="modal" data-target="#modalInfo"><i class="fa fa-info"></i></button>
+                <button class="btn btn-success btnImprimirDoc" idResidenteImp="' . $value["id"] . '"data-toggle="modal" data-target="#modalFormatosRP"><i class="fa fa-print"></i></button>
+                        </div>
+                        </td>
+                    </tr>';
             } elseif ($value["tipo"] == "Tesis") { //TESIS
                 echo ' <tr class="table-danger">
                             <td>' . $value["id"] . '</td>

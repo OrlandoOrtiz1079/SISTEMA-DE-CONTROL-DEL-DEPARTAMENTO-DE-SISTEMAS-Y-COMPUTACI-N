@@ -25,7 +25,7 @@ class ControladorDirectorio
 
                 if (isset($_SESSION['perfil']) && $_SESSION['perfil'] == "Administrador") {
                     echo '<button class="btn btn-warning btnEditdireccion" idDireccionEdit="' . $value["id"] . '" data-toggle="modal" data-target="#modalEditDirectory"><i class="fa fa-edit"></i></button>';
-                    echo '<button class="btn btn-danger  btnEliminarDirectorio" idDirectorio="' . $value["id"] . '""><i class="fa fa-times"></i></button>';
+                    echo '<button class="btn btn-danger  btnEliminarDirectorio" idDirectorio="' . $value["id"] . '""><i class="fa fa-trash-alt"></i></button>';
                     
                     $borrarDocente = new ControladorDirectorio();
                     $borrarDocente->ctrBorrarDirectorio();
