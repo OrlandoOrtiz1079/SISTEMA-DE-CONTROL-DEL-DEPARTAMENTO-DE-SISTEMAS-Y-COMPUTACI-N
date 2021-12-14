@@ -4,8 +4,7 @@
 
             <!--Formulario de registro de visitas-->
             <form role="form" method="post" enctype="multipart/form-data" class="bg-white py-3 px-4">
-
-                <h1 style="background-color: #007BFF; padding: 10px;color: white;" class=" text-center">Formulario de registro</h1>
+                <h1 style="background-color: #007BFF; padding: 10px;color: white;" class=" text-center">Registro De Acceso</h1>
 
                 <br>
                 <div class="form-floating mb-3">
@@ -18,9 +17,14 @@
                 </div>
 
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingInput" onkeyup="mayus(this);" placeholder="Carrera"  required name="carrera">
+                    <input type="text" class="form-control" id="floatingInput" onkeyup="mayus(this);" placeholder="Carrera" required name="carrera">
                     <label for="floatingInput">Carrera</label>
                 </div>
+                <div class="form-floating mb-3">
+                    <input style="cursor: no-drop;" readonly value="<?php echo $_POST['laboratorio'];?>" type="text" class="form-control" id="floatingInput" required name="laboratorio">
+                    <label for="floatingInput">Laboratorio</label>
+                </div>
+
 
 
                 <div align="end">
@@ -29,8 +33,8 @@
                 </div>
 
                 <?php
-                $crearRegistro = new ControladorAlumnos();
-                $crearRegistro->ctrCrearAlumno();
+                $crearRegistro = new ControladorRegistro();
+                $crearRegistro->ctrCrearRegistro();
                 ?>
             </form>
         </div>
