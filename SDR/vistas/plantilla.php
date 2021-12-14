@@ -162,6 +162,8 @@ CUERPO DOCUMENTO
     <script src="vistas/assets/js/responsive.bootstrap.min.js"></script>
 
     <!-- others plugins -->
+    <script src="vistas/assets/js/eliminardirectorio.js"></script>
+    <script src="vistas/assets/js/eliminarResidente.js"></script>
     <script src="vistas/assets/js/jerarquia.js"></script>
     <script src="vistas/assets/js/configSDR.js"></script>
     <script src="vistas/assets/js/pre-registro.js"></script>

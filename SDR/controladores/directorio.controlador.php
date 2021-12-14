@@ -25,6 +25,10 @@ class ControladorDirectorio
 
                 if (isset($_SESSION['perfil']) && $_SESSION['perfil'] == "Administrador") {
                     echo '<button class="btn btn-warning btnEditdireccion" idDireccionEdit="' . $value["id"] . '" data-toggle="modal" data-target="#modalEditDirectory"><i class="fa fa-edit"></i></button>';
+                    echo '<button class="btn btn-danger  btnEliminarDirectorio" idDirectorio="' . $value["id"] . '""><i class="fa fa-times"></i></button>';
+                    
+                    $borrarDocente = new ControladorDirectorio();
+                    $borrarDocente->ctrBorrarDirectorio();
             }else{
                 echo '<button class="btn btn-warning btnEditdireccion" disabled idDireccionEdit="' . $value["id"] . '" data-toggle="modal" data-target="#modalEditDirectory"><i class="fa fa-edit"></i></button>';
             
@@ -102,5 +106,31 @@ class ControladorDirectorio
         $tabla = "directorio";
         $respuesta = ModeloDirectorio::MdlMostrarEditDirectorio($tabla, $item, $valor);
         return $respuesta;
+    }
+
+        /*=============================================
+    BORRAR Directorio
+    =============================================*/
+    public static function ctrBorrarDirectorio(){
+        if (isset($_GET["idDirectorio"])) {
+            $tabla = "directorio";
+            $datos = $_GET["idDirectorio"];
+
+            $respuesta = ModeloDirectorio::MdlBorrarDirectorio($tabla, $datos);
+            if ($respuesta == "ok") {
+                echo '<script>
+			   Swal.fire({
+					type: "success",
+				   title: "¡Eliminado Correctamente!",
+				   showConfirmButton: true,
+				   confirmButtonText: "Cerrar"
+			   }).then((result)=>{
+				   if(result.value){
+					   window.location = "Directorio";
+				   }
+				   });
+			 </script>';
+            }
+        }
     }
 }

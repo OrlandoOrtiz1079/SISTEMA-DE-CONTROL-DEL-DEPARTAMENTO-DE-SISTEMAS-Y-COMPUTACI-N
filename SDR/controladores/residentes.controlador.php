@@ -24,16 +24,15 @@ class ControladorResidentes
             }
             if ($asesores == null) {
                 echo '<option value="NA">SIN ASESORES POR EL MOMENTO</option>';
-            }else{
+            } else {
                 echo $asesores;
             }
-        }else{
+        } else {
             echo '<option value="NA">SIN ASESORES POR EL MOMENTO</option>';
         }
-        
     }
 
-        /*=============================================
+    /*=============================================
     MOSTRAR TODOS LOS ASESORES/REVISORES/SUPLENTES
     =============================================*/
     public static function ctrMostrarTodosLosDocesentes2()
@@ -43,14 +42,13 @@ class ControladorResidentes
         echo $tabla . ' ' . $item . ' ' . $valor;
         $respuesta = ModeloResidentes::MdlMostrarDocentes($tabla, $item);
 
-            foreach ($respuesta as $key => $value) {
-                if ($value["id"] != 0) {
-                    if ($value["estado"] != 0) {
-                        echo '<option value="' . $value["id"] . '">' . $value["nombre"] . '</option>';
-                    }
+        foreach ($respuesta as $key => $value) {
+            if ($value["id"] != 0) {
+                if ($value["estado"] != 0) {
+                    echo '<option value="' . $value["id"] . '">' . $value["nombre"] . '</option>';
                 }
             }
-        
+        }
     }
 
 
@@ -66,9 +64,9 @@ class ControladorResidentes
         $respuesta = ModeloResidentes::MdlMostrarResidentesEnTabla($tabla, $item, $valor);
 
         foreach ($respuesta as $key => $value) {
-            if ($value["tipo"] == "Residencias") {//RESIDENCIAS
-             
-       
+            if ($value["tipo"] == "Residencias") { //RESIDENCIAS
+
+
                 echo ' <tr class="table-success">
                             <td>' . $value["id"] . '</td>
                             <td>' . $value["nombre"] . '</td>
@@ -82,6 +80,10 @@ class ControladorResidentes
 
                 if (isset($_SESSION['perfil']) && $_SESSION['perfil'] == "Administrador") {
                     echo '<button class="btn btn-warning btnEditResidente" idResidenteEdit="' . $value["id"] . '" data-toggle="modal" data-target="#modalER"><i class="fa fa-edit"></i></button>';
+                    echo '<button class="btn btn-danger  btnEliminarResidente" idResidenteelim="' . $value["id"] . '""><i class="fa fa-times"></i></button>';
+
+                    $borrarDocente = new ControladorResidentes();
+                    $borrarDocente->ctrBorrarResidente();
                 }
                 echo '
                                     <button class="btn btn-primary btnInfoResidente" idResidente="' . $value["id"] . '" data-toggle="modal" data-target="#modalInfo"><i class="fa fa-info"></i></button>
@@ -89,7 +91,7 @@ class ControladorResidentes
                                 </div>
                             </td>
                         </tr>';
-            } elseif ($value["tipo"] == "Tesis") {//TESIS
+            } elseif ($value["tipo"] == "Tesis") { //TESIS
                 echo ' <tr class="table-danger">
                             <td>' . $value["id"] . '</td>
                             <td>' . $value["nombre"] . '</td>
@@ -149,7 +151,7 @@ class ControladorResidentes
             $tipo = 1;
 
             // Quitarles los residentes a los docentes
-            $restarResidente1 = $_POST["nuevoAsesorInt"]; 
+            $restarResidente1 = $_POST["nuevoAsesorInt"];
 
             $na = 0;
             $datosProyecto = array(
@@ -199,18 +201,18 @@ class ControladorResidentes
                             window.location = 'Residentes';
                             });
                         </script>";
-            //    RESTAR SOLO AL ASESOR
-            //     $tablaDocente = "asesor";
-            //   $res1 = ModeloResidentes::mdlSumarResidente($tablaDocente, $restarResidente1);
+                    //    RESTAR SOLO AL ASESOR
+                    //     $tablaDocente = "asesor";
+                    //   $res1 = ModeloResidentes::mdlSumarResidente($tablaDocente, $restarResidente1);
 
-              
+
                 } else {
                     //BORRAR PROYECTO SINO SE PUEDE REGISTRAR
                     //NOTE CAMBIO LOS ATRIBUTOS ENVIADOS AL METODO
-                $revisarProyecto = ModeloResidentes::mdlRevisarPro($tabla1, $_POST["nuevoNombreProyecto"]);
-                $tablaE = "proyecto";
-                $revisarProyecto = ModeloResidentes::mdlEliminarPro($tablaE, $revisarProyecto["id"]);
-                //TERMINA
+                    $revisarProyecto = ModeloResidentes::mdlRevisarPro($tabla1, $_POST["nuevoNombreProyecto"]);
+                    $tablaE = "proyecto";
+                    $revisarProyecto = ModeloResidentes::mdlEliminarPro($tablaE, $revisarProyecto["id"]);
+                    //TERMINA
                     echo '<script>
                     Swal.fire({
                          type: "error",
@@ -262,7 +264,7 @@ class ControladorResidentes
             $tipo = 2;
             //$encriptar = crypt($_POST["nuevoPassword"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
 
-            $restarResidente1 = $_POST["nuevoAsesorInt"]; 
+            $restarResidente1 = $_POST["nuevoAsesorInt"];
             $na = 0;
             $datosProyecto = array(
                 "nombreProyecto" => $_POST["nuevoNombreProyecto"],
@@ -311,15 +313,15 @@ class ControladorResidentes
                             window.location = 'Residentes';
                             });
                         </script>";
-            //   $tablaDocente = "asesor";
-            //   $res1 = ModeloResidentes::mdlSumarResidente($tablaDocente, $restarResidente1);
+                    //   $tablaDocente = "asesor";
+                    //   $res1 = ModeloResidentes::mdlSumarResidente($tablaDocente, $restarResidente1);
                 } else {
                     //BORRAR PROYECTO SINO SE PUEDE REGISTRAR
                     //NOTE CAMBIO LOS ATRIBUTOS ENVIADOS AL METODO
-                $revisarProyecto = ModeloResidentes::mdlRevisarPro($tabla1, $_POST["nuevoNombreProyecto"]);
-                $tablaE = "proyecto";
-                $revisarProyecto = ModeloResidentes::mdlEliminarPro($tablaE, $revisarProyecto["id"]);
-                //TERMINA
+                    $revisarProyecto = ModeloResidentes::mdlRevisarPro($tabla1, $_POST["nuevoNombreProyecto"]);
+                    $tablaE = "proyecto";
+                    $revisarProyecto = ModeloResidentes::mdlEliminarPro($tablaE, $revisarProyecto["id"]);
+                    //TERMINA
                     echo '<script>
                     Swal.fire({
                          type: "error",
@@ -341,8 +343,8 @@ class ControladorResidentes
                 $tablaE = "proyecto";
                 $revisarProyecto = ModeloResidentes::mdlEliminarPro($tablaE, $revisarProyecto["id"]);
                 //TERMINA
-                echo '<script>console.log("336 - RPE: '.$revisarProyecto.'");</script>';
-                echo '<script>console.log("337 - '.$respuestaProyecto.'");</script>';
+                echo '<script>console.log("336 - RPE: ' . $revisarProyecto . '");</script>';
+                echo '<script>console.log("337 - ' . $respuestaProyecto . '");</script>';
                 echo '<script>
 				Swal.fire({
 					 type: "error",
@@ -374,7 +376,7 @@ class ControladorResidentes
             $NoRevicion = 0;
 
             // Revicioness
-            if($_POST["customCheck1"]){
+            if ($_POST["customCheck1"]) {
                 $NoRevicion = 1;
             }
             if ($_POST["customCheck2"]) {
@@ -442,7 +444,7 @@ class ControladorResidentes
                 $resResidente = ModeloResidentes::mdlEditResidenteDatos($tabla2, $datosResidente);
 
                 if ($resResidente == "ok") {
-            echo "<script>
+                    echo "<script>
                         Swal.fire({
                             position: 'top',
                             type: 'success',
@@ -493,74 +495,74 @@ class ControladorResidentes
             }
         } else {
             if (isset($_POST["editTipo"]) && $_POST["editTipo"] == "Tesis Profesional") {
-            $tabla1 = "proyecto";
-            $tabla2 = "residentes";
-            $tipo = 2;
-            $NoRevicion = 0;
-            if ($_POST["CheckTesis"]) {
-                $NoRevicion = 3;
-            }else{
+                $tabla1 = "proyecto";
+                $tabla2 = "residentes";
+                $tipo = 2;
                 $NoRevicion = 0;
-            }
-
-            if ($_POST["editRevisor1"] == null) {
-                $_POST["editRevisor1"] = 0;
-            }
-            if ($_POST["editRevisor2"] == null) {
-                $_POST["editRevisor2"] = 0;
-            }
-            if ($_POST["editRevisor3"] == null) {
-                $_POST["editRevisor3"] = 0;
-            }
-
-
-            $na = 0;
-            $datosProyecto = array(
-                "idP" => $_POST["idProyectoEdit"],
-                "nombreProyecto" => $_POST["editNombreProyecto"],
-                "nombreEmpresa" => $_POST["editNombreEmpresa"],
-                "asesorExt" => $na,
-                "asesorInt" => $_POST["editAsesorInt"],
-                "revisor1" => $_POST["editRevisor1"],
-                "revisor2" => $_POST["editRevisor2"],
-                "revisor3" => $_POST["editRevisor3"],
-                "suplente" => $na
-            );
-
-            $respuestaProyecto = ModeloResidentes::mdlEditResidenteProyecto($tabla1, $datosProyecto);
-
-
-            if ($respuestaProyecto == "ok") {
-
-                //NOTE CAMBIO LOS ATRIBUTOS ENVIADOS AL METODO
-                $revisarProyecto = ModeloResidentes::mdlRevisarPro($tabla1, $_POST["editNombreProyecto"]);
-
-                if ($_POST["editCarrera"] == "ISC") {
-                    $var1 = "Ingeniería en Sistemas Computacionales";
-                } elseif ($_POST["editCarrera"] == "II") {
-                    $var1 = "Ingeniería Informática";
+                if ($_POST["CheckTesis"]) {
+                    $NoRevicion = 3;
+                } else {
+                    $NoRevicion = 0;
                 }
 
-                $datosResidente = array(
-                    "idRe" => $_POST["idResidenteEdit"],
-                    "noControl" => $_POST["editNoControlEdit"],
-                    "carrera" => $var1,
-                    "periodo" => $_POST["editPeriodo"],
-                    "anio" => $_POST["editPeriodoAnio"],
-                    "nombre" => $_POST["editNombre"],
-                    "apellidoP" => $_POST["editApellidoP"],
-                    "apellidoM" => $_POST["editApellidoM"],
-                    "sexo" => $_POST["editSexo"],
-                    "telefono" => $_POST["editTelefono"],
-                    "revisionOK" => $NoRevicion,
-                    "tipo_registro" => $tipo,
-                    "proyecto_id" => $revisarProyecto["id"]
+                if ($_POST["editRevisor1"] == null) {
+                    $_POST["editRevisor1"] = 0;
+                }
+                if ($_POST["editRevisor2"] == null) {
+                    $_POST["editRevisor2"] = 0;
+                }
+                if ($_POST["editRevisor3"] == null) {
+                    $_POST["editRevisor3"] = 0;
+                }
+
+
+                $na = 0;
+                $datosProyecto = array(
+                    "idP" => $_POST["idProyectoEdit"],
+                    "nombreProyecto" => $_POST["editNombreProyecto"],
+                    "nombreEmpresa" => $_POST["editNombreEmpresa"],
+                    "asesorExt" => $na,
+                    "asesorInt" => $_POST["editAsesorInt"],
+                    "revisor1" => $_POST["editRevisor1"],
+                    "revisor2" => $_POST["editRevisor2"],
+                    "revisor3" => $_POST["editRevisor3"],
+                    "suplente" => $na
                 );
 
-                $resResidente = ModeloResidentes::mdlEditResidenteDatos($tabla2, $datosResidente);
+                $respuestaProyecto = ModeloResidentes::mdlEditResidenteProyecto($tabla1, $datosProyecto);
 
-                if ($resResidente == "ok") {
-            echo "<script>
+
+                if ($respuestaProyecto == "ok") {
+
+                    //NOTE CAMBIO LOS ATRIBUTOS ENVIADOS AL METODO
+                    $revisarProyecto = ModeloResidentes::mdlRevisarPro($tabla1, $_POST["editNombreProyecto"]);
+
+                    if ($_POST["editCarrera"] == "ISC") {
+                        $var1 = "Ingeniería en Sistemas Computacionales";
+                    } elseif ($_POST["editCarrera"] == "II") {
+                        $var1 = "Ingeniería Informática";
+                    }
+
+                    $datosResidente = array(
+                        "idRe" => $_POST["idResidenteEdit"],
+                        "noControl" => $_POST["editNoControlEdit"],
+                        "carrera" => $var1,
+                        "periodo" => $_POST["editPeriodo"],
+                        "anio" => $_POST["editPeriodoAnio"],
+                        "nombre" => $_POST["editNombre"],
+                        "apellidoP" => $_POST["editApellidoP"],
+                        "apellidoM" => $_POST["editApellidoM"],
+                        "sexo" => $_POST["editSexo"],
+                        "telefono" => $_POST["editTelefono"],
+                        "revisionOK" => $NoRevicion,
+                        "tipo_registro" => $tipo,
+                        "proyecto_id" => $revisarProyecto["id"]
+                    );
+
+                    $resResidente = ModeloResidentes::mdlEditResidenteDatos($tabla2, $datosResidente);
+
+                    if ($resResidente == "ok") {
+                        echo "<script>
                         Swal.fire({
                             position: 'top',
                             type: 'success',
@@ -572,8 +574,8 @@ class ControladorResidentes
                             window.location = 'Residentes';
                             });
                         </script>";
-                } else {
-                    echo '<script>
+                    } else {
+                        echo '<script>
                     Swal.fire({
                          type: "error",
                          title: "Error!",
@@ -586,16 +588,16 @@ class ControladorResidentes
                         }
                         });
                   </script>';
-                }
-            } else {
-                //BORRAR PROYECTO SINO SE PUEDE REGISTRAR
-                //NOTE CAMBIO LOS ATRIBUTOS ENVIADOS AL METODO
-                $revisarProyecto = ModeloResidentes::mdlRevisarPro($tabla1, $_POST["editNombreProyecto"]);
-                $tablaE = "proyecto";
-                $revisarProyecto = ModeloResidentes::mdlEliminarPro($tablaE, $revisarProyecto["id"]);
-                //TERMINA
-                var_dump($respuestaProyecto);
-                echo '<script>
+                    }
+                } else {
+                    //BORRAR PROYECTO SINO SE PUEDE REGISTRAR
+                    //NOTE CAMBIO LOS ATRIBUTOS ENVIADOS AL METODO
+                    $revisarProyecto = ModeloResidentes::mdlRevisarPro($tabla1, $_POST["editNombreProyecto"]);
+                    $tablaE = "proyecto";
+                    $revisarProyecto = ModeloResidentes::mdlEliminarPro($tablaE, $revisarProyecto["id"]);
+                    //TERMINA
+                    var_dump($respuestaProyecto);
+                    echo '<script>
 				Swal.fire({
 					 type: "error",
                     title: "¡Error!",
@@ -608,7 +610,7 @@ class ControladorResidentes
 					}
 					});
 			  </script>';
-            }
+                }
             }
         }
     }
@@ -628,7 +630,7 @@ class ControladorResidentes
             $tipo = 1;
 
             // Quitarles los residentes a los docentes
-            $restarResidente1 = $_POST["nuevoAsesorIntR"]; 
+            $restarResidente1 = $_POST["nuevoAsesorIntR"];
 
             $na = 0;
             $datosProyecto = array(
@@ -667,7 +669,7 @@ class ControladorResidentes
                 $resResidente = ModeloResidentes::mdlRegistroResidenteDatos($tabla2, $datosResidente);
 
                 if ($resResidente == "ok") {
-              echo "<script>
+                    echo "<script>
                         Swal.fire({
                             position: 'top',
                             type: 'success',
@@ -680,9 +682,8 @@ class ControladorResidentes
                             });
                         </script>";
 
-                        $borrarPreRegistro = new ControladorPreRegistro();
-                        $borrarPreRegistro->ctrBorrarPreRegistroOK();
-
+                    $borrarPreRegistro = new ControladorPreRegistro();
+                    $borrarPreRegistro->ctrBorrarPreRegistroOK();
                 } else {
                     echo '<script>
                     Swal.fire({
@@ -718,6 +719,33 @@ class ControladorResidentes
 					}
 					});
 			  </script>';
+            }
+        }
+    }
+
+    /*=============================================
+    BORRAR Residente
+    =============================================*/
+    public static function ctrBorrarResidente()
+    {
+        if (isset($_GET["idResidenteelim"])) {
+            $tabla = "residentes";
+            $datos = $_GET["idResidenteelim"];
+
+            $respuesta = ModeloResidentes::MdlBorrarResidente($tabla, $datos);
+            if ($respuesta == "ok") {
+                echo '<script>
+			   Swal.fire({
+					type: "success",
+				   title: "¡Eliminado Correctamente!",
+				   showConfirmButton: true,
+				   confirmButtonText: "Cerrar"
+			   }).then((result)=>{
+				   if(result.value){
+					   window.location = "Residentes";
+				   }
+				   });
+			 </script>';
             }
         }
     }
