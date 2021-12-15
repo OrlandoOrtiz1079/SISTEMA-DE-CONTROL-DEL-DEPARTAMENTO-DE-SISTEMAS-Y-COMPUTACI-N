@@ -16,18 +16,19 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="col-md-9 clearfix text-right">
+            <div class="col-md-9 clearfix text-right">
                 <div class="clearfix d-md-inline-block d-block">
                     <div class="user-profile m-0">
                         <img class="avatar user-thumb" src="vistas/assets/images/author/avatar.png" alt="avatar">
-                        <h4 class="user-name dropdown-toggle" data-toggle="dropdown"><?php echo $_SESSION['nombre']; ?> <i class="fa fa-angle-down"></i></h4>
+                        <h4 class="user-name dropdown-toggle" data-toggle="dropdown"><?php echo $_SESSION['nombre']; ?>
+                            <i class="fa fa-angle-down"></i>
+                        </h4>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item  btnEditarMiUsuario" idUsuario=" <?php echo $_SESSION["id"]; ?>" data-toggle="modal" data-target="#modalCambiarPassword" href="#">Cambiar Contraseña</a>
                             <a class="dropdown-item" href="CerrarSesion">Cerrar Sesion</a>
                         </div>
                     </div>
                 </div>
-            </div> -->
+            </div>
         </div>
     </div>
 </div>
@@ -48,9 +49,6 @@
                             </li>
                             <li>
                                 <a href="Sugerencias"><i class="fa fa-comments fa-2x" style="color: #845ef7;"></i><span><strong> sugerencias</strong></span></a>
-                            </li>
-                            <li>
-                                <a href="CerrarSesion"><i class="fas fa-sign-out-alt fa-2x" style="color: #845ef7;"></i><span><strong>CerrarSesion</strong></span></a>
                             </li>
 
                         </ul>

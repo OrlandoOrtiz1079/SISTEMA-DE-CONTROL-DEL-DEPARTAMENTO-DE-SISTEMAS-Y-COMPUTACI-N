@@ -28,7 +28,6 @@ class modeloRegistro
     static public function mdlIngresarRegistro($tabla, $datos)
     {
         $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(alumno, laboratorio, fecha, hora) VALUES (:alumno, :laboratorio, :fecha, :hora)");
-
         $stmt->bindParam(":alumno", $datos["alumno"], PDO::PARAM_STR);
         $stmt->bindParam(":laboratorio", $datos["laboratorio"], PDO::PARAM_STR);
         $stmt->bindParam(":fecha", $datos["fecha"], PDO::PARAM_STR);
@@ -41,6 +40,25 @@ class modeloRegistro
         $stmt->close();
         $stmt = null;
     }
+
+
+     /*=============================================
+	REGISTRO DE LABORATORIOS
+    =============================================*/
+    static public function mdlIngresarLaboratorios($tabla, $datos)
+    {
+        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(laboratorio, cantidad) VALUES (:laboratorio, :cantidad)");
+        $stmt->bindParam(":laboratorio", $datos["laboratorio"], PDO::PARAM_STR);
+        $stmt->bindParam(":cantidad", $datos["cantidad"], PDO::PARAM_STR);
+        if ($stmt->execute()) {
+            return "ok";
+        } else {
+            return "error";
+        }
+        $stmt->close();
+        $stmt = null;
+    }
+
     /*=============================================
 	EDITAR DOCENTES
     =============================================*/

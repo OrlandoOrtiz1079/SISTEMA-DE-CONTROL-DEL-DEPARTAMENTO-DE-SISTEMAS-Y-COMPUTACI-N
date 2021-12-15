@@ -87,6 +87,7 @@ CUERPO DOCUMENTO
                 $_GET["ruta"] == "Preguntas" ||
                 $_GET["ruta"] == "CargarRespuestas" ||
                 $_GET["ruta"] == "reporteencuesta" ||
+                $_GET["ruta"] == "laboratorios" ||
                 $_GET["ruta"] == "Historial" ||
                 $_GET["ruta"] == "Registro" ||
                 $_GET["ruta"] == "CerrarSesion"
@@ -111,6 +112,7 @@ CUERPO DOCUMENTO
                 $_GET["ruta"] == "Preguntas" ||
                 $_GET["ruta"] == "CargarRespuestas" ||
                 $_GET["ruta"] == "reporteencuesta" ||
+                $_GET["ruta"] == "laboratorios" ||
                 $_GET["ruta"] == "Historial" ||
                 $_GET["ruta"] == "Registro" ||
                 $_GET["ruta"] == "CerrarSesion"
@@ -134,6 +136,7 @@ CUERPO DOCUMENTO
                 $_GET["ruta"] == "Preguntas" ||
                 $_GET["ruta"] == "CargarRespuestas" ||
                 $_GET["ruta"] == "reporteencuesta" ||
+                $_GET["ruta"] == "laboratorios" ||
                 $_GET["ruta"] == "Historial" ||
                 $_GET["ruta"] == "Registro" ||
                 $_GET["ruta"] == "CerrarSesion"

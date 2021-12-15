@@ -5,10 +5,11 @@ class ControladorRegistro
     /*=============================================
         AGREGAR Registro
     =============================================*/
-    public static function ctrCrearRegistro()
+    public static function ctrCrearRegistros()
     {
-        if (isset($_POST["nocontrol"])) {
+        if (isset($_POST["nocontrol"]) && isset($_POST['acceso'])) {
             $laboratorio = $_POST['laboratorio'];
+            $acceso = $_POST['acceso'];
 
             $Object = new DateTime();
             $Object->setTimezone(new DateTimeZone('America/Mexico_City'));
@@ -29,13 +30,13 @@ class ControladorRegistro
                                 Swal.fire({
                                 type: "success",
                                 title: "¡Registrado Correctamente!",
-                                showConfirmButton: true,
+                                showConfirmButton: false,
                                 timer: 1000,
                                 confirmButtonText: "Cerrar",
                                 closeOnConfirm: false
                                 }).then((result)=>{
                                 if(result.value){
-                                   window.location = "Inicio";
+                                   window.location = "Registro";
                                 }
                                 });
                                 </script>';
@@ -54,6 +55,39 @@ class ControladorRegistro
                                 }
                                 });
                                 </script>';
+            }
+            if ($acceso == "Entrada") {
+                $stmt = Conexion::conectar()->prepare("SELECT * FROM laboratorios");
+                $stmt->execute();
+                foreach ($stmt->fetchAll() as $key => $value) {
+
+                    if ($value['laboratorio'] == $laboratorio) {
+                        $cantidad = $value['cantidad'] + 1;
+                        $stmt = Conexion::conectar()->prepare("UPDATE laboratorios SET cantidad = :cantidad WHERE laboratorio = :laboratorio");
+                        $stmt->bindParam(":cantidad", $cantidad, PDO::PARAM_STR);
+                        $stmt->bindParam(":laboratorio", $laboratorio, PDO::PARAM_STR);
+                        $stmt->execute();
+                        break;
+                    }
+                }
+            }
+            if ($acceso == "Salida") {
+                $stmt = Conexion::conectar()->prepare("SELECT * FROM laboratorios");
+                $stmt->execute();
+                foreach ($stmt->fetchAll() as $key => $value) {
+
+                    if ($value['laboratorio'] == $laboratorio) {
+                        $cantidad = $value['cantidad'] - 1;
+
+                        if ($cantidad >= 0) {
+                            $stmt = Conexion::conectar()->prepare("UPDATE laboratorios SET cantidad = :cantidad WHERE laboratorio = :laboratorio");
+                            $stmt->bindParam(":cantidad", $cantidad, PDO::PARAM_STR);
+                            $stmt->bindParam(":laboratorio", $laboratorio, PDO::PARAM_STR);
+                            $stmt->execute();
+                            break;
+                        }
+                    }
+                }
             }
         }
     }

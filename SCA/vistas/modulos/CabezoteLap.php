@@ -18,22 +18,18 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="col-md-9 clearfix text-right">
+            <div class="col-md-9 clearfix text-right">
                 <div class="clearfix d-md-inline-block d-block">
                     <div class="user-profile m-0">
                         <img class="avatar user-thumb" src="vistas/assets/images/author/avatar.png" alt="avatar">
                         <h4 class="user-name dropdown-toggle" data-toggle="dropdown"><?php echo $_SESSION['nombre']; ?>
                             <i class="fa fa-angle-down"></i></h4>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item  btnEditarMiUsuario" idUsuario=" <?php echo $_SESSION["id"]; ?>"
-                                data-toggle="modal" data-target="#modalEditarMiUsuario" href="#">Editar mi cuenta</a>
-                            <a class="dropdown-item" data-toggle="modal" data-target="#modalConfigSDR" data-controls-modal="modalConfigSDR" data-backdrop="static" data-keyboard="false"
-                                href="#">Configurar SDR</a>
                             <a class="dropdown-item" href="CerrarSesion">Cerrar Sesion</a>
                         </div>
                     </div>
                 </div>
-            </div> -->
+            </div>
         </div>
     </div>
 </div>
@@ -58,11 +54,12 @@
                                 <a href="Encuestainicio"><i class="fa fa-pen fa-2x" style="color: #845ef7;"></i><span><strong>Encuestas</strong></span></a>
                             </li>
                             <li>
-                                <a href="Historial"><i class="fa fa-book-open fa-2x" style="color: #845ef7;"></i><span><strong> Historial de visitas</strong></span></a>
+                                <a href="laboratorios"><i class="fa fa-id-badge fa-2x" style="color: #845ef7;"></i><span><strong> Laboratorios</strong></span></a>
                             </li>
                             <li>
-                                <a href="CerrarSesion"><i class="fas fa-sign-out-alt fa-2x" style="color: #845ef7;"></i><span><strong>CerrarSesion</strong></span></a>
+                                <a href="Historial"><i class="fa fa-book-open fa-2x" style="color: #845ef7;"></i><span><strong> Historial de visitas</strong></span></a>
                             </li>
+                            
 
                         </ul>
                     </nav>
