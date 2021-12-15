@@ -12,35 +12,26 @@ class ModeloAlumnos
 	static public function MdlMostrarAlumnos($tabla, $entrada, $control)
 	{
 
-		// SELECT * FROM alumnos WHERE nocontrol="17670034" AND entrada="12-10-2021"
-		$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE nocontrol = :nocontrol and  entrada= :entrada");
-		$stmt->bindParam(":nocontrol", $control, PDO::PARAM_STR);
-		$stmt->bindParam(":entrada", $entrada, PDO::PARAM_STR);
-
-		$stmt->execute();
-		if (empty($stmt->fetch())) {
-			return "error";
-		} else {
-			return "ok";
-		}
-		return $stmt->fetch();
-
-		$stmt->close();
-		$stmt = null;
+	   $stmt = Conexion::conectar()->prepare("SELECT id, nocontrol, nombre, carrera, entrada ,enhora, sahora FROM $tabla");
+            // $stmt->bindParam(":entrada", $DateEntrada, PDO::PARAM_STR);
+            $stmt->execute();
+            return $stmt->fetchAll();
+        
+        $stmt = null;
 	}
 
 	/*=============================================
 	ACTUALIZAR Alumnos
 	=============================================*/
-	static public function mdlActualizarAlumons($tabla, $TimeSalida, $control, $DateEntrada)
+	static public function mdlActualizarAlumons($tabla, $TimeSalida, $control, $DateEntrada, $enhora)
 	{
 		
 		//UPDATE alumnos SET sahora="01:00:11 am" WHERE nocontrol="17670004" AND entrada="13-10-2021"
-		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET sahora = :sahora WHERE nocontrol = :nocontrol AND entrada = :entrada");
+		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET sahora = :sahora WHERE nocontrol = :nocontrol AND entrada = :entrada AND enhora = :enhora");
 		$stmt->bindParam(":sahora", $TimeSalida, PDO::PARAM_STR);
 		$stmt->bindParam(":nocontrol", $control, PDO::PARAM_STR);
 		$stmt->bindParam(":entrada", $DateEntrada, PDO::PARAM_STR);
-
+		$stmt->bindParam(":enhora", $enhora, PDO::PARAM_STR);
 		if ($stmt->execute()) {
 			return "ok";
 		} else {
@@ -58,7 +49,6 @@ class ModeloAlumnos
 	static public function mdlIngresarAlumnos($tabla, $datos)
 	{
 		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(nombre, nocontrol, carrera, entrada, enhora) VALUES (:nombre, :nocontrol, :carrera, :entrada, :enhora)");
-
 		$stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
 		$stmt->bindParam(":nocontrol", $datos["nocontrol"], PDO::PARAM_STR);
 		$stmt->bindParam(":carrera", $datos["carrera"], PDO::PARAM_STR);
