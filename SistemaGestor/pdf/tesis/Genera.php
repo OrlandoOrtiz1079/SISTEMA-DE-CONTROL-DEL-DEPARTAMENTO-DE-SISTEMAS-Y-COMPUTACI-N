@@ -346,18 +346,13 @@ if ($txtNumCred == 0.5) {
 }
 
 if ($_POST['tabla_constancia'] == '1') {
-    // 9876543210    
-    // 0123456789
-    // 2021-06-07;
-    // 2021-11-20
-    // 20 // 1- // 1-20//
     $dia = substr($fecha, 9, 2); // devuelve "dd"
     $mes = substr($fecha, 6, 2); // devuelve "mm"
     $a = substr($fecha, 1, 4); // devuelve "aaaa"
 } else {
     // 2021-11-20
     // 2021-11-04
-    $dia = substr($fecha, 9, 2); // devuelve "dd"
+    $dia = substr($fecha, 8, 10); // devuelve "dd"
     $mes = substr($fecha, 5, 2); // devuelve "mm"
     $a = substr($fecha, 0, 4); // devuelve "aaaa"	
 
@@ -460,26 +455,26 @@ if ($dia == '01') {
 $fecha2 = $a . $mes . $dia;
 
 
-if ($tabla_constancia == 2) {
+// if ($tabla_constancia == 2) {
 
-    $stmt = Conexion::conectar()->prepare("INSERT INTO datos_alumnos 
-    (Nombre, Apellido_P, Apellido_M, Numero_C, Carrera, Numero_Creditos, Nombre_Evento, Periodo, Generada_Por, Fecha, Valor_Numerico) 
-    VALUES 
-    (:Nombre, :Apellido_P, :Apellido_M, :Numero_C, :Carrera, :Numero_Creditos, :Nombre_Evento, :Periodo, :Generada_Por, :Fecha, :Valor_Numerico)");
+//     $stmt = Conexion::conectar()->prepare("INSERT INTO datos_alumnos 
+//     (Nombre, Apellido_P, Apellido_M, Numero_C, Carrera, Numero_Creditos, Nombre_Evento, Periodo, Generada_Por, Fecha, Valor_Numerico) 
+//     VALUES 
+//     (:Nombre, :Apellido_P, :Apellido_M, :Numero_C, :Carrera, :Numero_Creditos, :Nombre_Evento, :Periodo, :Generada_Por, :Fecha, :Valor_Numerico)");
  
-    $stmt->bindParam(":Nombre", $txtNombre, PDO::PARAM_STR);
-    $stmt->bindParam(":Apellido_P", $txtAP, PDO::PARAM_STR);
-    $stmt->bindParam(":Apellido_M", $txtAM, PDO::PARAM_STR);
-    $stmt->bindParam(":Numero_C", $txtNC, PDO::PARAM_INT);
-    $stmt->bindParam(":Carrera", $txtCarrera, PDO::PARAM_STR);
-    $stmt->bindParam(":Numero_Creditos", $txtNumCred, PDO::PARAM_STR);
-    $stmt->bindParam(":Nombre_Evento", $txtEven, PDO::PARAM_STR);
-    $stmt->bindParam(":Periodo", $txtPer, PDO::PARAM_STR);
-    $stmt->bindParam(":Generada_Por", $DepSistemas['nombre'], PDO::PARAM_STR);
-    $stmt->bindParam(":Fecha", $fecha, PDO::PARAM_STR);
-    $stmt->bindParam(":Valor_Numerico", $txtVal, PDO::PARAM_INT);
-    $stmt->execute();
-}
+//     $stmt->bindParam(":Nombre", $txtNombre, PDO::PARAM_STR);
+//     $stmt->bindParam(":Apellido_P", $txtAP, PDO::PARAM_STR);
+//     $stmt->bindParam(":Apellido_M", $txtAM, PDO::PARAM_STR);
+//     $stmt->bindParam(":Numero_C", $txtNC, PDO::PARAM_INT);
+//     $stmt->bindParam(":Carrera", $txtCarrera, PDO::PARAM_STR);
+//     $stmt->bindParam(":Numero_Creditos", $txtNumCred, PDO::PARAM_STR);
+//     $stmt->bindParam(":Nombre_Evento", $txtEven, PDO::PARAM_STR);
+//     $stmt->bindParam(":Periodo", $txtPer, PDO::PARAM_STR);
+//     $stmt->bindParam(":Generada_Por", $DepSistemas['nombre'], PDO::PARAM_STR);
+//     $stmt->bindParam(":Fecha", $fecha, PDO::PARAM_STR);
+//     $stmt->bindParam(":Valor_Numerico", $txtVal, PDO::PARAM_INT);
+//     $stmt->execute();
+// }
 
 $pdf->AddPage();
 $pdf->AddFont('montserrat-bold');
@@ -492,6 +487,8 @@ $pdf->Ln(6);
 $pdf->Cell(6);
 $pdf->SetFont('montserrat-regular', '', '9');
 $pdf->Cell(176, 5, utf8_decode("Constancia de Cumplimiento de Actividad Complementaria."), 0, 0, 'C');
+
+
 
 $pdf->Ln(20);
 $pdf->Cell(15);

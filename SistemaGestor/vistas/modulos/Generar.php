@@ -9,7 +9,6 @@
 
                   <div class="modal-body">
                       <div class="box-body">
-
                           <!--========== ENTRADA PARA EL NOMBRE ==========-->
                           <div class="form-group">
                               <label for="example-text-input" class="col-form-label">Nombre(s):</label>
@@ -111,10 +110,15 @@
                       </div>
 
                       <!--========== PIE DEL MODAL ==========-->
-                      <div class="modal-footer">
-                          <button type="reset" class="btn btn-danger"><i class="fas fa-times  "></i> Reset</button>
-                          <button type="submit" name="Enviar" value="Enviar" class="btn btn-primary "><i class="fas fa-file-pdf "></i> Guardar Constancia</button>
-                      </div>
+
                   </div>
+                  <div align="end" style="margin-right: 50px;">
+                      <button type="reset" class="btn btn-danger"><i class="fa fa-trash"></i> Reset</button>
+                      <button type="submit" name="Enviar" value="Enviar" class="btn btn-primary "><i class="fas fa-file-pdf "></i> Generar Constancia</button>
+                  </div>
+                  <br><br><br>
               </form>
           </div>
+          <br></br>
+      </div>
+  </div>
