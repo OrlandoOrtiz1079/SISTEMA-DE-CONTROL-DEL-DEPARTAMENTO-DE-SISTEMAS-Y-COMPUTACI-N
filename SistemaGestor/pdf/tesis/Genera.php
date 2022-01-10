@@ -12,13 +12,12 @@ class PDF_FlowingBlock  extends FPDF
     var $flowingBlockAttr;
     public function Header()
     {
-        $this->SetFont('Arial', 'B', '10');
-        $this->Image('../img/Encabezado.png', 15, 14, 180, 0, 'PNG');
+        $this->Image('../img/Enca.jpg', 15, 14, 100, 0);
         $this->Ln(35); //NOTE no borrar
     }
     public function Footer()
     {
-        $this->Image('../img/Piedepagina.png', 15, 260, 180, 0, 'PNG');
+        $this->Image('../img/Piedepagina.png', 15, 255, 180, 40, 'PNG');
     }
     function saveFont()
     {
@@ -459,7 +458,7 @@ if ($tabla_constancia == 2) {
     (Nombre, Apellido_P, Apellido_M, Numero_C, Carrera, Numero_Creditos, Nombre_Evento, Periodo, Generada_Por, Fecha, Valor_Numerico) 
     VALUES 
     (:Nombre, :Apellido_P, :Apellido_M, :Numero_C, :Carrera, :Numero_Creditos, :Nombre_Evento, :Periodo, :Generada_Por, :Fecha, :Valor_Numerico)");
- 
+
     $stmt->bindParam(":Nombre", $txtNombre, PDO::PARAM_STR);
     $stmt->bindParam(":Apellido_P", $txtAP, PDO::PARAM_STR);
     $stmt->bindParam(":Apellido_M", $txtAM, PDO::PARAM_STR);
@@ -475,13 +474,32 @@ if ($tabla_constancia == 2) {
 }
 
 $pdf->AddPage();
+$pdf->AliasNbPages();
 $pdf->AddFont('montserrat-bold');
 $pdf->AddFont('montserrat-regular');
 $h = $pdf->GetPageHeight();
 $w = $pdf->GetPageWidth();
+
 $pdf->SetTitle(utf8_decode('CONSTANCIA DE CUMPLIMIENTO DE ACTIVIDAD COMPLEMENTARIA ' . $txtNC));
 $pdf->SetFillColor(255, 255, 255);
-$pdf->Ln(6);
+$pdf->Ln(-15);
+
+$pdf->SetFont('montserrat-bold', '', '8');
+$pdf->SetTextColor(90,90,90);
+$pdf->Cell(305,0,utf8_decode('Instituto Tecnológico de Iguala'),0,0,'C');
+$pdf->Ln(4);
+
+$pdf->SetFont('montserrat-bold', '', '8');
+$pdf->SetTextColor(150,150,150);
+$pdf->Cell(287,0,utf8_decode('Departamento de Sistemas y Computación'),0,0,'C');
+$pdf->Ln(15);
+
+
+
+
+$pdf->SetDrawColor(255,0,0);
+$pdf->SetFillColor(255,255,255);
+$pdf->SetTextColor(0,0,0);
 $pdf->Cell(6);
 $pdf->SetFont('montserrat-regular', '', '9');
 $pdf->Cell(176, 5, utf8_decode("Constancia de Cumplimiento de Actividad Complementaria."), 0, 0, 'C');
@@ -562,7 +580,7 @@ $pdf->WriteFlowingBlock(utf8_decode('Se extiende la presente en la Ciudad de Igu
 $pdf->SetFont('montserrat-bold', '', 9);
 $pdf->WriteFlowingBlock(utf8_decode($fech));
 $pdf->finishFlowingBlock();
-$pdf->Ln(20);
+$pdf->Ln(10);
 $pdf->SetMargins(0, 0, 0, 0);
 
 $pdf->SetFont('montserrat-bold', '', '9');

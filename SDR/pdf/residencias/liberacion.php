@@ -11,12 +11,12 @@ class PDF extends FPDF
     public function Header()
     {
         $this->SetFont('Arial', 'B', '10');
-        $this->Image('../img/cabecera.png', 23, 14, 180, 34, 'PNG');
+        $this->Image('../img/Enca.jpg', 24, 14, 90, 0);
         $this->Ln(40);//NOTE no borrar
     }
     public function Footer()
     {
-        $this->Image('../img/pie.png', 23, 238, 174, 34, 'PNG');
+        $this->Image('../img/Piedepagina.png', 24, 235, 170, 40, 'PNG');
     }
     function WriteText($text)
     {
@@ -189,7 +189,21 @@ if (isset($_SESSION['iniciarSesion']) && $_SESSION['iniciarSesion'] == "ok") {
     // $pdf->Image('../img/fondo_membrete_R.jpg', '2.5', '46', '215');
     $pdf->SetFont('Helvetica', '', '7.3');
     // $pdf->Cell(0, -3, utf8_decode($leyenda), 0, 1, 'C');
-    $pdf->Ln(9);
+    $pdf->Ln(-15);
+
+
+    $pdf->SetFont('Helvetica', '', '8');
+    $pdf->SetTextColor(90,90,90);
+    $pdf->Cell(305,0,utf8_decode('Instituto Tecnológico de Iguala'),0,0,'C');
+    $pdf->Ln(4);
+    
+    $pdf->SetFont('Helvetica', '', '8');
+    $pdf->SetTextColor(150,150,150);
+    $pdf->Cell(287,0,utf8_decode('Departamento de Sistemas y Computación'),0,0,'C');
+    $pdf->Ln(15);
+    $pdf->SetTextColor(0,0,0);
+
+
     $pdf->SetFont('Helvetica', '', '9');
     $pdf->Cell(88);
     $pdf->Cell(0, 4, utf8_decode('Iguala, Gro.,'), 0, 0, 'L');
