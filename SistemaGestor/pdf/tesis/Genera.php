@@ -295,7 +295,7 @@ class PDF_FlowingBlock  extends FPDF
 $pdf = new PDF_FlowingBlock();
 
 $tabla = "directorio";
-$Escolares = "JEFA DEL DEPARTAMENTO DE SERVICIOS ESCOALRES";
+$Escolares = "JEFA DEL DEPARTAMENTO DE SERVICIOS ESCOLARES";
 $DepEscolares = ControladorJerarquia::ctrMostrarDocentesDirectorio($tabla, $Escolares);
 
 
@@ -305,8 +305,6 @@ $DepSistemas = ControladorJerarquia::ctrMostrarDocentesJerarquia2($tabla2, $Sist
 
 $PuestoSub = "SUBDIRECTOR ACADÉMICO";
 $SubDirector = ControladorJerarquia::ctrMostrarDocentesJerarquia2($tabla2, $PuestoSub);
-
-
 
 
 $txtNombre = $_POST['txtNombre'];
@@ -455,26 +453,26 @@ if ($dia == '01') {
 $fecha2 = $a . $mes . $dia;
 
 
-// if ($tabla_constancia == 2) {
+if ($tabla_constancia == 2) {
 
-//     $stmt = Conexion::conectar()->prepare("INSERT INTO datos_alumnos 
-//     (Nombre, Apellido_P, Apellido_M, Numero_C, Carrera, Numero_Creditos, Nombre_Evento, Periodo, Generada_Por, Fecha, Valor_Numerico) 
-//     VALUES 
-//     (:Nombre, :Apellido_P, :Apellido_M, :Numero_C, :Carrera, :Numero_Creditos, :Nombre_Evento, :Periodo, :Generada_Por, :Fecha, :Valor_Numerico)");
+    $stmt = Conexion::conectar()->prepare("INSERT INTO datos_alumnos 
+    (Nombre, Apellido_P, Apellido_M, Numero_C, Carrera, Numero_Creditos, Nombre_Evento, Periodo, Generada_Por, Fecha, Valor_Numerico) 
+    VALUES 
+    (:Nombre, :Apellido_P, :Apellido_M, :Numero_C, :Carrera, :Numero_Creditos, :Nombre_Evento, :Periodo, :Generada_Por, :Fecha, :Valor_Numerico)");
  
-//     $stmt->bindParam(":Nombre", $txtNombre, PDO::PARAM_STR);
-//     $stmt->bindParam(":Apellido_P", $txtAP, PDO::PARAM_STR);
-//     $stmt->bindParam(":Apellido_M", $txtAM, PDO::PARAM_STR);
-//     $stmt->bindParam(":Numero_C", $txtNC, PDO::PARAM_INT);
-//     $stmt->bindParam(":Carrera", $txtCarrera, PDO::PARAM_STR);
-//     $stmt->bindParam(":Numero_Creditos", $txtNumCred, PDO::PARAM_STR);
-//     $stmt->bindParam(":Nombre_Evento", $txtEven, PDO::PARAM_STR);
-//     $stmt->bindParam(":Periodo", $txtPer, PDO::PARAM_STR);
-//     $stmt->bindParam(":Generada_Por", $DepSistemas['nombre'], PDO::PARAM_STR);
-//     $stmt->bindParam(":Fecha", $fecha, PDO::PARAM_STR);
-//     $stmt->bindParam(":Valor_Numerico", $txtVal, PDO::PARAM_INT);
-//     $stmt->execute();
-// }
+    $stmt->bindParam(":Nombre", $txtNombre, PDO::PARAM_STR);
+    $stmt->bindParam(":Apellido_P", $txtAP, PDO::PARAM_STR);
+    $stmt->bindParam(":Apellido_M", $txtAM, PDO::PARAM_STR);
+    $stmt->bindParam(":Numero_C", $txtNC, PDO::PARAM_INT);
+    $stmt->bindParam(":Carrera", $txtCarrera, PDO::PARAM_STR);
+    $stmt->bindParam(":Numero_Creditos", $txtNumCred, PDO::PARAM_STR);
+    $stmt->bindParam(":Nombre_Evento", $txtEven, PDO::PARAM_STR);
+    $stmt->bindParam(":Periodo", $txtPer, PDO::PARAM_STR);
+    $stmt->bindParam(":Generada_Por", $DepSistemas['nombre'], PDO::PARAM_STR);
+    $stmt->bindParam(":Fecha", $fecha, PDO::PARAM_STR);
+    $stmt->bindParam(":Valor_Numerico", $txtVal, PDO::PARAM_INT);
+    $stmt->execute();
+}
 
 $pdf->AddPage();
 $pdf->AddFont('montserrat-bold');
