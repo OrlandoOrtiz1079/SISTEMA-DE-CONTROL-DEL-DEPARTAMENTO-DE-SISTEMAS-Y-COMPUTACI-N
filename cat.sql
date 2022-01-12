@@ -27,12 +27,14 @@ CREATE TABLE IF NOT EXISTS `alumnos` (
   `enhora` varchar(50) NOT NULL,
   `sahora` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=74 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=297 DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla cat.alumnos: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla cat.alumnos: ~3 rows (aproximadamente)
 /*!40000 ALTER TABLE `alumnos` DISABLE KEYS */;
 INSERT INTO `alumnos` (`id`, `nombre`, `nocontrol`, `carrera`, `entrada`, `enhora`, `sahora`) VALUES
-	(73, 'JORGE ORLANDO ORTIZ CASTAÑEDA', '17670034', 'ING SISTEMSAS COMPUTACIONALES', '01-12-2021', '06:07:53 pm', '10:59:03 pm');
+	(294, 'JORGE ORLANDO ORTIZ CASTAEDA', '17670034', 'ING SISTEMAS COMPUTACIONALES', '15-12-2021', '01:27:54 am', '01:28:00 am'),
+	(295, 'JORGE ORLANDO ORTIZ CASTAEDA', '17670034', 'ING SISTEMAS COMPUTACIONALES', '15-12-2021', '01:28:06 am', '01:28:13 am'),
+	(296, 'JORGE ORLANDO ORTIZ CASTAEDA', '17670034', 'ING SISTEMAS COMPUTACIONALES', '15-12-2021', '01:29:01 am', '01:29:04 am');
 /*!40000 ALTER TABLE `alumnos` ENABLE KEYS */;
 
 -- Volcando estructura para tabla cat.asesor
@@ -110,14 +112,16 @@ CREATE TABLE IF NOT EXISTS `datos_alumnos` (
   `Fecha` date NOT NULL,
   `Valor_Numerico` varchar(50) COLLATE utf8_spanish_ci NOT NULL DEFAULT '0',
   PRIMARY KEY (`id_Alumno`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=382 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=384 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- Volcando datos para la tabla cat.datos_alumnos: ~2 rows (aproximadamente)
 /*!40000 ALTER TABLE `datos_alumnos` DISABLE KEYS */;
 INSERT INTO `datos_alumnos` (`id_Alumno`, `Nombre`, `Apellido_P`, `Apellido_M`, `Numero_C`, `Carrera`, `Numero_Creditos`, `Nombre_Evento`, `Periodo`, `Generada_Por`, `Fecha`, `Valor_Numerico`) VALUES
 	(379, 'JORGE ORLANDO', 'ORTIZ', 'CASTAÑEDA', 17670034, 'INGENIERÍA EN SISTEMAS COMPUTACIONALES', '0.5', 'PRACTICA DE CONSTANCIAS', 'AGOSTO - DICIEMBRE 2021', 'JORGE EDUARDO ORTEGA LOPEZ', '2021-12-02', '4'),
 	(380, 'JORGE ORLANDO', 'ORTIZ', 'CASTAÑEDA', 17670034, 'INGENIERÍA EN SISTEMAS COMPUTACIONALES', '0.5', 'PRACTICA DE CONSTANCIAS', 'AGOSTO - DICIEMBRE 2021', 'JORGE EDUARDO ORTEGA LOPEZ', '2021-12-01', '4'),
-	(381, 'JORGE ORLANDO', 'ORTIZ', 'CASTAÑEDA', 17670034, 'INGENIERÍA EN SISTEMAS COMPUTACIONALES', '0.5', 'PRACTICA DE CONSTANCIAS', 'AGOSTO - DICIEMBRE 2021', 'JORGE EDUARDO ORTEGA LOPEZ', '2021-12-09', '4');
+	(381, 'JORGE ORLANDO', 'ORTIZ', 'CASTAÑEDA', 17670034, 'INGENIERÍA EN SISTEMAS COMPUTACIONALES', '0.5', 'PRACTICA DE CONSTANCIAS', 'AGOSTO - DICIEMBRE 2021', 'JORGE EDUARDO ORTEGA LOPEZ', '2021-12-09', '4'),
+	(382, 'JORGE ORLANDO', 'ORTIZ', 'CASTAÑEDA', 17670034, 'INGENIERÍA EN SISTEMAS COMPUTACIONALES', '0.5', 'PRACTICA DE CONSTANCIAS', 'AGOSTO - DICIEMBRE 2021', 'JORGE EDUARDO ORTEGA LOPEZ', '2021-12-15', '4'),
+	(383, 'JORGE ORLANDO', 'ORTIZ', 'CASTAÑEDA', 17670034, 'INGENIERÍA EN SISTEMAS COMPUTACIONALES', '0.5', '1', 'njhb', 'JORGE EDUARDO ORTEGA LOPEZ', '2022-01-03', '4');
 /*!40000 ALTER TABLE `datos_alumnos` ENABLE KEYS */;
 
 -- Volcando estructura para tabla cat.directorio
@@ -134,7 +138,6 @@ CREATE TABLE IF NOT EXISTS `directorio` (
 INSERT INTO `directorio` (`id`, `noExt`, `depto`, `responsable`) VALUES
 	(1, '1001', 'CONMUTADOR', 'C.CRISTINA BUENO ROMÁN'),
 	(2, '1000', 'DIRECCION', 'M.D.I.S. ARELI BÁRCENAS NAVA'),
-	(3, '0', 'o', '0'),
 	(4, '1100', 'SUBDIRECCION ACADEMICA', 'M.E. SERGIO RICARDO ZAGAL BARRERA'),
 	(5, '225', 'DEPARTAMENTO DE SISTEMAS Y COMPUTACION', 'ING. JORGE ORTEGA ORTEGA LOPEZ'),
 	(6, '226', 'DEPARTAMENTO DE CIENCIAS BASICAS', 'M.C. FERNANDO SALCEDO LEONARDO'),
@@ -150,7 +153,7 @@ INSERT INTO `directorio` (`id`, `noExt`, `depto`, `responsable`) VALUES
 	(16, '237', 'DEPARTAMENTO DE ACTIVIDADES EXTRAESCOLARES', 'M.C.MARGARITA BARRERA HERNANDEZ'),
 	(17, '243', 'CENTRO DE INFORMACION', 'M.C. AGUSTIN ACEVEDO FIGUEROA'),
 	(18, '245', 'CIIE ITI', 'L.C. CARLOS ALBERTO DIAZ LARA'),
-	(19, '246', 'DEPARTAMENTO DE SERVICIOS ESCOLARES', 'ING. LEO SOTO TABOADA'),
+	(19, '246', 'JEFA DEL DEPARTAMENTO DE SERVICIOS ESCOLARES ', 'LEOARDA ESPERANZA SOTO TABOADA '),
 	(20, '230', 'SUBDIRECCION DE SERVICIOS ADMINISTRATIVOS', 'C.P. ANDREA ARZATE SALGADO'),
 	(21, '231', 'DEPARTAMENTO DE RECURSOS HUMANOS', 'I.S.C. HUGO ERASMO PERDOMO ROLDAN'),
 	(22, '232', 'DEPARTAMENTO DE RECURSOS FINANCIEROS', 'C.P.MA. GUADALUPE GALENA BRITO'),
@@ -267,9 +270,9 @@ CREATE TABLE IF NOT EXISTS `encuestaegresados` (
   `prt6p3` varchar(100) DEFAULT NULL,
   `fecha` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla cat.encuestaegresados: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla cat.encuestaegresados: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `encuestaegresados` DISABLE KEYS */;
 INSERT INTO `encuestaegresados` (`id`, `nombre`, `anoing`, `ncontrol`, `carrera`, `planestu`, `anoegre`, `semestre`, `especialidad`, `pciudad`, `pmunicipio`, `pestado`, `ociudad`, `omunicipio`, `oestado`, `cel`, `emaili`, `emailp`, `face`, `prt2p1`, `prt2p2`, `prt2p3`, `prt2p4`, `prt2p5`, `prt2p6`, `prt3p1`, `prt3p2`, `prt3p3`, `prt3p4`, `prt3p5`, `prt3p6`, `prt3p7`, `prt3p8`, `prt3p9`, `prt3p10`, `prt3p11`, `prt3p12`, `prt3p13`, `prt3p14`, `prt3p15`, `prt3p16`, `prt3p17`, `prt3p18`, `prt3p19`, `prt3p20`, `prt3p21`, `prt3p22`, `prt3p23`, `prt4p1`, `prt4p2`, `prt4p3`, `prt4p4`, `prt4p5`, `prt4p6`, `prt4p7`, `prt4p8`, `prt4p9`, `prt4p10`, `prt5p1`, `prt5p2`, `prt5p3`, `prt6p1`, `prt6p2`, `prt6p3`, `fecha`) VALUES
 	(7, 'JORGE ORLANDO ORTIZ CASTAÑEDA', '2021-02', '17670034', 'Ing. en Sistemas Computacionales', 'ISIC - 2010-224', '2021-12', 'Enero-Junio', 'sistemas distribuidos ', 'Toluca', 'Metepec', 'Estado de Mexico', 'Iguala', 'Iguala de la Independencia', 'Guerrero', '7621115584', '17670034@iguala.tecnm.mx', 'E-mailPersonal@gmail.com', 'orlando ortiz', 'SI', 'Parcialmente', 'SI', 'Parcialmente', 'SI', 'si', 'Muy Bueno', 'Muy Bueno', 'Bueno', 'Bueno', 'Muy Bueno', 'Excelente', 'Excelente', 'Excelente', 'Excelente', 'Muy Bueno', 'Muy Bueno', 'Muy Bueno', 'Muy Bueno', 'Muy Bueno', 'Excelente', 'Excelente', 'actualizacion de conocimientos', '10', 'ninguna', 'SI', 'buena institucion', '10', 'ninguna', 'conseguir empleo', 'capacitarme', 'NO', '', 'NO', '', 'lider', 'tienda departamental', 'NO', '', 'java', 'cenidet', 'oracle', 'SI', 'los dactos se actualizan constantemente', 'programacion', '03-12-2021');
@@ -295,6 +298,24 @@ INSERT INTO `jerarquia` (`id`, `nombre`, `cargo`, `estado`, `sexo`) VALUES
 	(4, 'JORGE EDUARDO ORTEGA LOPEZ', 'JEFE DEL DEPTO. ACADEMICO', 1, 'M'),
 	(5, 'FRANCISCO HAM SALGADO', 'JEFE DE LA DIVISION DE ESTUDIOS PROFESIONALES', 1, 'M');
 /*!40000 ALTER TABLE `jerarquia` ENABLE KEYS */;
+
+-- Volcando estructura para tabla cat.laboratorios
+CREATE TABLE IF NOT EXISTS `laboratorios` (
+  `laboratorio` varchar(50) DEFAULT NULL,
+  `cantidad` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Volcando datos para la tabla cat.laboratorios: ~8 rows (aproximadamente)
+/*!40000 ALTER TABLE `laboratorios` DISABLE KEYS */;
+INSERT INTO `laboratorios` (`laboratorio`, `cantidad`) VALUES
+	('Laboratorio de Aplicaciones', '0'),
+	('Laboratorio de Sistemas Embebidos', '0'),
+	('Laboratorio de Redes', '0'),
+	('Laboratorio de Programación', '0'),
+	('Laboratorio de Electrónica', '0'),
+	('Laboratorio de Telecomunicaciones', '0'),
+	('Laboratorio de Diseño', '0');
+/*!40000 ALTER TABLE `laboratorios` ENABLE KEYS */;
 
 -- Volcando estructura para tabla cat.preregistros
 CREATE TABLE IF NOT EXISTS `preregistros` (
@@ -557,10 +578,142 @@ CREATE TABLE IF NOT EXISTS `registro` (
   `fecha` varchar(50) DEFAULT NULL,
   `hora` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=132 DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla cat.registro: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla cat.registro: ~123 rows (aproximadamente)
 /*!40000 ALTER TABLE `registro` DISABLE KEYS */;
+INSERT INTO `registro` (`id`, `alumno`, `laboratorio`, `fecha`, `hora`) VALUES
+	(1, 'JORGE ORLANDO ORTIZ CASTAÑEDA', 'Laboratorio de Aplicaciones', '14-12-2021', '09:43:58 am'),
+	(2, 'JORGE ORLANDO ORTIZ CASTAÑEDA', NULL, '14-12-2021', '12:31:43 pm'),
+	(3, 'JORGE ORLANDO ORTIZ CASTAÑEDA', 'Laboratorio de Programación', '14-12-2021', '12:45:22 pm'),
+	(4, 'JORGE ORLANDO ORTIZ CASTAÑEDA', 'Laboratorio de Programación', '14-12-2021', '12:45:26 pm'),
+	(5, 'JORGE ORLANDO ORTIZ CASTAÑEDA', 'Laboratorio de Redes', '14-12-2021', '12:45:57 pm'),
+	(6, 'JORGE ORLANDO ORTIZ CASTAÑEDA', 'Laboratorio de Electrónica', '14-12-2021', '12:47:14 pm'),
+	(7, 'NAZARIO SANTANA RODRIGUEZ', 'Laboratorio de Electrónica', '14-12-2021', '12:47:14 pm'),
+	(8, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Telecomunicaciones', '14-12-2021', '12:52:49 pm'),
+	(9, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Telecomunicaciones', '14-12-2021', '12:52:59 pm'),
+	(10, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Telecomunicaciones', '14-12-2021', '12:54:56 pm'),
+	(11, 'NAZARIO SANTANA RODRIGUEZ', 'Laboratorio de Aplicaciones', '14-12-2021', '12:55:38 pm'),
+	(12, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Programación', '14-12-2021', '01:36:11 pm'),
+	(13, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Programación', '14-12-2021', '01:36:15 pm'),
+	(14, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Programación', '14-12-2021', '01:36:19 pm'),
+	(15, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '01:57:09 am'),
+	(16, 'JoRGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '01:57:24 am'),
+	(17, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Sistemas Embebidos', '15-12-2021', '01:57:59 am'),
+	(18, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Redes', '15-12-2021', '01:58:06 am'),
+	(19, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Programación', '15-12-2021', '01:58:13 am'),
+	(20, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Electrónica', '15-12-2021', '01:58:22 am'),
+	(21, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Telecomunicaciones', '15-12-2021', '01:58:29 am'),
+	(22, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Diseño', '15-12-2021', '01:58:37 am'),
+	(23, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '02:01:16 am'),
+	(24, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '02:02:04 am'),
+	(25, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '02:02:13 am'),
+	(26, 'JoRGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '02:04:09 am'),
+	(27, 'JoRGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '02:04:38 am'),
+	(28, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '02:04:49 am'),
+	(29, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '02:05:10 am'),
+	(30, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '02:05:14 am'),
+	(31, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '02:05:37 am'),
+	(32, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '02:08:34 am'),
+	(33, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '02:08:51 am'),
+	(34, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '02:09:02 am'),
+	(35, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '02:09:25 am'),
+	(36, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '02:10:03 am'),
+	(37, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '02:10:24 am'),
+	(38, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '02:10:35 am'),
+	(39, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '02:10:40 am'),
+	(40, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '02:10:44 am'),
+	(41, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '02:10:55 am'),
+	(42, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '02:11:47 am'),
+	(43, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '02:12:14 am'),
+	(44, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '02:13:12 am'),
+	(45, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '02:14:09 am'),
+	(46, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '02:14:33 am'),
+	(47, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '02:15:59 am'),
+	(48, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '02:16:30 am'),
+	(49, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '02:16:52 am'),
+	(50, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '02:17:42 am'),
+	(51, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '02:18:04 am'),
+	(52, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '02:18:08 am'),
+	(53, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '02:18:11 am'),
+	(54, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '02:18:15 am'),
+	(55, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '02:18:19 am'),
+	(56, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '02:18:22 am'),
+	(57, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '02:18:26 am'),
+	(58, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '02:20:08 am'),
+	(59, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '02:47:48 am'),
+	(60, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '02:48:39 am'),
+	(61, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '02:51:26 am'),
+	(62, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '02:52:20 am'),
+	(63, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '02:53:39 am'),
+	(64, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '02:54:44 am'),
+	(65, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '02:55:06 am'),
+	(66, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '02:56:47 am'),
+	(67, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '02:58:23 am'),
+	(68, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '03:01:08 am'),
+	(69, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '03:01:12 am'),
+	(70, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '03:01:22 am'),
+	(71, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '03:01:30 am'),
+	(72, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '03:01:44 am'),
+	(73, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '03:01:48 am'),
+	(74, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '03:01:56 am'),
+	(75, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '03:02:04 am'),
+	(76, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '03:02:30 am'),
+	(77, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '03:02:34 am'),
+	(78, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '03:02:40 am'),
+	(79, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '03:02:49 am'),
+	(80, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '03:03:34 am'),
+	(81, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Sistemas Embebidos', '15-12-2021', '03:04:39 am'),
+	(82, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Sistemas Embebidos', '15-12-2021', '03:05:20 am'),
+	(83, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Sistemas Embebidos', '15-12-2021', '03:05:27 am'),
+	(84, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Sistemas Embebidos', '15-12-2021', '03:05:37 am'),
+	(85, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '03:43:30 am'),
+	(86, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '03:43:42 am'),
+	(87, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '03:43:46 am'),
+	(88, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '03:43:50 am'),
+	(89, 'JoRGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '03:44:03 am'),
+	(90, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '03:44:09 am'),
+	(91, 'JoRGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '03:44:16 am'),
+	(92, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '03:44:34 am'),
+	(93, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '03:46:04 am'),
+	(94, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '03:46:15 am'),
+	(95, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '03:46:18 am'),
+	(96, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '03:46:25 am'),
+	(97, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '03:46:31 am'),
+	(98, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '03:46:37 am'),
+	(99, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '03:46:50 am'),
+	(100, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Diseño', '15-12-2021', '03:47:56 am'),
+	(101, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '03:48:08 am'),
+	(102, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '11:49:47 am'),
+	(103, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '11:50:27 am'),
+	(104, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '11:51:49 am'),
+	(105, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '11:54:00 am'),
+	(106, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '11:55:00 am'),
+	(107, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '11:55:07 am'),
+	(108, 'JoRGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '12:19:51 pm'),
+	(109, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '12:21:12 pm'),
+	(110, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '12:21:51 pm'),
+	(111, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '12:22:10 pm'),
+	(112, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '12:23:24 pm'),
+	(113, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '12:24:34 pm'),
+	(114, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '12:24:45 pm'),
+	(115, 'JoRGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '12:29:36 pm'),
+	(116, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '12:29:44 pm'),
+	(117, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '12:29:54 pm'),
+	(118, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '12:30:03 pm'),
+	(119, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '12:31:06 pm'),
+	(120, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '12:31:56 pm'),
+	(121, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '12:32:29 pm'),
+	(122, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '12:32:44 pm'),
+	(123, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Diseño', '15-12-2021', '12:33:01 pm'),
+	(124, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '12:33:35 pm'),
+	(125, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '12:33:44 pm'),
+	(126, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '12:34:08 pm'),
+	(127, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '12:34:19 pm'),
+	(128, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '12:35:28 pm'),
+	(129, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '12:35:39 pm'),
+	(130, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '12:35:54 pm'),
+	(131, 'JORGE ORLANDO ORTIZ CASTAEDA', 'Laboratorio de Aplicaciones', '15-12-2021', '12:35:59 pm');
 /*!40000 ALTER TABLE `registro` ENABLE KEYS */;
 
 -- Volcando estructura para tabla cat.residentes
@@ -595,8 +748,6 @@ INSERT INTO `residentes` (`id`, `noControl`, `nombre`, `apellidoP`, `apellidoM`,
 	(7, '14670042', 'MARICARMEN ', 'CRUZ MANJARREZ', 'HERNANDEZ', 'Ingeniería en Sistemas Computacionales', 'EJ', '2019', 'F', '7361060194', 3, 1, 8),
 	(8, '14670020', 'JOSE FRANCISCO', 'VILLA', 'ESCALERA', 'Ingeniería en Sistemas Computacionales', 'EJ', '2019', 'M', '1313484', 3, 1, 9),
 	(9, '14670027', 'ENRRIQUE', 'CHEGUE', 'VILLANUEVA', 'Ingeniería en Sistemas Computacionales', 'AD', '2019', 'M', '7331084591', 3, 1, 10),
-	(10, '15670026', 'LUIS ANGEL', 'SOTO', 'AGUILAR', 'Ingeniería Informática', 'AD', '2019', 'M', '7331257923', 3, 1, 11),
-	(11, '15670077', 'EDUARDO', 'DELGADO', 'FUENTES', 'Ingeniería Informática', 'AD', '2019', 'M', '7361063171', 3, 1, 12),
 	(12, '14670074', 'CARLOS ADRIAN', 'JORDAN', 'RAMIREZ', 'Ingeniería en Sistemas Computacionales', 'AD', '2019', 'M', '7331216186', 2, 1, 13),
 	(13, '15670044', 'ALBERTO', 'REGINO', 'CRUZ', 'Ingeniería en Sistemas Computacionales', 'AD', '2019', 'M', '7331527915', 3, 1, 14),
 	(14, '15670004', 'HECTOR ARTURO', 'ROMAN ', 'BANDERA', 'Ingeniería en Sistemas Computacionales', 'AD', '2019', 'M', '7331190680', 3, 1, 15),
@@ -799,13 +950,16 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `estado` int(11) unsigned NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   UNIQUE KEY `usuario_UNIQUE` (`usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
 
--- Volcando datos para la tabla cat.usuarios: ~2 rows (aproximadamente)
+-- Volcando datos para la tabla cat.usuarios: ~4 rows (aproximadamente)
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
 INSERT INTO `usuarios` (`id`, `nombre`, `usuario`, `password`, `perfil`, `estado`) VALUES
 	(2, 'Jorge Ortega', 'Sistemas', '$2a$07$asxx54ahjppf45sd87a5au1RGLYZNJC/N86wDHeGu9F8YjK4w7HdO', 'Administrador', 1),
-	(3, 'Servicio', 'Servicio', '$2a$07$asxx54ahjppf45sd87a5auRlWjzm6l13Q4OFj9MiYt4ruVOIkyLhO', 'Usuario', 1);
+	(3, 'Servicio', 'Servicio', '$2a$07$asxx54ahjppf45sd87a5auRlWjzm6l13Q4OFj9MiYt4ruVOIkyLhO', 'Servicio', 1),
+	(4, 'Nazario', 'Nazario', '$2a$07$asxx54ahjppf45sd87a5auJWDyy78cbZ4vbPtcYdgBJbiIHH3rRDq', 'Secretaria', 1),
+	(5, 'lab', 'lab', '$2a$07$asxx54ahjppf45sd87a5auB8n7L8KTz.0PZUa1XOsGeHhm/nD5evW', 'Laboratorio', 1),
+	(6, 'Polis', 'polis', '$2a$07$asxx54ahjppf45sd87a5auCQ7a3IkB9B9UjdJ5u7SPVonZ/345tb6', 'Policia', 1);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

@@ -94,15 +94,14 @@ $destino = $_POST['destino'];
 
 $pdf = new PDF('P', 'mm', 'Letter');
 $pdf->AddPage();
-$pdf->AddFont('montserrat-bold');
-$pdf->AddFont('montserrat-regular');
+$pdf->AddFont('Helvetica');
 $h = $pdf->GetPageHeight();
 $w = $pdf->GetPageWidth();
 $pdf->SetTitle(utf8_decode('CONSTANCIA DE COMISIONES ACADÉMICAS ' . $docente));
 
 $pdf->Ln(10);
 $pdf->Cell(19);
-$pdf->SetFont('montserrat-regular', '', '10');
+$pdf->SetFont('Helvetica','', '10');
 $pdf->Cell(20, 5, utf8_decode('DEPT. DE SISTEMAS Y COMPUTACIÓN'), 0, 1, 'L');
 $pdf->Cell(19);
 $pdf->SetFillColor(255, 255, 255);
@@ -112,28 +111,28 @@ $pdf->Cell(20, 4, utf8_decode('Iguala, Gro. ' . $fecha), 0, 1, 'L');
 $pdf->Ln(5);
 $pdf->Cell(19);
 $pdf->Cell(20, 4, utf8_decode($docente), 0, 1, 'L');
-$pdf->SetFont('montserrat-bold', '', '10');
+$pdf->SetFont('Helvetica','B', '10');
 $pdf->Cell(19);
 $pdf->Cell(20, 4, utf8_decode($cargo), 0, 1, 'L');
 $pdf->Cell(19);
 $pdf->Cell(20, 4, utf8_decode("PRESENTE."), 0, 1, 'L');
-$pdf->SetFont('montserrat-regular', '', '9');
+$pdf->SetFont('Helvetica','', '9');
 
 $pdf->Ln(5);
 $pdf->Cell(19);
 $pdf->Cell(20, 4, utf8_decode("Por este conducto me es grato saludarle e informar a usted que ha sido"), 0, 1, 'L');
 
 $pdf->Ln(-2);
-$pdf->Cell(134);
-$pdf->SetFont('montserrat-bold', '', '10');
+$pdf->Cell(128);
+$pdf->SetFont('Helvetica','B', '10');
 $pdf->Cell(20, 0, utf8_decode("COMISIONADO"), 0, 1, 'L');
 
-$pdf->Cell(163);
-$pdf->SetFont('montserrat-regular', '', '9');
-$pdf->Cell(20, -1, utf8_decode("para"), 0, 1, 'L');
+$pdf->Cell(159);
+$pdf->SetFont('Helvetica','', '9');
+$pdf->Cell(20, -1, utf8_decode("para  el"), 0, 1, 'L');
 $pdf->Ln(3);
 $pdf->Cell(19);
-$pdf->MultiCell(153, 4, utf8_decode("en " . $traslado . " para asistir al " . $lugar . " en donde se " . $objetivo . "  misma que se llevará a cabo el próximo " . $diasem . " " . $dia . " de " . $mes2 . " de " . $año . " en punto de las " . $hora . " horas."), 0, 'J', 1);
+$pdf->MultiCell(153, 4, utf8_decode($traslado . " para asistir al " . $lugar . " en donde se " . $objetivo . "  misma que se llevará a cabo el próximo " . $diasem . " " . $dia . " de " . $mes2 . " de " . $año . " en punto de las " . $hora . " horas."), 0, 'J', 1);
 
 $pdf->Ln(5);
 $pdf->Cell(19);
@@ -148,18 +147,18 @@ $pdf->Cell(19);
 $pdf->MultiCell(153, 4, utf8_decode("Con la confianza de que sabrá poner su mayor esfuerzo y dedicación a esta encomienda, reitero a usted las seguridades de mi más alta y distinguida consideración."), 0, 'J', 1);
 
 $pdf->Ln(5);
-$pdf->SetFont('montserrat-bold', '', '10');
+$pdf->SetFont('Helvetica','B', '10');
 $pdf->Cell(19);
 $pdf->MultiCell(153, 5, utf8_decode("A T E N T A M E N T E"), 0, 'C', 1);
-$pdf->SetFont('montserrat-regular', '', '9');
+$pdf->SetFont('Helvetica','', '9');
 $pdf->Cell(19);
 $pdf->MultiCell(153, 5, utf8_decode('"Tecnología como Sinónimo de Independencia"'), 0, 'C', 1);
 
 $pdf->Ln(15);
-$pdf->SetFont('montserrat-bold', '', '10');
+$pdf->SetFont('Helvetica','B', '10');
 $pdf->Cell(19);
 $pdf->MultiCell(153, 5, utf8_decode($presidenteacademia['nombre']), 0, 'C', 1);
-$pdf->SetFont('montserrat-regular', '', '10');
+$pdf->SetFont('Helvetica','', '10');
 $pdf->Cell(19);
 if ($presidenteacademia['sexo'] == 'F') {
     $pdf->MultiCell(153, 5, utf8_decode("PRESIDENTA DE ACADEMIA"), 0, 'C', 1);
@@ -169,7 +168,7 @@ if ($presidenteacademia['sexo'] == 'F') {
 $pdf->Ln(10);
 
 $pdf->Cell(10);
-$pdf->SetFont('montserrat-bold', '', '10');
+$pdf->SetFont('Helvetica','B', '10');
 $pdf->MultiCell(95, 5, utf8_decode("Vo. Bo"), 0, 'C', 1);
 $pdf->Ln(-5);
 $pdf->Cell(105);
@@ -180,7 +179,7 @@ if($docente==$jefesistemas['nombre']){
 
     $pdf->Cell(10);
     $pdf->MultiCell(95, 5, utf8_decode($director['nombre']), 0, 'C', 1);
-    $pdf->SetFont('montserrat-regular', '', '10');
+    $pdf->SetFont('Helvetica','', '10');
     $pdf->Cell(10);
     if ($jefesistemas['sexo'] == 'F') {
         $pdf->MultiCell(95, 5, utf8_decode("DIRECTORA"), 0, 'C', 1);
@@ -191,7 +190,7 @@ if($docente==$jefesistemas['nombre']){
 }else{
     $pdf->Cell(10);
     $pdf->MultiCell(95, 5, utf8_decode($jefesistemas['nombre']), 0, 'C', 1);
-    $pdf->SetFont('montserrat-regular', '', '10');
+    $pdf->SetFont('Helvetica','', '10');
     $pdf->Cell(10);
     if ($jefesistemas['sexo'] == 'F') {
         $pdf->MultiCell(95, 5, utf8_decode("JEFA DEL DEPTO. DE SISTEMAS Y COMPUTACIÓN"), 0, 'C', 1);
@@ -204,10 +203,10 @@ if($docente==$jefesistemas['nombre']){
 
 
 $pdf->Ln(-10);
-$pdf->SetFont('montserrat-bold', '', '10');
+$pdf->SetFont('Helvetica','B', '10');
 $pdf->Cell(105);
 $pdf->MultiCell(80, 5, utf8_decode($subdirector['nombre']), 0, 'C', 1);
-$pdf->SetFont('montserrat-regular', '', '10');
+$pdf->SetFont('Helvetica','', '10');
 $pdf->Cell(105);
 
 if ($subdirector['sexo'] == 'F') {
@@ -229,22 +228,22 @@ $pdf->MultiCell(153, 3, utf8_decode("ABN*/SRZB/JEOL*ere"), 0, 'L', 1);
 
 // Pagina 2
 $pdf->AddPage();
-$pdf->SetFont('montserrat-bold', '', '10');
+$pdf->SetFont('Helvetica','B', '10');
 $pdf->Cell(19);
 $pdf->MultiCell(153, 5, utf8_decode("SOLICITUD DE VIÁTICOS Y PASAJE"), 0, 'C', 1);
 $pdf->Ln(5);
-$pdf->SetFont('montserrat-regular', '', '10');
+$pdf->SetFont('Helvetica','', '10');
 $pdf->Cell(19);
 $pdf->MultiCell(153, 5, utf8_decode("Iguala, Gro. {$fecha}"), 0, 'R', 1);
 
 $pdf->Ln(5);
-$pdf->SetFont('montserrat-bold', '', '10');
+$pdf->SetFont('Helvetica','B', '10');
 $pdf->Cell(19);
 $pdf->MultiCell(153, 5, utf8_decode($director['nombre']), 0, 'L', 1);
 $pdf->Cell(19);
 $pdf->MultiCell(153, 5, utf8_decode("PRESENTE."), 0, 'L', 1);
 
-$pdf->SetFont('montserrat-regular', '', '9');
+$pdf->SetFont('Helvetica','', '9');
 $pdf->Cell(19);
 $pdf->MultiCell(153, 5, utf8_decode("Por el presente, solicito a usted:"), 0, 'L', 1);
 
@@ -279,14 +278,14 @@ $pdf->Cell(19);
 $pdf->MultiCell(153, 5, utf8_decode("Con la finalidad de asistir {$objetivo}."), 0, 'L', 1);
 
 $pdf->Ln(25);
-$pdf->SetFont('montserrat-bold', '', '10');
+$pdf->SetFont('Helvetica','B', '10');
 $pdf->Cell(19);
 $pdf->MultiCell(80, 5, utf8_decode("Vo. Bo"), 0, 'C', 1);
 
 $pdf->Ln(15);
 $pdf->Cell(19);
 $pdf->MultiCell(80, 5, utf8_decode($director['nombre']), 0, 'C', 1);
-$pdf->SetFont('montserrat-regular', '', '10');
+$pdf->SetFont('Helvetica','', '10');
 $pdf->Cell(19);
 if ($director['sexo'] == 'F') {
     $pdf->MultiCell(80, 5, utf8_decode("DIRECTORA"), 0, 'C', 1);
@@ -295,10 +294,10 @@ if ($director['sexo'] == 'F') {
 }
 
 $pdf->Ln(-10);
-$pdf->SetFont('montserrat-bold', '', '10');
+$pdf->SetFont('Helvetica','B', '10');
 $pdf->Cell(99);
 $pdf->MultiCell(80, 5, utf8_decode($subdirector['nombre']), 0, 'C', 1);
-$pdf->SetFont('montserrat-regular', '', '10');
+$pdf->SetFont('Helvetica','', '10');
 $pdf->Cell(99);
 if ($subdirector['sexo'] == 'F') {
     $pdf->MultiCell(80, 5, utf8_decode("SUBDIRECTORA ACADÉMICA"), 0, 'C', 1);

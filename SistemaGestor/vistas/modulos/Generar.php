@@ -52,8 +52,8 @@
                           <div class="form-group">
                               <label class="col-form-label">Número de Creditos:</label>
                               <select style="cursor: pointer;" class="custom-select" name="txtNumCred">
-                                  <option value="0.5" selected>0.5</option>
-                                  <option value="1">1</option>
+                                  <option value="0.5">0.5</option>
+                                  <option value="1" selected>1</option>
                                   <option value="2">2</option>
                                   <option value="3">3</option>
                               </select>
