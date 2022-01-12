@@ -11,7 +11,7 @@ class PDF extends FPDF
     public $docente;
     public function Header()
     {
-        $this->SetFont('Arial', 'B', '10');
+       
         $this->Image('../img/cabecera2.png', 10, 10, 185, 27, 'PNG');
         $this->Ln(35); //NOTE no borrar
     }
