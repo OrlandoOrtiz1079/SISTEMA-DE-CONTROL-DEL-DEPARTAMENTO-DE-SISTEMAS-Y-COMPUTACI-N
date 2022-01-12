@@ -2,8 +2,6 @@
 session_start();
 
 require '../FPDF/fpdf.php';
-require '../FPDF/font/montserrat-bold.php';
-require '../FPDF/font/montserrat-regular.php';
 require '../../controladores/jerarquia.controlador.php';
 require '../../modelos/jerarquia.modelo.php';
 

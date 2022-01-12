@@ -2,10 +2,6 @@
 session_start();
 
 require '../FPDF/fpdf.php';
-require '../FPDF/font/montserrat-bold.php';
-require '../FPDF/font/montserrat-regular.php';
-// require '../../controladores/residentes.controlador.php';
-// require '../../modelos/residentes.modelo.php';
 require '../../controladores/jerarquia.controlador.php';
 require '../../modelos/jerarquia.modelo.php';
 class PDF extends FPDF
