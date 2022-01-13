@@ -11,12 +11,12 @@ class PDF extends FPDF
     public function Header()
     {
       
-        $this->Image('../img/membrete1c.png', 10, 15, 185, 27, 'PNG');
+        $this->Image('../img/Enca.jpg', 15, 14, 100, 0);
         $this->Ln(35); //NOTE no borrar
     }
     public function Footer()
     {
-        $this->Image('../img/membrete2c.png', 0, 250, 210, 25, 'PNG');
+        $this->Image('../img/Piedepagina.png', 19, 242, 180, 34, 'PNG');
     }
 }
 
@@ -94,6 +94,27 @@ $pdf->AddFont('helvetica');
 $h = $pdf->GetPageHeight();
 $w = $pdf->GetPageWidth();
 $pdf->SetTitle(utf8_decode('CONSTANCIA DE COMISIONES ACADÉMICAS ' . $docente));
+
+
+$pdf->Ln(-15);
+
+$pdf->SetFont('helvetica', 'B', '8');
+$pdf->SetTextColor(90,90,90);
+$pdf->Cell(305,0,utf8_decode('Instituto Tecnológico de Iguala'),0,0,'C');
+$pdf->Ln(4);
+
+$pdf->SetFont('helvetica', 'B', '8');
+$pdf->SetTextColor(150,150,150);
+$pdf->Cell(287,0,utf8_decode('Departamento de Sistemas y Computación'),0,0,'C');
+$pdf->Ln(15);
+
+
+
+
+$pdf->SetDrawColor(255,0,0);
+$pdf->SetFillColor(255,255,255);
+$pdf->SetTextColor(0,0,0);
+
 
 $pdf->Ln(10);
 $pdf->Cell(19);
@@ -224,6 +245,27 @@ $pdf->MultiCell(153, 3, utf8_decode("ABN*/SRZB/JEOL*ere"), 0, 'L', 1);
 
 // Pagina 2
 $pdf->AddPage();
+
+$pdf->Ln(-15);
+
+$pdf->SetFont('helvetica', 'B', '8');
+$pdf->SetTextColor(90,90,90);
+$pdf->Cell(305,0,utf8_decode('Instituto Tecnológico de Iguala'),0,0,'C');
+$pdf->Ln(4);
+
+$pdf->SetFont('helvetica', 'B', '8');
+$pdf->SetTextColor(150,150,150);
+$pdf->Cell(287,0,utf8_decode('Departamento de Sistemas y Computación'),0,0,'C');
+$pdf->Ln(15);
+
+
+
+
+$pdf->SetDrawColor(255,0,0);
+$pdf->SetFillColor(255,255,255);
+$pdf->SetTextColor(0,0,0);
+
+
 $pdf->SetFont('helvetica','B', '10');
 $pdf->Cell(19);
 $pdf->MultiCell(153, 5, utf8_decode("SOLICITUD DE VIÁTICOS Y PASAJE"), 0, 'C', 1);

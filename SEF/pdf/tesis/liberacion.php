@@ -10,13 +10,12 @@ class PDF extends FPDF
     public $docente;
     public function Header()
     {
-  
         $this->Image('../img/cabecera2.png', 10, 10, 185, 27, 'PNG');
         $this->Ln(35); //NOTE no borrar
     }
     public function Footer()
     {
-        $this->Image('../img/documentoNoControlado2.png', 18, 260, 171, 15, 'PNG');
+        $this->Image('../img/pie.jpg', 30, 258, 171, 20);
     }
 }
 $tabla = "jerarquia";
