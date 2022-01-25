@@ -70,78 +70,7 @@ session_start();
 	<link href="plantillas/plugins/imp-gallery/css/blueimp-gallery.min.css" rel="stylesheet">
 	<link href="../assets/css/cat.css" rel="stylesheet">
 
-	<!-- script -->
-	<script type="text/javascript">
-		window.strength_06b96b85 = {
-			"showMeter": false,
-			"language": "es",
-			"inputTemplate": "\u003Cdiv class=\u0022input-group\u0022\u003E{input}\u003Cspan class=\u0022input-group-addon\u0022\u003E{toggle}\u003C\/span\u003E\u003C\/div\u003E"
-		};
-	</script>
-	<script src="../assets/690dc397/jquery.js"></script>
-	<script src="../assets/be9f0a59/yii.js"></script>
-	<script src="../assets/be9f0a59/yii.validation.js"></script>
-	<script src="../assets/ce6448b4/js/strength-meter.min.js"></script>
-	<script src="../assets/ce6448b4/js/locales/strength-meter-es.js"></script>
-	<script src="../assets/ef7a4106/js/kv-widgets.min.js"></script>
-	<script src="../assets/be9f0a59/yii.activeForm.js"></script>
-	<script src="js/jquery-ui.min.js"></script>
-	<script src="plantillas/tecnm/js/jquery-animate-css-rotate-scale.js"></script>
-	<script src="plantillas/tecnm/js/jquery-css-transform.js"></script>
-	<script src="plantillas/tecnm/js/jquery.blackandwhite.min.js"></script>
-	<script src="plantillas/tecnm/js/jquery.bxSlider.min.js"></script>
-	<script src="plantillas/tecnm/js/jquery.faq.js"></script>
-	<script src="plantillas/tecnm/js/jquery.simpleFAQ-0.7.min.js"></script>
-	<script src="plantillas/tecnm/js/jquery.touchwipe.min.js"></script>
-	<script src="plantillas/tecnm/js/js_func.js"></script>
-	<script src="plantillas/tecnm/js/tecnm.js"></script>
-	<script src="plantillas/plugins/alertify/alertify.js"></script>
-	<script src="plantillas/plugins/bootbox.min.js"></script>
-	<script src="plantillas/plugins/imp-gallery/js/blueimp-gallery.min.js"></script>
-	<script src="js/funciones.js"></script>
-	<script src="../assets/951c7ac5/js/bootstrap.js"></script>
-	<script type="text/javascript">
-		jQuery(function($) {
-			if (jQuery('#loginform-password').data('strength')) {
-				jQuery('#loginform-password').strength('destroy');
-			}
-			jQuery('#loginform-password').strength(strength_06b96b85);
 
-			jQuery('#login-form').yiiActiveForm([{
-				"id": "loginform-username",
-				"name": "username",
-				"container": ".field-loginform-username",
-				"input": "#loginform-username",
-				"error": ".help-block.help-block-error",
-				"encodeError": false,
-				"validateOnBlur": false,
-				"validate": function(attribute, value, messages, deferred, $form) {
-					yii.validation.required(value, messages, {
-						"message": "Usuario no puede estar vacío."
-					});
-				}
-			}, {
-				"id": "loginform-password",
-				"name": "password",
-				"container": ".field-loginform-password",
-				"input": "#loginform-password",
-				"error": ".help-block.help-block-error",
-				"encodeError": false,
-				"validateOnBlur": false,
-				"validate": function(attribute, value, messages, deferred, $form) {
-					yii.validation.required(value, messages, {
-						"message": "Nueva contraseña no puede estar vacío."
-					});
-				}
-			}], {
-				"encodeErrorSummary": false,
-				"errorSummary": ".help-block"
-			});
-			$(document).ready(function() {
-				$("td").removeClass("kv-meter-container");
-			});
-		});
-	</script>
 </head>
 
 <body>
@@ -331,6 +260,78 @@ session_start();
 	</div>
 
 	<!-- /Pie de página -->
+	<!-- script -->
+	<script type="text/javascript">
+		window.strength_06b96b85 = {
+			"showMeter": false,
+			"language": "es",
+			"inputTemplate": "\u003Cdiv class=\u0022input-group\u0022\u003E{input}\u003Cspan class=\u0022input-group-addon\u0022\u003E{toggle}\u003C\/span\u003E\u003C\/div\u003E"
+		};
+	</script>
+	<script src="../assets/690dc397/jquery.js"></script>
+	<script src="../assets/be9f0a59/yii.js"></script>
+	<script src="../assets/be9f0a59/yii.validation.js"></script>
+	<script src="../assets/ce6448b4/js/strength-meter.min.js"></script>
+	<script src="../assets/ce6448b4/js/locales/strength-meter-es.js"></script>
+	<script src="../assets/ef7a4106/js/kv-widgets.min.js"></script>
+	<script src="../assets/be9f0a59/yii.activeForm.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
+	<script src="plantillas/tecnm/js/jquery-animate-css-rotate-scale.js"></script>
+	<script src="plantillas/tecnm/js/jquery-css-transform.js"></script>
+	<script src="plantillas/tecnm/js/jquery.blackandwhite.min.js"></script>
+	<script src="plantillas/tecnm/js/jquery.bxSlider.min.js"></script>
+	<script src="plantillas/tecnm/js/jquery.faq.js"></script>
+	<script src="plantillas/tecnm/js/jquery.simpleFAQ-0.7.min.js"></script>
+	<script src="plantillas/tecnm/js/jquery.touchwipe.min.js"></script>
+	<script src="plantillas/tecnm/js/js_func.js"></script>
+	<script src="plantillas/tecnm/js/tecnm.js"></script>
+	<script src="plantillas/plugins/alertify/alertify.js"></script>
+	<script src="plantillas/plugins/bootbox.min.js"></script>
+	<script src="plantillas/plugins/imp-gallery/js/blueimp-gallery.min.js"></script>
+	<script src="js/funciones.js"></script>
+	<script src="../assets/951c7ac5/js/bootstrap.js"></script>
+	<script type="text/javascript">
+		jQuery(function($) {
+			if (jQuery('#loginform-password').data('strength')) {
+				jQuery('#loginform-password').strength('destroy');
+			}
+			jQuery('#loginform-password').strength(strength_06b96b85);
+
+			jQuery('#login-form').yiiActiveForm([{
+				"id": "loginform-username",
+				"name": "username",
+				"container": ".field-loginform-username",
+				"input": "#loginform-username",
+				"error": ".help-block.help-block-error",
+				"encodeError": false,
+				"validateOnBlur": false,
+				"validate": function(attribute, value, messages, deferred, $form) {
+					yii.validation.required(value, messages, {
+						"message": "Usuario no puede estar vacío."
+					});
+				}
+			}, {
+				"id": "loginform-password",
+				"name": "password",
+				"container": ".field-loginform-password",
+				"input": "#loginform-password",
+				"error": ".help-block.help-block-error",
+				"encodeError": false,
+				"validateOnBlur": false,
+				"validate": function(attribute, value, messages, deferred, $form) {
+					yii.validation.required(value, messages, {
+						"message": "Nueva contraseña no puede estar vacío."
+					});
+				}
+			}], {
+				"encodeErrorSummary": false,
+				"errorSummary": ".help-block"
+			});
+			$(document).ready(function() {
+				$("td").removeClass("kv-meter-container");
+			});
+		});
+	</script>
 </body>
 
 </html>

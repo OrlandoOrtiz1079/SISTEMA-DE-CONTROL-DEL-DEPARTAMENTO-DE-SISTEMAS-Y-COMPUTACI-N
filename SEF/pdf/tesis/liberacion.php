@@ -10,7 +10,7 @@ class PDF extends FPDF
     public $docente;
     public function Header()
     {
-        $this->Image('../img/cabecera2.png', 10, 10, 185, 27, 'PNG');
+        $this->Image('../img/cabeceraliberacion.png', 10, 10, 185, 27, 'PNG');
         $this->Ln(35); //NOTE no borrar
     }
     public function Footer()
