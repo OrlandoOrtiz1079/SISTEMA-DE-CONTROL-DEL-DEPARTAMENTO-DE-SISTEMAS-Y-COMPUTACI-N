@@ -165,36 +165,20 @@ session_start();
 					include 'SISTEMAGESTOR.php';
 					include 'SCE.php';
 					include 'SEC.php';
-
-					 
 				}
-				?>
-
-				<?php
 				if ($_SESSION['perfil'] == "Secretaria") {
 					include "SDR.php";
 					include "SEF.php";
 					include "SISTEMAGESTOR.php";
 				}
-				?>
-
-				<?php
 				if ($_SESSION['perfil'] == "Servicio") {
 					include 'SDR.php';
 					include 'SCA.php';
 					include 'SISTEMAGESTOR.php';
-					
 				}
-				?>
-
-				<?php
 				if ($_SESSION['perfil'] == "Laboratorio") {
 					include 'SCA.php';
 				}
-				?>
-
-
-				<?php
 				if ($_SESSION['perfil'] == "Policia") {
 					echo '<br/>';
 					echo '<br/>';
@@ -204,14 +188,11 @@ session_start();
 					echo '<br/>';
 				}
 				?>
-
-
 			</div>
 			<br>
 			<br>
 		</article>
 	</div>
-	<!-- /Fin botones  -->
 	<!-- Pie de página -->
 	<div class="footer">
 		<div class="social_block">
