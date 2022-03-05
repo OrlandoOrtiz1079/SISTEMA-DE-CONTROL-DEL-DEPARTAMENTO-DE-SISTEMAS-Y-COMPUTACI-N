@@ -29,9 +29,8 @@
                     <nav>
                         <ul id="nav_menu">
                             <li>
-                                <a href="RegresarRecidente"><i class="fas fa-reply fa-2x" style="color: #845ef7;"></i><span><strong>Regresar</strong></span></a>
+                                <a href="Regresar"><i class="fas fa-reply fa-2x" style="color: #845ef7;"></i><span><strong>Regresar</strong></span></a>
                             </li>
-
                             <li>
                                 <a href="Inicio"><i class="fa fa-address-card fa-2x" style="color: #845ef7;"></i><span><strong>Registro</strong></span></a>
                             </li>

@@ -154,7 +154,7 @@
 							MindBox</a></li>
 				</ul>
 				<ul style="cursor: pointer;" id="w1" class="navbar-nav navbar-right nav">
-					<li><a onclick="location.href='../cat/SEC'" target="_blank"><span class="glyphicon glyphicon-duplicate"></span>
+					<li><a onclick="location.href='../cat/Encuesta'" target="_blank"><span class="glyphicon glyphicon-duplicate"></span>
 							Encuesta</a></li>
 				</ul>
 

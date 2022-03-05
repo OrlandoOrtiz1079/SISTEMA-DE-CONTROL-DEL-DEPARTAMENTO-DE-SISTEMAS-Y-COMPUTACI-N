@@ -29,7 +29,7 @@
                     <nav>
                         <ul id="nav_menu">
                             <li>
-                                <a href="Regresar"><i class="fas fa-reply fa-2x" style="color: #845ef7;"></i><span><strong>Regresar</strong></span></a>
+                                <a href="Regresar"><i class="fas fa-reply fa-2x" style="color: #845ef7;"></i><span><strong>menu principal</strong></span></a>
                             </li>
 
                             <li>

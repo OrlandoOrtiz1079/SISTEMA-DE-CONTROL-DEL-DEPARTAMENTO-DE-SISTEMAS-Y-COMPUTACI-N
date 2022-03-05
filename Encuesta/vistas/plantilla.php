@@ -51,31 +51,30 @@ CUERPO DOCUMENTO
 
     <?php
     echo '<div class="horizontal-main-wrapper">';
+    include "modulos/cabezote.php";
 
-    if (isset($_SESSION['iniciarSesion']) && $_SESSION['iniciarSesion'] == "ok") {
+    if (isset($_GET["ruta"])) {
+        if (
+            $_GET["ruta"] == "Inicio" ||
+            $_GET["ruta"] == "Preguntas" ||
+            $_GET["ruta"] == "CargarRespuestas" ||
+            $_GET["ruta"] == "Regresar" ||
+            $_GET["ruta"] == "reporteencuesta"
+        ) {
 
-        if (isset($_GET["ruta"]) && $_SESSION['perfil'] == "Administrador") {
-            include "modulos/cabezote.php";
-            if (
-                $_GET["ruta"] == "Inicio" ||
-                $_GET["ruta"] == "Preguntas" ||
-                $_GET["ruta"] == "CargarRespuestas" ||
-                $_GET["ruta"] == "Regresar" ||
-                $_GET["ruta"] == "reporteencuesta"
-            ) {
-                include "modulos/" . $_GET["ruta"] . ".php";
-            } else {
-                include "modulos/404.php";
-            }
+            include "modulos/" . $_GET["ruta"] . ".php";
+        } else {
+            include "modulos/404.php";
         }
-
-
-        echo '</div>';
-    } else {
-        include "modulos/cabezoteRecidente.php";
-        include "modulos/Inicio.php";
-        include "modulos/footer.php";
     }
+
+    if (!isset($_GET["ruta"])) {
+        include "modulos/Inicio.php";
+    }
+
+    include "modulos/footer.php";
+
+    echo '</div>';
     ?>
 
 
