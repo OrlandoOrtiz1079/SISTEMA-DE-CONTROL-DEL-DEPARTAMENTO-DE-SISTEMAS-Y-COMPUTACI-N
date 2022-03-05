@@ -163,6 +163,10 @@ session_start();
 					include 'POLIS.php';
 					include 'SEF.php';
 					include 'SISTEMAGESTOR.php';
+					include 'SCE.php';
+					include 'SEC.php';
+
+					 
 				}
 				?>
 
@@ -179,6 +183,7 @@ session_start();
 					include 'SDR.php';
 					include 'SCA.php';
 					include 'SISTEMAGESTOR.php';
+					
 				}
 				?>
 

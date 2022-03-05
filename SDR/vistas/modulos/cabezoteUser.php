@@ -41,24 +41,24 @@
                     <nav>
                         <ul id="nav_menu">
                             <li>
-                                <a href="Regresar"><i class="fas fa-reply fa-2x" style="color: #845ef7;"></i><span><strong>menu principal</strong></span></a>
+                                <a href="Regresar.php"><i class="fas fa-reply fa-2x" style="color: #845ef7;"></i><span><strong>menu principal</strong></span></a>
                                 <!-- fas fa-share-square -->
                                 <!-- fas fa-reply -->
                             </li>
                             <li>
-                                <a href="Inicio"><i class="fa fa-home fa-2x" style="color: #845ef7;"></i><span><strong>Inicio</strong></span></a>
+                                <a href="Inicio.php"><i class="fa fa-home fa-2x" style="color: #845ef7;"></i><span><strong>Inicio</strong></span></a>
                             </li>
                             <li>
-                                <a href="Residentes"><i class="fa fa-users fa-2x" style="color: #845ef7;"></i><span><strong>Residentes</strong></span></a>
+                                <a href="Residentes.php"><i class="fa fa-users fa-2x" style="color: #845ef7;"></i><span><strong>Residentes</strong></span></a>
                             </li>
                             <li>
-                                <a href="Directorio"><i class="fa fa-phone fa-2x" style="color: #845ef7;"></i><span><strong> Directorio</strong></span></a>
+                                <a href="Directorio.php"><i class="fa fa-phone fa-2x" style="color: #845ef7;"></i><span><strong> Directorio</strong></span></a>
                             </li>
                             <?php
                             $cargarConfig = ControladorConfig::ctrCargarConfig("configPreRegistro");
                             if ($cargarConfig["valor"] == "on") {
                                 echo '<li>
-                                    <a href="Pre-Registro"><i class="fa fa-user-edit fa-2x"
+                                    <a href="Pre-Registro.php"><i class="fa fa-user-edit fa-2x"
                                      style="color: #845ef7;"></i><span><strong> Pre-Registro</strong></span></a>
                                 </li>';
                             }
